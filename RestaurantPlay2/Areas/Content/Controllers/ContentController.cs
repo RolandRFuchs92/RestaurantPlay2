@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using RestaurantPlay2.Areas.Content.ViewModels;
+using DataAccess.Content;
 
 namespace RestaurantPlay2.Areas.Content
 {
@@ -12,11 +13,9 @@ namespace RestaurantPlay2.Areas.Content
         // GET: Content/Content
         public ActionResult Index()
         {
-            var imageCardList = new List<ImageCardViewModel>();
+            var imageCardList = new DataAccess.Content.ContentRepo().GetCoreContents();
 
-
-
-            return View();
+            return View(imageCardList);
         }
 
         // GET: Content/Content/Details/5

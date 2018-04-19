@@ -6,12 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Entities;
+using DataAccess.ImageCard;
 
 namespace DataAccess.Context
 {
     public class AppsContext : DbContext
     {
         public IDbSet<COREContent> CoreContents { get; set; }
+        public IDbSet<IMAGECard> ImageCards { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
