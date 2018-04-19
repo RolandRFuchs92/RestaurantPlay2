@@ -1,12 +1,19 @@
-﻿@using DataAccess.Entities;
-@model List<COREContent>
+﻿@using RestaurantPlay2.Areas.Content.ViewModels;
+@model List<ImageCardViewModel>
 
-<h2>Index</h2>
+<h2>Image Cards</h2>
 
+<div class="container">
+    @Html.Partial("Presets/_AddImageCardDetails" , new SaveImageCardViewModel())
+</div>
+
+<div class="container">
 @if (Model.Any())
 {
-    foreach (var card in Model)
+    foreach (var card in Model)     
     {
         @Html.Partial("Presets/_ImageCard", card)
     }
 }
+</div>
+

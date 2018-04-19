@@ -1,11 +1,12 @@
-﻿@using DataAccess.Entities;
-@model COREContent
+﻿@using RestaurantPlay2.Areas.Content.ViewModels;
+@model ImageCardViewModel
 
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="@Model.DetailImagePath" alt="@Model.DetailsImageAltTag">
+<div class="card col-sm-4">
+    <img class="card-img-top" src="@Model.DetailImagePath" alt="@Model.DetailSubTitle">
     <div class="card-body">
         <h5 class="card-title">@Model.DetailTitle</h5>
-        <p class="card-text">@Model.DetailsParagraph</p>
+        <sub>@Model.DetailSubTitle</sub>
+        <p class="card-text">@Model.DetailParagraph</p>
         @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
     </div>
 </div>

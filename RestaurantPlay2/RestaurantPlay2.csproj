@@ -212,9 +212,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Content\BusinessLogic\ImageCards\ImageCardLogic.cs" />
     <Compile Include="Areas\Content\ContentAreaRegistration.cs" />
     <Compile Include="Areas\Content\Controllers\ContentController.cs" />
     <Compile Include="Areas\Content\ViewModels\ImageCardViewModel.cs" />
+    <Compile Include="Areas\Content\ViewModels\SaveImageCardViewModel.cs" />
     <Compile Include="Areas\Person\Controllers\PersonController.cs" />
     <Compile Include="Areas\Person\PersonAreaRegistration.cs" />
     <Compile Include="Areas\Person\ViewModels\PersonDisplayViewModel.cs" />
@@ -264,9 +266,14 @@
     <Content Include="Areas\Content\Views\Content\Index.cshtml" />
     <Content Include="Areas\Content\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Content\Views\Content\Presets\_ImageCard.cshtml" />
+    <Content Include="Areas\Content\Views\Content\Presets\_AddImageCardDetails.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\Jquery\jquery.validate.js" />
+    <Content Include="Scripts\Jquery\jquery.validate.min.js" />
+    <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.3.0.debug.js" />
     <Content Include="Scripts\knockout-2.3.0.js" />
     <Content Include="Scripts\knockout.validation.debug.js" />

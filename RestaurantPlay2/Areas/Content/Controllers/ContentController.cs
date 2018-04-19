@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RestaurantPlay2.Areas.Content.ViewModels;
 using DataAccess.Content;
+using RestaurantPlay2.Areas.Content.BusinessLogic.ImageCards;
 
 namespace RestaurantPlay2.Areas.Content
 {
@@ -13,81 +15,22 @@ namespace RestaurantPlay2.Areas.Content
         // GET: Content/Content
         public ActionResult Index()
         {
-            var imageCardList = new DataAccess.Content.ContentRepo().GetCoreContents();
+            var model = new ImageCardLogic().LoadImageCardViewModels();
 
-            return View(imageCardList);
+            return View(model);
         }
 
-        // GET: Content/Content/Details/5
-        public ActionResult Details(int id)
+        public ActionResult SaveImageCard(SaveImageCardViewModel imageCard)
         {
-            return View();
-        }
-
-        // GET: Content/Content/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Content/Content/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
+            if (!ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: Content/Content/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+            var isSaved = new ImageCardLogic().SaveImageCard(imageCard);
+            
 
-        // POST: Content/Content/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Content/Content/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Content/Content/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View("Index");
         }
     }
 }

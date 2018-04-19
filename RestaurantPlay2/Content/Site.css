@@ -34,3 +34,8 @@ textarea {
         padding: 10px 15px;
     }
 }
+
+.card .card-img-top {
+    max-height: 100%;
+    max-width: 100%;
+}
