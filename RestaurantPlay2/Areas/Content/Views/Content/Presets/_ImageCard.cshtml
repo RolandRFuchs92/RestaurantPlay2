@@ -1,12 +1,26 @@
 ﻿@using RestaurantPlay2.Areas.Content.ViewModels;
 @model ImageCardViewModel
 
-<div class="card col-sm-4">
-    <img class="card-img-top" src="@Model.DetailImagePath" alt="@Model.DetailSubTitle">
-    <div class="card-body">
-        <h5 class="card-title">@Model.DetailTitle</h5>
-        <sub>@Model.DetailSubTitle</sub>
-        <p class="card-text">@Model.DetailParagraph</p>
-        @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
+<div class="col-sm-4">
+    <div class="panel panel-default">
+
+        @if (Model.isEditable)
+        {
+            <div class="panel-heading">
+                <a href="/content/content/DeleteImageCard?ImageID=@Model.ImageId">Delete</a>&nbsp;&nbsp;&nbsp;
+                <a href="#" onclick="EditImageCard(@Model.ImageId)">Edit</a>
+                <p>Is Active: @Model.DetailIsActive</p>
+            </div>
+        }
+
+        <div class="panel-thumbnail">
+            <img class="card-img-top" src="@Model.DetailImagePath" alt="@Model.DetailSubTitle">
+        </div>
+        <div class="panel-body">
+            <h4 class="card-title">@Model.DetailTitle</h4>
+            <sub>@Model.DetailSubTitle</sub>
+
+            <p class="card-text">@Model.DetailParagraph</p>
+        </div>
     </div>
 </div>

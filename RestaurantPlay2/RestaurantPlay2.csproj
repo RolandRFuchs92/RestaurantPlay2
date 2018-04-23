@@ -267,6 +267,7 @@
     <Content Include="Areas\Content\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Content\Views\Content\Presets\_ImageCard.cshtml" />
     <Content Include="Areas\Content\Views\Content\Presets\_AddImageCardDetails.cshtml" />
+    <Content Include="Areas\Content\Views\Content\Presets\_GenerateImageCards.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

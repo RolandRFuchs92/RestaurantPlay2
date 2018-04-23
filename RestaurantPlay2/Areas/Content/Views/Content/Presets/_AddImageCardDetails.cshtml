@@ -1,23 +1,25 @@
 ﻿@using RestaurantPlay2.Areas.Content.ViewModels
 @model SaveImageCardViewModel
 
-@using (Ajax.BeginForm("SaveImageCard", new AjaxOptions
+@using (Ajax.BeginForm("SaveImageCard", "Content", new AjaxOptions
 {
     InsertionMode = InsertionMode.Replace,
-    UpdateTargetId = "imageCards"
-}))
+    UpdateTargetId = "imageCards",
+    HttpMethod = "POST"
+}, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)
     <div class="form-horizontal">
+        @Html.HiddenFor(i => i.imageID)
         <div class="form-group">
             <div class="col-sm-6">
-                @Html.LabelFor(i => i.DetailTitle, new { @class = "control-label col-sm-4" })
-                @Html.TextBoxFor(i => i.DetailTitle, new { @class = "form-control col-sm-8" })
+                @Html.LabelFor(i => i.DetailTitle, new {@class = "control-label col-sm-4"})
+                @Html.TextBoxFor(i => i.DetailTitle, new {@class = "form-control col-sm-8"})
                 @Html.ValidationMessageFor(i => i.DetailTitle)
             </div>
             <div class="col-sm-6">
-                @Html.LabelFor(i => i.DetailSubTitle, new { @class = "control-label col-sm-4" })
-                @Html.TextBoxFor(i => i.DetailSubTitle, new { @class = "form-control col-sm-8" })
+                @Html.LabelFor(i => i.DetailSubTitle, new {@class = "control-label col-sm-4"})
+                @Html.TextBoxFor(i => i.DetailSubTitle, new {@class = "form-control col-sm-8"})
                 @Html.ValidationMessageFor(i => i.DetailSubTitle)
             </div>
         </div>
@@ -40,7 +42,11 @@
 
     <div class="form-horizontal">
         <div class="form-group">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
+                @Html.LabelFor(i => i.IsActive, new { @class = "control-label col-sm-4" })
+                @Html.CheckBoxFor(i => i.IsActive)
+            </div>
+            <div class="col-sm-6">
                 <button type="submit" class="btn btn-primary pull-right">Submit</button>
             </div>
         </div>

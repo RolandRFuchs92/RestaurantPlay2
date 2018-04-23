@@ -1,0 +1,9 @@
+﻿@using RestaurantPlay2.Areas.Content.ViewModels
+@model List<ImageCardViewModel>
+
+<div class="row page-spacing">
+    @foreach (var image in Model)
+    {
+        @Html.Partial("Presets/_ImageCard", image)
+    }
+</div>

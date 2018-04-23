@@ -17,3 +17,21 @@
 }
 </div>
 
+@section Scripts
+{
+    <script>
+        function EditImageCard(imageID) {
+            var imgJson = { imageID: imageID };
+            $.post("/Content/content/EditImageCard", imgJson,
+                function (data) {
+                    $('#DetailTitle').val(data.DetailTitle);
+                    $('#DetailSubTitle').val(data.DetailSubTitle);
+                    $('#DetailParagraph').val(data.DetailParagraph);
+                    //$('#Image').val(data.DetailImagePath);
+                    $('#IsActive').prop('checked', data.DetailIsActive);
+                    $('#imageID').val(data.ImageId);
+                });
+        }
+
+    </script>
+}

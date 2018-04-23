@@ -7,6 +7,7 @@ namespace RestaurantPlay2.Areas.Content.ViewModels
 {
     public class ImageCardViewModel
     {
+        public bool isEditable { get; set; } = true;
         public int ImageId { get; set; }
         public string DetailTitle { get; set; }
         public string DetailSubTitle { get; set; }

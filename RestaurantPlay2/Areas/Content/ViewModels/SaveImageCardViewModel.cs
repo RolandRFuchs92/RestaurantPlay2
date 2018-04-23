@@ -8,6 +8,7 @@ namespace RestaurantPlay2.Areas.Content.ViewModels
 {
     public class SaveImageCardViewModel
     {
+        public int imageID { get; set; }
         [Required]
         [MaxLength(100)]
         [Display(Name = "Title")]
@@ -17,10 +18,13 @@ namespace RestaurantPlay2.Areas.Content.ViewModels
         [Display(Name="Sub Title")]
         public string DetailSubTitle { get; set; }
         [Required]
-        public string Image { get; set; }
+        [DataType(DataType.Upload)]
+        public HttpPostedFileBase Image { get; set; }
         [Required]
         [MaxLength(2000)]
         [Display(Name = "Paragraph")]
         public string DetailParagraph { get; set; }
+        [Display(Name="Is Active")]
+        public bool IsActive { get; set; }
     }
 }
