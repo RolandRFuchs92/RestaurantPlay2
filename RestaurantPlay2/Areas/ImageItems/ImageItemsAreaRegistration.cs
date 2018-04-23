@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace RestaurantPlay2.Areas.ImageCarousel
+namespace RestaurantPlay2.Areas.ImageItems
 {
-    public class ImageCarouselAreaRegistration : AreaRegistration 
+    public class ImageItemsAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "ImageCarousel";
+                return "ImageItems";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "ImageCarousel_default",
-                "ImageCarousel/{controller}/{action}/{id}",
+                "Content_default",
+                "ImageItems/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

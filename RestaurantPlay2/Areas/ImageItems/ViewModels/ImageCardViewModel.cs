@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RestaurantPlay2.Areas.ImageCard.ViewModels
+namespace RestaurantPlay2.Areas.ImageItems.ViewModels
 {
     public class ImageCardViewModel
     {

@@ -52,7 +52,7 @@
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Entities\COREContent.cs" />
     <Compile Include="Entities\IMAGEItem.cs" />
-    <Compile Include="ImageItem\ImageCardRepo.cs" />
+    <Compile Include="ImageItem\ImageItemRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

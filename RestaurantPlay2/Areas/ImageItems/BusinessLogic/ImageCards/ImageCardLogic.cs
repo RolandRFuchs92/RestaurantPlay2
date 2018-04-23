@@ -5,9 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.WebPages;
 using DataAccess.ImageCard;
-using RestaurantPlay2.Areas.ImageCard.ViewModels;
+using RestaurantPlay2.Areas.ImageItems.ViewModels;
 
-namespace RestaurantPlay2.Areas.ImageCard.BusinessLogic.ImageCards
+namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCards
 {
     public class ImageCardLogic
     {
@@ -94,7 +94,7 @@ namespace RestaurantPlay2.Areas.ImageCard.BusinessLogic.ImageCards
                 IMAGEItemImagePath = imagePath,
                 IMAGEItemParagraph = imageCard.DetailParagraph,
                 IMAGEItemSubTitle = imageCard.DetailSubTitle,
-                IMAGEItemTitle = imageCard.DetailTitle,
+                IMAGEItemTitle = imageCard.DetailTitle
             };
 
             var imageRepo = new ImageCardRepo();

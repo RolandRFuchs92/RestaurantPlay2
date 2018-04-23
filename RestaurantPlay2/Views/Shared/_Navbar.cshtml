@@ -11,12 +11,11 @@
         <div class="navbar-collapse collapse">
             @if (User.Identity.IsAuthenticated)
             {
-
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Edit Image Cards", "Index", "ImageCard", new {area = "ImageCard"}, new{})</li>
+                    <li>@Html.ActionLink("Edit Image Cards", "Index", "ImageCard", new {area = "ImageItems"}, new{ })</li>
+                    <li>@Html.ActionLink("Edit Image Carousels", "Index", "ImageCarousel", new { area = "ImageItems" }, new { })</li>
                 </ul>
             }
-            @*@Html.Partial("_LoginPartial")*@
         </div>
      </div>
  </div>

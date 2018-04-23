@@ -212,12 +212,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\ImageCard\BusinessLogic\ImageCards\ImageCardLogic.cs" />
-    <Compile Include="Areas\ImageCard\ImageCardAreaRegistration.cs" />
-    <Compile Include="Areas\ImageCard\Controllers\ImageCardController.cs" />
-    <Compile Include="Areas\ImageCard\ViewModels\ImageCardViewModel.cs" />
-    <Compile Include="Areas\ImageCard\ViewModels\SaveImageCardViewModel.cs" />
-    <Compile Include="Areas\ImageCarousel\ImageCarouselAreaRegistration.cs" />
+    <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
+    <Compile Include="Areas\ImageItems\Controllers\ImageCarouselController.cs" />
+    <Compile Include="Areas\ImageItems\ImageItemsAreaRegistration.cs" />
+    <Compile Include="Areas\ImageItems\Controllers\ImageCardController.cs" />
+    <Compile Include="Areas\ImageItems\ViewModels\ImageCardViewModel.cs" />
+    <Compile Include="Areas\ImageItems\ViewModels\ImageCarousel\ImageItemViewModel.cs" />
+    <Compile Include="Areas\ImageItems\ViewModels\ImageCarousel\SaveImageCardViewModel.cs" />
+    <Compile Include="Areas\ImageItems\ViewModels\SaveImageCardViewModel.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -256,14 +258,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\ImageCard\Views\web.config" />
-    <Content Include="Areas\ImageCard\Views\ImageCard\Index.cshtml" />
-    <Content Include="Areas\ImageCard\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\ImageCard\Views\ImageCard\Presets\_ImageCard.cshtml" />
-    <Content Include="Areas\ImageCard\Views\ImageCard\Presets\_AddImageCardDetails.cshtml" />
-    <Content Include="Areas\ImageCard\Views\ImageCard\Presets\_GenerateImageCards.cshtml" />
-    <Content Include="Areas\ImageCarousel\Views\web.config" />
-    <Content Include="Areas\ImageCarousel\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\ImageItems\Views\web.config" />
+    <Content Include="Areas\ImageItems\Views\ImageCard\Index.cshtml" />
+    <Content Include="Areas\ImageItems\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\ImageItems\Views\ImageCard\Presets\_ImageCard.cshtml" />
+    <Content Include="Areas\ImageItems\Views\ImageCard\Presets\_AddImageCardDetails.cshtml" />
+    <Content Include="Areas\ImageItems\Views\ImageCard\Presets\_GenerateImageCards.cshtml" />
+    <Content Include="Areas\ImageItems\Views\ImageCarousel\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -321,10 +322,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\ImageCard\Models\" />
-    <Folder Include="Areas\ImageCarousel\Controllers\" />
-    <Folder Include="Areas\ImageCarousel\Models\" />
-    <Folder Include="Areas\ImageCarousel\Views\Shared\" />
+    <Folder Include="Areas\ImageItems\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace RestaurantPlay2.Areas.ImageCard.ViewModels
+namespace RestaurantPlay2.Areas.ImageItems.ViewModels
 {
     public class SaveImageCardViewModel
     {

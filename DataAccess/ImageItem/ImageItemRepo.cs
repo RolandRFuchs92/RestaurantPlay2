@@ -11,14 +11,25 @@ namespace DataAccess.ImageCard
 {
     public class ImageCardRepo
     {
-        private readonly int imageCardTypeId = 1;
+        private int _imageItemTypeID;
+
+        public ImageCardRepo()
+        {
+            _imageItemTypeID = 1;
+        }
+
+        public ImageCardRepo(int ItemTypeID)
+        {
+            _imageItemTypeID = ItemTypeID;
+        }
+
         /// <summary>
         /// Get all image cards
         /// </summary>
         /// <returns></returns>
         public List<IMAGEItem> GetImageCards()
         {
-            return new AppsContext().ImageItems.Where(i => i.IMAGETypeID == imageCardTypeId).ToList();
+            return new AppsContext().ImageItems.Where(i => i.IMAGETypeID == _imageItemTypeID).ToList();
         }
 
         /// <summary>
@@ -34,7 +45,7 @@ namespace DataAccess.ImageCard
                 model =
                     (from image in db.ImageItems
                      where image.IMAGEItemIsActive && 
-                           image.IMAGETypeID == imageCardTypeId
+                           image.IMAGETypeID == _imageItemTypeID
                      select image).ToList();
             }
             return model;
@@ -51,7 +62,7 @@ namespace DataAccess.ImageCard
 
             using (var db = new AppsContext())
             {
-                imageCard = db.ImageItems.FirstOrDefault(i => i.IMAGEItemID == imageItemID && i.IMAGETypeID == imageCardTypeId);
+                imageCard = db.ImageItems.FirstOrDefault(i => i.IMAGEItemID == imageItemID && i.IMAGETypeID == _imageItemTypeID);
             }
 
             return imageCard;
@@ -66,6 +77,7 @@ namespace DataAccess.ImageCard
         {
             bool saved = false;
             imageCard.IMAGEItemDateCreated = DateTime.Now;
+            imageCard.IMAGETypeID = _imageItemTypeID;
 
             try
             {
@@ -78,6 +90,7 @@ namespace DataAccess.ImageCard
             }
             catch
             {
+                throw;
                 saved = false;
             }
 

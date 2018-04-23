@@ -1,10 +1,10 @@
 ﻿using System.Net;
 using System.Web.Mvc;
 using DataAccess.ImageCard;
-using RestaurantPlay2.Areas.ImageCard.BusinessLogic.ImageCards;
-using RestaurantPlay2.Areas.ImageCard.ViewModels;
+using RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCards;
+using RestaurantPlay2.Areas.ImageItems.ViewModels;
 
-namespace RestaurantPlay2.Areas.ImageCard.Controllers
+namespace RestaurantPlay2.Areas.ImageItems.Controllers
 {
     public class ImageCardController : Controller
     {
