@@ -217,9 +217,6 @@
     <Compile Include="Areas\Content\Controllers\ContentController.cs" />
     <Compile Include="Areas\Content\ViewModels\ImageCardViewModel.cs" />
     <Compile Include="Areas\Content\ViewModels\SaveImageCardViewModel.cs" />
-    <Compile Include="Areas\Person\Controllers\PersonController.cs" />
-    <Compile Include="Areas\Person\PersonAreaRegistration.cs" />
-    <Compile Include="Areas\Person\ViewModels\PersonDisplayViewModel.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -258,10 +255,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\Person\Views\web.config" />
-    <Content Include="Areas\Person\Views\Person\Index.cshtml" />
-    <Content Include="Areas\Person\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Person\Views\Person\_PersonCard.cshtml" />
     <Content Include="Areas\Content\Views\web.config" />
     <Content Include="Areas\Content\Views\Content\Index.cshtml" />
     <Content Include="Areas\Content\Views\_ViewStart.cshtml" />
@@ -326,7 +319,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Content\Models\" />
-    <Folder Include="Areas\Person\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
