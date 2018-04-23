@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
-using System.Web.Helpers;
 using System.Web.WebPages;
-using DataAccess.Context;
 using DataAccess.ImageCard;
-using RestaurantPlay2.Areas.Content.ViewModels;
+using RestaurantPlay2.Areas.ImageCard.ViewModels;
 
-namespace RestaurantPlay2.Areas.Content.BusinessLogic.ImageCards
+namespace RestaurantPlay2.Areas.ImageCard.BusinessLogic.ImageCards
 {
     public class ImageCardLogic
     {

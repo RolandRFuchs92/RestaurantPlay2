@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Security.Policy;
-using System.Web;
-using System.Web.Http;
+﻿using System.Net;
 using System.Web.Mvc;
-using RestaurantPlay2.Areas.Content.ViewModels;
-using DataAccess.Content;
 using DataAccess.ImageCard;
-using RestaurantPlay2.Areas.Content.BusinessLogic.ImageCards;
+using RestaurantPlay2.Areas.ImageCard.BusinessLogic.ImageCards;
+using RestaurantPlay2.Areas.ImageCard.ViewModels;
 
-namespace RestaurantPlay2.Areas.Content
+namespace RestaurantPlay2.Areas.ImageCard.Controllers
 {
-    public class ContentController : Controller
+    public class ImageCardController : Controller
     {
         // GET: Content/Content
         public ActionResult Index()

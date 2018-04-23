@@ -1,14 +1,14 @@
 ﻿using System.Web.Mvc;
 
-namespace RestaurantPlay2.Areas.Content
+namespace RestaurantPlay2.Areas.ImageCard
 {
-    public class ContentAreaRegistration : AreaRegistration 
+    public class ImageCardAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Content";
+                return "ImageCard";
             }
         }
 
@@ -16,7 +16,7 @@ namespace RestaurantPlay2.Areas.Content
         {
             context.MapRoute(
                 "Content_default",
-                "Content/{controller}/{action}/{id}",
+                "ImageCard/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

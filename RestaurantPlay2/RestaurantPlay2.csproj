@@ -212,11 +212,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\Content\BusinessLogic\ImageCards\ImageCardLogic.cs" />
-    <Compile Include="Areas\Content\ContentAreaRegistration.cs" />
-    <Compile Include="Areas\Content\Controllers\ContentController.cs" />
-    <Compile Include="Areas\Content\ViewModels\ImageCardViewModel.cs" />
-    <Compile Include="Areas\Content\ViewModels\SaveImageCardViewModel.cs" />
+    <Compile Include="Areas\ImageCard\BusinessLogic\ImageCards\ImageCardLogic.cs" />
+    <Compile Include="Areas\ImageCard\ImageCardAreaRegistration.cs" />
+    <Compile Include="Areas\ImageCard\Controllers\ImageCardController.cs" />
+    <Compile Include="Areas\ImageCard\ViewModels\ImageCardViewModel.cs" />
+    <Compile Include="Areas\ImageCard\ViewModels\SaveImageCardViewModel.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -255,12 +255,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\Content\Views\web.config" />
-    <Content Include="Areas\Content\Views\Content\Index.cshtml" />
-    <Content Include="Areas\Content\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Content\Views\Content\Presets\_ImageCard.cshtml" />
-    <Content Include="Areas\Content\Views\Content\Presets\_AddImageCardDetails.cshtml" />
-    <Content Include="Areas\Content\Views\Content\Presets\_GenerateImageCards.cshtml" />
+    <Content Include="Areas\ImageCard\Views\web.config" />
+    <Content Include="Areas\ImageCard\Views\ImageCard\Index.cshtml" />
+    <Content Include="Areas\ImageCard\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\ImageCard\Views\ImageCard\Presets\_ImageCard.cshtml" />
+    <Content Include="Areas\ImageCard\Views\ImageCard\Presets\_AddImageCardDetails.cshtml" />
+    <Content Include="Areas\ImageCard\Views\ImageCard\Presets\_GenerateImageCards.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -318,7 +318,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Content\Models\" />
+    <Folder Include="Areas\ImageCard\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
