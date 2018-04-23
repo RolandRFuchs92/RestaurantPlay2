@@ -217,6 +217,7 @@
     <Compile Include="Areas\ImageCard\Controllers\ImageCardController.cs" />
     <Compile Include="Areas\ImageCard\ViewModels\ImageCardViewModel.cs" />
     <Compile Include="Areas\ImageCard\ViewModels\SaveImageCardViewModel.cs" />
+    <Compile Include="Areas\ImageCarousel\ImageCarouselAreaRegistration.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -261,6 +262,8 @@
     <Content Include="Areas\ImageCard\Views\ImageCard\Presets\_ImageCard.cshtml" />
     <Content Include="Areas\ImageCard\Views\ImageCard\Presets\_AddImageCardDetails.cshtml" />
     <Content Include="Areas\ImageCard\Views\ImageCard\Presets\_GenerateImageCards.cshtml" />
+    <Content Include="Areas\ImageCarousel\Views\web.config" />
+    <Content Include="Areas\ImageCarousel\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -319,6 +322,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ImageCard\Models\" />
+    <Folder Include="Areas\ImageCarousel\Controllers\" />
+    <Folder Include="Areas\ImageCarousel\Models\" />
+    <Folder Include="Areas\ImageCarousel\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

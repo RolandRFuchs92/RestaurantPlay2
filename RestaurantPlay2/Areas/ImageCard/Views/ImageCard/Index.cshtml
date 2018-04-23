@@ -22,7 +22,7 @@
     <script>
         function EditImageCard(imageID) {
             var imgJson = { imageID: imageID };
-            $.post("/Content/content/EditImageCard", imgJson,
+            $.post("/ImageCard/ImageCard/EditImageCard", imgJson,
                 function (data) {
                     $('#DetailTitle').val(data.DetailTitle);
                     $('#DetailSubTitle').val(data.DetailSubTitle);

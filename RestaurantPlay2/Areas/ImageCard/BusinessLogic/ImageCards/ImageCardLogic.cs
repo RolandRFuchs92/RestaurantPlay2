@@ -22,13 +22,13 @@ namespace RestaurantPlay2.Areas.ImageCard.BusinessLogic.ImageCards
             List<ImageCardViewModel> model = (imageCardList
                 .Select(i => new ImageCardViewModel
                 {
-                    ImageId = i.IMAGEDetailID,
-                    DetailImagePath = i.IMAGEDetailImagePath,
-                    DetailTitle = i.IMAGEDetailTitle,
-                    DetailDateCreated = i.IMAGEDetailDateCreated,
-                    DetailIsActive = i.IMAGEDetailIsActive,
-                    DetailParagraph = i.IMAGEDetailParagraph,
-                    DetailSubTitle = i.IMAGEDetailSubTitle
+                    ImageId = i.IMAGEItemID,
+                    DetailImagePath = i.IMAGEItemImagePath,
+                    DetailTitle = i.IMAGEItemTitle,
+                    DetailDateCreated = i.IMAGEItemDateCreated,
+                    DetailIsActive = i.IMAGEItemIsActive,
+                    DetailParagraph = i.IMAGEItemParagraph,
+                    DetailSubTitle = i.IMAGEItemSubTitle
                 })).ToList();
 
             return model;
@@ -43,11 +43,11 @@ namespace RestaurantPlay2.Areas.ImageCard.BusinessLogic.ImageCards
             var imageCards = new ImageCardRepo().GetValidImageCards();
             var model = imageCards.Select(i => new ImageCardViewModel
             {
-                ImageId = i.IMAGEDetailID,
-                DetailImagePath = i.IMAGEDetailImagePath,
-                DetailParagraph = i.IMAGEDetailParagraph,
-                DetailSubTitle = i.IMAGEDetailSubTitle,
-                DetailTitle = i.IMAGEDetailTitle,
+                ImageId = i.IMAGEItemID,
+                DetailImagePath = i.IMAGEItemImagePath,
+                DetailParagraph = i.IMAGEItemParagraph,
+                DetailSubTitle = i.IMAGEItemSubTitle,
+                DetailTitle = i.IMAGEItemTitle,
                 isEditable = false
             }).ToList();
 
@@ -65,12 +65,12 @@ namespace RestaurantPlay2.Areas.ImageCard.BusinessLogic.ImageCards
 
             var model = new ImageCardViewModel()
             {
-                ImageId = imageCard.IMAGEDetailID,
-                DetailSubTitle = imageCard.IMAGEDetailSubTitle,
-                DetailIsActive = imageCard.IMAGEDetailIsActive,
-                DetailImagePath = Path.GetFileName(imageCard.IMAGEDetailImagePath),
-                DetailParagraph = imageCard.IMAGEDetailParagraph,
-                DetailTitle = imageCard.IMAGEDetailTitle
+                ImageId = imageCard.IMAGEItemID,
+                DetailSubTitle = imageCard.IMAGEItemSubTitle,
+                DetailIsActive = imageCard.IMAGEItemIsActive,
+                DetailImagePath = Path.GetFileName(imageCard.IMAGEItemImagePath),
+                DetailParagraph = imageCard.IMAGEItemParagraph,
+                DetailTitle = imageCard.IMAGEItemTitle
             };
             return model;
         }
@@ -87,14 +87,14 @@ namespace RestaurantPlay2.Areas.ImageCard.BusinessLogic.ImageCards
             if (imagePath.IsEmpty())
                 return false;
 
-            var imageCardRepo = new IMAGECard
+            var imageCardRepo = new IMAGEItem
             {
-                IMAGEDetailIsActive = imageCard.IsActive,
-                IMAGEDetailID = imageCard.imageID,
-                IMAGEDetailImagePath = imagePath,
-                IMAGEDetailParagraph = imageCard.DetailParagraph,
-                IMAGEDetailSubTitle = imageCard.DetailSubTitle,
-                IMAGEDetailTitle = imageCard.DetailTitle,
+                IMAGEItemIsActive = imageCard.IsActive,
+                IMAGEItemID = imageCard.imageID,
+                IMAGEItemImagePath = imagePath,
+                IMAGEItemParagraph = imageCard.DetailParagraph,
+                IMAGEItemSubTitle = imageCard.DetailSubTitle,
+                IMAGEItemTitle = imageCard.DetailTitle,
             };
 
             var imageRepo = new ImageCardRepo();

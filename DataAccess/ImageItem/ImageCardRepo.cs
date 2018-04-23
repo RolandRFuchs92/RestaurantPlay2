@@ -11,28 +11,31 @@ namespace DataAccess.ImageCard
 {
     public class ImageCardRepo
     {
+        private readonly int imageCardTypeId = 1;
         /// <summary>
         /// Get all image cards
         /// </summary>
         /// <returns></returns>
-        public List<IMAGECard> GetImageCards()
+        public List<IMAGEItem> GetImageCards()
         {
-            return new AppsContext().ImageCards.ToList();
+            return new AppsContext().ImageItems.Where(i => i.IMAGETypeID == imageCardTypeId).ToList();
         }
 
         /// <summary>
         /// Get image cards where they are active.
         /// </summary>
         /// <returns></returns>
-        public List<IMAGECard> GetValidImageCards()
+        public List<IMAGEItem> GetValidImageCards()
         {
-            var model = new List<IMAGECard>();
+            var model = new List<IMAGEItem>();
 
             using (var db = new AppsContext())
             {
-                model = (from image in db.ImageCards
-                    where image.IMAGEDetailIsActive
-                    select image).ToList();
+                model =
+                    (from image in db.ImageItems
+                     where image.IMAGEItemIsActive && 
+                           image.IMAGETypeID == imageCardTypeId
+                     select image).ToList();
             }
             return model;
         }
@@ -42,13 +45,13 @@ namespace DataAccess.ImageCard
         /// </summary>
         /// <param name="imageDetailID"></param>
         /// <returns></returns>
-        public IMAGECard GetImageCardID(int imageDetailID)
+        public IMAGEItem GetImageCardID(int imageItemID)
         {
-            var imageCard = new IMAGECard();
+            var imageCard = new IMAGEItem();
 
             using (var db = new AppsContext())
             {
-                imageCard = db.ImageCards.FirstOrDefault(i => i.IMAGEDetailID == imageDetailID);
+                imageCard = db.ImageItems.FirstOrDefault(i => i.IMAGEItemID == imageItemID && i.IMAGETypeID == imageCardTypeId);
             }
 
             return imageCard;
@@ -59,16 +62,16 @@ namespace DataAccess.ImageCard
         /// </summary>
         /// <param name="imageCard"></param>
         /// <returns></returns>
-        public bool SaveImageCard(IMAGECard imageCard)
+        public bool SaveImageCard(IMAGEItem imageCard)
         {
             bool saved = false;
-            imageCard.IMAGEDetailDateCreated = DateTime.Now;
+            imageCard.IMAGEItemDateCreated = DateTime.Now;
 
             try
             {
                 using (var db = new AppsContext())
                 {
-                    db.ImageCards.AddOrUpdate(imageCard);
+                    db.ImageItems.AddOrUpdate(imageCard);
                     db.SaveChanges();
                     saved = true;
                 }
@@ -93,15 +96,15 @@ namespace DataAccess.ImageCard
                 using (var db = new AppsContext())
                 {
                     var image = GetImageCardID(imageID);
-                    db.ImageCards.Attach(image);
-                    db.ImageCards.Remove(image);
+                    db.ImageItems.Attach(image);
+                    db.ImageItems.Remove(image);
                     db.SaveChanges();
                     return true;
                 }
             }
             catch (Exception e)
             {
-                
+
             }
 
             return false;

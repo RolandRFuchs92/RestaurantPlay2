@@ -13,7 +13,7 @@ namespace DataAccess.Context
     public class AppsContext : DbContext
     {
         public IDbSet<COREContent> CoreContents { get; set; }
-        public IDbSet<IMAGECard> ImageCards { get; set; }
+        public IDbSet<IMAGEItem> ImageItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
