@@ -9,17 +9,17 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-   @Html.Partial("_Navbar")
+    @Html.Partial("_Navbar")
     <div class="container body-content">
         @RenderBody()
         @RenderSection("SPAViews", required: false)
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            @Html.ActionLink("Admin","Login","Account")
+            @Html.ActionLink("Admin", "Login", "Account")
         </footer>
     </div>
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Scripts", required: false)

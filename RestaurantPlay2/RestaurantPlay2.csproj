@@ -265,6 +265,8 @@
     <Content Include="Areas\ImageItems\Views\ImageCard\Presets\_AddImageCardDetails.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCard\Presets\_GenerateImageCards.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\Index.cshtml" />
+    <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselForm.cshtml" />
+    <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselDisplay.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

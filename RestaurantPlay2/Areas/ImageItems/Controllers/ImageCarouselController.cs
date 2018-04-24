@@ -13,5 +13,16 @@ namespace RestaurantPlay2.Areas.ImageItems.Controllers
         {
             return View();
         }
+
+        public ActionResult DisplayCarousel()
+        {
+            return View("_CarouselDisplay");
+        }
+
+        public ActionResult SaveCarousel()
+        {
+            return View("_CarouselForm");
+        }
+
     }
 }

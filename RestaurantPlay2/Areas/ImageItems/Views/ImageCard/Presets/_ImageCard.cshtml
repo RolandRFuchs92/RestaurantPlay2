@@ -6,7 +6,8 @@
         @if (Model.isEditable)
         {
             <div class="panel-heading">
-                <a href="/ImageCard/ImageCard/DeleteImageCard?ImageID=@Model.ImageId">Delete</a>&nbsp;&nbsp;&nbsp;
+                @*<a href="/Image/ImageCard/DeleteImageCard?ImageID=@Model.ImageId">Delete</a>&nbsp;&nbsp;&nbsp;*@
+                @Html.ActionLink("Delete","DeleteImageCard", "ImageCard",new { area="ImageItems", ImageID=@Model.ImageId}, null)
                 <a href="#" onclick="EditImageCard(@Model.ImageId)">Edit</a>
                 <p>Is Active: @Model.DetailIsActive</p>
             </div>
