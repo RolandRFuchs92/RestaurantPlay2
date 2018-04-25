@@ -7,6 +7,8 @@
     @Html.Partial("Presets/_AddImageCardDetails" , new SaveImageCardViewModel())
 </div>
 
+<hr />
+
 <div class="container">
 @if (Model.Any())
 {
@@ -22,7 +24,7 @@
     <script>
         function EditImageCard(imageID) {
             var imgJson = { imageID: imageID };
-            $.post("/ImageCard/ImageCard/EditImageCard", imgJson,
+            $.post("@Url.Action("EditImageCard", new { area = "ImageItems" })", imgJson,
                 function (data) {
                     $('#DetailTitle').val(data.DetailTitle);
                     $('#DetailSubTitle').val(data.DetailSubTitle);
