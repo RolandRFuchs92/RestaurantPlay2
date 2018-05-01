@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DataAccess.Context;
+using DataAccess.ImageItem;
 
 namespace RestaurantPlay2.Areas.ImageItems.Controllers
 {
@@ -11,7 +13,8 @@ namespace RestaurantPlay2.Areas.ImageItems.Controllers
         // GET: ImageItems/ImageCarousel
         public ActionResult Index()
         {
-            return View();
+            var img = new ImageItemRepo(2).GetValidImageItems();
+            return View(img);
         }
 
         public ActionResult DisplayCarousel()

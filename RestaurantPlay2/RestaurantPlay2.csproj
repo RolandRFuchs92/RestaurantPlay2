@@ -217,9 +217,8 @@
     <Compile Include="Areas\ImageItems\ImageItemsAreaRegistration.cs" />
     <Compile Include="Areas\ImageItems\Controllers\ImageCardController.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\ImageCardViewModel.cs" />
-    <Compile Include="Areas\ImageItems\ViewModels\ImageCarousel\ImageItemViewModel.cs" />
-    <Compile Include="Areas\ImageItems\ViewModels\ImageCarousel\SaveImageCardViewModel.cs" />
-    <Compile Include="Areas\ImageItems\ViewModels\SaveImageCardViewModel.cs" />
+    <Compile Include="Areas\ImageItems\ViewModels\ImageCarousel\SaveImageCarouselViewModel.cs" />
+    <Compile Include="Areas\ImageItems\ViewModels\ImageCard\SaveImageCardViewModel.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -267,6 +266,7 @@
     <Content Include="Areas\ImageItems\Views\ImageCarousel\Index.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselForm.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselDisplay.cshtml" />
+    <Content Include="Areas\ImageItems\Views\ImageCarousel\_carouselFrame.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

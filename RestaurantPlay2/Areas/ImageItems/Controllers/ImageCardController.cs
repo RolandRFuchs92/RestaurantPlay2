@@ -1,8 +1,9 @@
 ﻿using System.Net;
 using System.Web.Mvc;
-using DataAccess.ImageCard;
+using DataAccess.ImageItem;
 using RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCards;
 using RestaurantPlay2.Areas.ImageItems.ViewModels;
+using RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCard;
 
 namespace RestaurantPlay2.Areas.ImageItems.Controllers
 {
@@ -36,7 +37,7 @@ namespace RestaurantPlay2.Areas.ImageItems.Controllers
 
         public ActionResult DeleteImageCard(int imageID)
         {
-            var isDeleted = new ImageCardRepo().DeleteImageCard(imageID);
+            var isDeleted = new ImageItemRepo().DeleteImageItem(imageID);
             if (!isDeleted)
                 ModelState.AddModelError("Image", "Image not found or matched");
 

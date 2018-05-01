@@ -7,18 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Context;
 
-namespace DataAccess.ImageCard
+namespace DataAccess.ImageItem
 {
-    public class ImageCardRepo
+    public class ImageItemRepo
     {
-        private int _imageItemTypeID;
+        private readonly int _imageItemTypeID;
 
-        public ImageCardRepo()
+        public ImageItemRepo()
         {
             _imageItemTypeID = 1;
         }
-
-        public ImageCardRepo(int ItemTypeID)
+        public ImageItemRepo(int ItemTypeID)
         {
             _imageItemTypeID = ItemTypeID;
         }
@@ -27,7 +26,7 @@ namespace DataAccess.ImageCard
         /// Get all image cards
         /// </summary>
         /// <returns></returns>
-        public List<IMAGEItem> GetImageCards()
+        public List<IMAGEItem> GetImageItems()
         {
             return new AppsContext().ImageItems.Where(i => i.IMAGETypeID == _imageItemTypeID).ToList();
         }
@@ -36,7 +35,7 @@ namespace DataAccess.ImageCard
         /// Get image cards where they are active.
         /// </summary>
         /// <returns></returns>
-        public List<IMAGEItem> GetValidImageCards()
+        public List<IMAGEItem> GetValidImageItems()
         {
             var model = new List<IMAGEItem>();
 
@@ -54,18 +53,13 @@ namespace DataAccess.ImageCard
         /// <summary>
         /// Get Single Image by ID
         /// </summary>
-        /// <param name="imageDetailID"></param>
+        /// <param name="imageItemId"></param>
         /// <returns></returns>
-        public IMAGEItem GetImageCardID(int imageItemID)
+        public IMAGEItem GetImageItemId(int imageItemId)
         {
-            var imageCard = new IMAGEItem();
-
-            using (var db = new AppsContext())
-            {
-                imageCard = db.ImageItems.FirstOrDefault(i => i.IMAGEItemID == imageItemID && i.IMAGETypeID == _imageItemTypeID);
-            }
-
-            return imageCard;
+            return new AppsContext().ImageItems
+                .FirstOrDefault(i => i.IMAGEItemID == imageItemId
+                                     && i.IMAGETypeID == _imageItemTypeID);
         }
 
         /// <summary>
@@ -73,7 +67,7 @@ namespace DataAccess.ImageCard
         /// </summary>
         /// <param name="imageCard"></param>
         /// <returns></returns>
-        public bool SaveImageCard(IMAGEItem imageCard)
+        public bool SaveImageItem(IMAGEItem imageCard)
         {
             bool saved = false;
             imageCard.IMAGEItemDateCreated = DateTime.Now;
@@ -100,15 +94,15 @@ namespace DataAccess.ImageCard
         /// <summary>
         /// Delete Image by ID
         /// </summary>
-        /// <param name="imageID"></param>
+        /// <param name="imageId"></param>
         /// <returns></returns>
-        public bool DeleteImageCard(int imageID)
+        public bool DeleteImageItem(int imageId)
         {
             try
             {
                 using (var db = new AppsContext())
                 {
-                    var image = GetImageCardID(imageID);
+                    var image = GetImageItemId(imageId);
                     db.ImageItems.Attach(image);
                     db.ImageItems.Remove(image);
                     db.SaveChanges();

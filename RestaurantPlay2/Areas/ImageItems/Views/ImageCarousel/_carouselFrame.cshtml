@@ -1,0 +1,11 @@
+﻿@using RestaurantPlay2.Areas.ImageItems.ViewModels
+@model ImageCardViewModel
+
+
+<div class="item">
+    <img src="@Model.DetailImagePath" alt="@Model.DetailTitle" style="width:100%;">
+    <div class="carousel-caption">
+        <h3>@Model.DetailTitle</h3>
+        <p>@Model.DetailSubTitle</p>
+    </div>
+</div>
