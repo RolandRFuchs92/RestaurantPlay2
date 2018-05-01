@@ -65,19 +65,19 @@ namespace DataAccess.ImageItem
         /// <summary>
         /// Save image card, save card model information.
         /// </summary>
-        /// <param name="imageCard"></param>
+        /// <param name="imageItem"></param>
         /// <returns></returns>
-        public bool SaveImageItem(IMAGEItem imageCard)
+        public bool SaveImageItem(IMAGEItem imageItem)
         {
             bool saved = false;
-            imageCard.IMAGEItemDateCreated = DateTime.Now;
-            imageCard.IMAGETypeID = _imageItemTypeID;
+            imageItem.IMAGEItemDateCreated = DateTime.Now;
+            imageItem.IMAGETypeID = _imageItemTypeID;
 
             try
             {
                 using (var db = new AppsContext())
                 {
-                    db.ImageItems.AddOrUpdate(imageCard);
+                    db.ImageItems.AddOrUpdate(imageItem);
                     db.SaveChanges();
                     saved = true;
                 }
