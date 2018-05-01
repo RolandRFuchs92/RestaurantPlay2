@@ -213,12 +213,17 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
+    <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarousel.cs" />
+    <Compile Include="Areas\ImageItems\BusinessLogic\Misc\ImageUtils.cs" />
+    <Compile Include="Areas\ImageItems\Interfaces\IImageItem.cs" />
     <Compile Include="Areas\ImageItems\Controllers\ImageCarouselController.cs" />
     <Compile Include="Areas\ImageItems\ImageItemsAreaRegistration.cs" />
     <Compile Include="Areas\ImageItems\Controllers\ImageCardController.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\ImageCardViewModel.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\ImageCarousel\SaveImageCarouselViewModel.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\ImageCard\SaveImageCardViewModel.cs" />
+    <Compile Include="Areas\ImageItems\ViewModels\ImageItemViewModel.cs" />
+    <Compile Include="Areas\ImageItems\ViewModels\SaveImageItemViewModel.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
