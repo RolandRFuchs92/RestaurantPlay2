@@ -1,6 +1,9 @@
 ﻿@using RestaurantPlay2.Areas.ImageItems.ViewModels
 @model List<ImageItemViewModel>
 
+@{
+    Layout = null;
+}
 
 @if (Model == null || !Model.Any())
 {
@@ -9,7 +12,7 @@
 else
 {
     var isActive = "active";
-    <div class="container">
+    <div class="container page-spacing">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
