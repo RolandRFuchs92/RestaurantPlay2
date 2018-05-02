@@ -1,9 +1,11 @@
-﻿
-<h3>Image Carousel</h3>
+﻿@using RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCarousel
+@model EditCarouselViewModel
 
-@Html.Partial("_CarouselForm")
+
+@Html.Partial("_CarouselForm", Model.SaveCarouselItem)
 
 <hr />
+<h3>Preview Carousel</h3>
 
-@Html.Partial("_CarouselDisplay")
+@Html.Partial("_CarouselDisplay", Model.CarouselItems)
 

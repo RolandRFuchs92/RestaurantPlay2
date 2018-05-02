@@ -4,8 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.WebPages;
-using DataAccess.ImageCard;
+using DataAccess.ImageItem;
 using RestaurantPlay2.Areas.ImageItems.ViewModels;
+using RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCard;
 
 namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCards
 {
@@ -17,7 +18,7 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCards
         /// <returns></returns>
         public List<ImageCardViewModel> LoadImageCardViewModels()
         {
-            var imageCardList = new DataAccess.ImageCard.ImageCardRepo().GetImageCards();
+            var imageCardList = new DataAccess.ImageItem.ImageItemRepo().GetImageItems();
 
             List<ImageCardViewModel> model = (imageCardList
                 .Select(i => new ImageCardViewModel
@@ -40,7 +41,7 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCards
         /// <returns></returns>
         public List<ImageCardViewModel> LoadValidImageCardViewModels()
         {
-            var imageCards = new ImageCardRepo().GetValidImageCards();
+            var imageCards = new ImageItemRepo().GetValidImageItems();
             var model = imageCards.Select(i => new ImageCardViewModel
             {
                 ImageId = i.IMAGEItemID,
@@ -48,7 +49,7 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCards
                 DetailParagraph = i.IMAGEItemParagraph,
                 DetailSubTitle = i.IMAGEItemSubTitle,
                 DetailTitle = i.IMAGEItemTitle,
-                isEditable = false
+                IsEditable =  false
             }).ToList();
 
             return model;
@@ -61,7 +62,7 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCards
         /// <returns></returns>
         public ImageCardViewModel LoadImageCardByImageID(int imageID)
         {
-            var imageCard = new ImageCardRepo().GetImageCardID(imageID);
+            var imageCard = new ImageItemRepo().GetImageItemId(imageID);
 
             var model = new ImageCardViewModel()
             {
@@ -97,9 +98,9 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCards
                 IMAGEItemTitle = imageCard.DetailTitle
             };
 
-            var imageRepo = new ImageCardRepo();
+            var imageRepo = new ImageItemRepo();
 
-            return imageRepo.SaveImageCard(imageCardRepo); 
+            return imageRepo.SaveImageItem(imageCardRepo); 
         }
 
         /// <summary>

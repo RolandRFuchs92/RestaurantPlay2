@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Entities;
-using DataAccess.ImageCard;
+using DataAccess.ImageItem;
 
 namespace DataAccess.Context
 {
