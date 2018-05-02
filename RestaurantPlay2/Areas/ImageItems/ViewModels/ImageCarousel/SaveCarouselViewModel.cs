@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RestaurantPlay2.Areas.ImageItems.Interfaces;
+using System.ComponentModel.DataAnnotations;
 using System.Web;
 
 namespace RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCarousel
 {
-    public class SaveImageItemCardModel
+    public class SaveCarouselViewModel : ISaveImageItem
     {
         public int imageID { get; set; }
         [Required]
@@ -17,10 +18,6 @@ namespace RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCarousel
         [Required]
         [DataType(DataType.Upload)]
         public HttpPostedFileBase Image { get; set; }
-        [Required]
-        [MaxLength(2000)]
-        [Display(Name = "Paragraph")]
-        public string DetailParagraph { get; set; }
         [Display(Name="Is Active")]
         public bool IsActive { get; set; }
     }

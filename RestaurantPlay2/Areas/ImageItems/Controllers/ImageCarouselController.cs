@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using DataAccess.Context;
 using DataAccess.ImageItem;
 using RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel;
+using RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCarousel;
 
 namespace RestaurantPlay2.Areas.ImageItems.Controllers
 {
@@ -14,7 +15,11 @@ namespace RestaurantPlay2.Areas.ImageItems.Controllers
         // GET: ImageItems/ImageCarousel
         public ActionResult Index()
         {
-            return View(new ImageCarousel().LoadAllImageItems());
+            var carouselModel = new EditCarouselViewModel();
+            carouselModel.CarouselItems = new ImageCarousel().LoadAllImageItems();
+            carouselModel.SaveCarouselItem = new SaveCarouselViewModel();
+
+            return View(carouselModel);
         }
 
         public ActionResult DisplayCarousel()

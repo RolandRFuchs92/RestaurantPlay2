@@ -2,7 +2,7 @@
 @model List<ImageItemViewModel>
 
 
-@if (Model == null)
+@if (Model == null || Model.Any())
 {
     <h3>No Carousel items were found!</h3>
 }

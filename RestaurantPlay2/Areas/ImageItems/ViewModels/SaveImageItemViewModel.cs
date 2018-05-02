@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantPlay2.Areas.ImageItems.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Web;
 
 namespace RestaurantPlay2.Areas.ImageItems.ViewModels
 {
-    public class SaveImageItemViewModel
+    public class SaveImageItemViewModel : ISaveImageItem
     {
         public int imageID { get; set; }
         [Required]

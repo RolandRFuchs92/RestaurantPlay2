@@ -8,14 +8,16 @@ using DataAccess.ImageItem;
 using RestaurantPlay2.Areas.ImageItems.BusinessLogic.Misc;
 using RestaurantPlay2.Areas.ImageItems.Interfaces;
 using RestaurantPlay2.Areas.ImageItems.ViewModels;
+using RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCarousel;
 
 namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel
 {
-    public class ImageCarousel : Misc.ImageUtils, IImageItem<ImageItemViewModel>
+    public class ImageCarousel : Misc.ImageUtils, IImageItemFrame<ImageItemViewModel>
     {
+        private readonly int _imageItemType = 2;
         public List<ImageItemViewModel> LoadAllImageItems()
         {
-            var imageCardList = new DataAccess.ImageItem.ImageItemRepo().GetImageItems();
+            var imageCardList = new DataAccess.ImageItem.ImageItemRepo(_imageItemType).GetImageItems();
 
             List<ImageItemViewModel> model = (imageCardList
                 .Select(i => new ImageItemViewModel
@@ -34,7 +36,7 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel
 
         public List<ImageItemViewModel> LoadValidImageItems()
         {
-            var imageCards = new ImageItemRepo().GetValidImageItems();
+            var imageCards = new ImageItemRepo(_imageItemType).GetValidImageItems();
             var model = imageCards.Select(i => new ImageItemViewModel
             {
                 ImageId = i.IMAGEItemID,
@@ -50,7 +52,7 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel
 
         public ImageItemViewModel LoadImageItemById(int imageId)
         {
-            var imageCard = new ImageItemRepo().GetImageItemId(imageId);
+            var imageCard = new ImageItemRepo(_imageItemType).GetImageItemId(imageId);
 
             var model = new ImageItemViewModel()
             {
@@ -64,7 +66,7 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel
             return model;
         }
 
-        public bool SaveImageItem(SaveImageItemViewModel imageItem)
+        public bool SaveImageItem(ISaveImageItem imageItem)
         {
             var imagePath = new ImageUtils().SaveImageFile(imageItem.Image);
 
@@ -76,7 +78,6 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel
                 IMAGEItemIsActive = imageItem.IsActive,
                 IMAGEItemID = imageItem.imageID,
                 IMAGEItemImagePath = imagePath,
-                IMAGEItemParagraph = imageItem.DetailParagraph,
                 IMAGEItemSubTitle = imageItem.DetailSubTitle,
                 IMAGEItemTitle = imageItem.DetailTitle
             };
@@ -85,5 +86,6 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel
 
             return imageRepo.SaveImageItem(imageCardRepo);
         }
+
     }
 }

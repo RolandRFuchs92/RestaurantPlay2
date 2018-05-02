@@ -216,11 +216,15 @@
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarousel.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\Misc\ImageUtils.cs" />
     <Compile Include="Areas\ImageItems\Interfaces\IImageItem.cs" />
+    <Compile Include="Areas\ImageItems\Interfaces\IImageItemFrame.cs" />
     <Compile Include="Areas\ImageItems\Controllers\ImageCarouselController.cs" />
     <Compile Include="Areas\ImageItems\ImageItemsAreaRegistration.cs" />
     <Compile Include="Areas\ImageItems\Controllers\ImageCardController.cs" />
+    <Compile Include="Areas\ImageItems\Interfaces\ISaveImageItem.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\ImageCardViewModel.cs" />
-    <Compile Include="Areas\ImageItems\ViewModels\ImageCarousel\SaveImageCarouselViewModel.cs" />
+    <Compile Include="Areas\ImageItems\ViewModels\ImageCarousel\CarouselItemViewModel.cs" />
+    <Compile Include="Areas\ImageItems\ViewModels\ImageCarousel\EditCarouselViewModel.cs" />
+    <Compile Include="Areas\ImageItems\ViewModels\ImageCarousel\SaveCarouselViewModel.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\ImageCard\SaveImageCardViewModel.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\ImageItemViewModel.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\SaveImageItemViewModel.cs" />
