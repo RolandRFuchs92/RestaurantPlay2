@@ -7,6 +7,7 @@ using RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCard;
 
 namespace RestaurantPlay2.Areas.ImageItems.Controllers
 {
+    [Authorize]
     public class ImageCardController : Controller
     {
         // GET: Content/Content

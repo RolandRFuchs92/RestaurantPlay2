@@ -2,12 +2,13 @@
 @model List<ImageItemViewModel>
 
 
-@if (Model == null || Model.Any())
+@if (Model == null || !Model.Any())
 {
     <h3>No Carousel items were found!</h3>
 }
 else
 {
+    var isActive = "active";
     <div class="container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -23,7 +24,10 @@ else
             <div class="carousel-inner">
                 @foreach (var item in @Model)
                 {
-                    @Html.Partial("_carouselFrame", item)
+                    <div class="item @isActive">
+                        @Html.Partial("_CarouselFrame", item)
+                    </div>
+                    isActive = "";
                 }
             </div>
 

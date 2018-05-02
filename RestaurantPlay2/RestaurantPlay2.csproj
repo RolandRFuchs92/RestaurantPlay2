@@ -213,7 +213,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
-    <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarousel.cs" />
+    <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarouselLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\Misc\ImageUtils.cs" />
     <Compile Include="Areas\ImageItems\Interfaces\IImageItem.cs" />
     <Compile Include="Areas\ImageItems\Interfaces\IImageItemFrame.cs" />
@@ -275,7 +275,7 @@
     <Content Include="Areas\ImageItems\Views\ImageCarousel\Index.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselForm.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselDisplay.cshtml" />
-    <Content Include="Areas\ImageItems\Views\ImageCarousel\_carouselFrame.cshtml" />
+    <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselFrame.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

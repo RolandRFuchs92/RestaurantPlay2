@@ -7,16 +7,18 @@ using DataAccess.Context;
 using DataAccess.ImageItem;
 using RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel;
 using RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCarousel;
+using System.Net;
 
 namespace RestaurantPlay2.Areas.ImageItems.Controllers
 {
+    [Authorize]
     public class ImageCarouselController : Controller
     {
         // GET: ImageItems/ImageCarousel
         public ActionResult Index()
         {
             var carouselModel = new EditCarouselViewModel();
-            carouselModel.CarouselItems = new ImageCarousel().LoadAllImageItems();
+            carouselModel.CarouselItems = new ImageCarouselLogic().LoadAllImageItems();
             carouselModel.SaveCarouselItem = new SaveCarouselViewModel();
 
             return View(carouselModel);
@@ -24,14 +26,21 @@ namespace RestaurantPlay2.Areas.ImageItems.Controllers
 
         public ActionResult DisplayCarousel()
         {
-            var carouselItems = new ImageCarousel().LoadValidImageItems();
+            var carouselItems = new ImageCarouselLogic().LoadValidImageItems();
             return View("_CarouselDisplay", carouselItems);
         }
 
-        public ActionResult SaveCarousel()
+        public ActionResult SaveCarousel(SaveCarouselViewModel carouselImage)
         {
-            return View("_CarouselForm");
-        }
+            if (!ModelState.IsValid)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
+            new ImageCarouselLogic().SaveImageItem(carouselImage);
+
+            var model = new ImageCarouselLogic().LoadAllImageItems();
+            ModelState.Clear();
+
+            return View("_CarouselDisplay", model);
+        }
     }
 }

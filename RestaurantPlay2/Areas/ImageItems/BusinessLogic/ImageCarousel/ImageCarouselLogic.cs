@@ -12,7 +12,7 @@ using RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCarousel;
 
 namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel
 {
-    public class ImageCarousel : Misc.ImageUtils, IImageItemFrame<ImageItemViewModel>
+    public class ImageCarouselLogic : Misc.ImageUtils, IImageItemFrame<ImageItemViewModel>
     {
         private readonly int _imageItemType = 2;
         public List<ImageItemViewModel> LoadAllImageItems()
@@ -73,7 +73,7 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel
             if (imagePath.IsEmpty())
                 return false;
 
-            var imageCardRepo = new IMAGEItem
+            var carouselItem = new IMAGEItem
             {
                 IMAGEItemIsActive = imageItem.IsActive,
                 IMAGEItemID = imageItem.imageID,
@@ -82,9 +82,9 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel
                 IMAGEItemTitle = imageItem.DetailTitle
             };
 
-            var imageRepo = new ImageItemRepo();
+            var imageRepo = new ImageItemRepo(_imageItemType);
 
-            return imageRepo.SaveImageItem(imageCardRepo);
+            return imageRepo.SaveImageItem(carouselItem);
         }
 
     }
