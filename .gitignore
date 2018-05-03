@@ -261,3 +261,4 @@ paket-files/
 __pycache__/
 *.pyc/RestaurantPlay2/RestaurantPlay2/Web.config
 RestaurantPlay2/RestaurantPlay2/Web.config
+*/Web.config
