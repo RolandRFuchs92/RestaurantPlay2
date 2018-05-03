@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCarousel
+namespace RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCard
 {
-    public class SaveImageItemCardModel
+    public class SaveImageCardViewModel
     {
         public int imageID { get; set; }
         [Required]

@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
-namespace RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCarousel
+namespace RestaurantPlay2.Areas.ImageItems.ViewModels
 {
     public class ImageItemViewModel
     {
-        public bool isEditable { get; set; } = true;
+        public bool IsEditable { get; set; } = true;
         public int ImageId { get; set; }
         public string DetailTitle { get; set; }
         public string DetailSubTitle { get; set; }
