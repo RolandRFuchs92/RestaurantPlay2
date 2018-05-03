@@ -1,0 +1,23 @@
+﻿@using RestaurantPlay2.Areas.ImageItems.ViewModels
+@model List<ImageItemViewModel>
+
+
+@foreach (var item in Model)
+{
+    <div class="col-sm-3">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                @Html.ActionLink("Delete", "DeleteCarouselItem", new {imageId = item.ImageId})
+                <a href="#" onclick="EditCarousel(@item.ImageId)">Edit</a>
+                <br/>
+                <p>Is Active: @item.DetailIsActive</p>
+            </div>
+            <div class="panel-body">
+                <img src="@item.DetailImagePath" class="card card-img-top " alt="@item.DetailSubTitle" />
+                <p class="img-cap-title img-cap">@item.DetailTitle</p>
+                <p class="img-cap">@item.DetailSubTitle</p>
+            </div>
+        </div>
+    </div>
+
+}

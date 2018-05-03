@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 using System.Web.WebPages;
 using DataAccess.ImageItem;
 using RestaurantPlay2.Areas.ImageItems.BusinessLogic.Misc;
@@ -12,6 +13,7 @@ using RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCarousel;
 
 namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel
 {
+    [Authorize]
     public class ImageCarouselLogic : Misc.ImageUtils, IImageItemFrame<ImageItemViewModel>
     {
         private readonly int _imageItemType = 2;
@@ -85,6 +87,22 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel
             var imageRepo = new ImageItemRepo(_imageItemType);
 
             return imageRepo.SaveImageItem(carouselItem);
+        }
+
+        public bool DeleteImageItem(int imageId)
+        {
+            return new ImageItemRepo(_imageItemType).DeleteImageItem(imageId);
+        }
+
+        public EditCarouselViewModel LoadCarouselViewModel()
+        {
+            var model = new EditCarouselViewModel
+            {
+                CarouselItems = new ImageCarouselLogic().LoadAllImageItems(),
+                SaveCarouselItem = new SaveCarouselViewModel()
+            };
+
+            return model;
         }
 
     }

@@ -73,3 +73,21 @@ img.card-img-top {
     padding-top: 100px;
     padding-bottom: 100px;
 }
+
+.img-pos1 {
+}
+
+
+
+.img-cap-title {
+    font-weight: bold;
+}
+
+.img-cap {
+    position: relative;
+    color: white;
+    text-align: center;
+    bottom: 75px;
+    background-color: rgba(0, 0, 0, 0.60);
+    ;
+}
