@@ -14,6 +14,8 @@ namespace DataAccess.Context
     {
         public IDbSet<COREContent> CoreContents { get; set; }
         public IDbSet<IMAGEItem> ImageItems { get; set; }
+        public IDbSet<MenuItem> MenuItems { get; set; }
+        public IDbSet<MenuItemSetting> MenuItemSettings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
