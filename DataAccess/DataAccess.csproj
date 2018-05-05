@@ -54,6 +54,7 @@
     <Compile Include="Entities\IMAGEItem.cs" />
     <Compile Include="Entities\MenuItem.cs" />
     <Compile Include="Entities\MenuItemSetting.cs" />
+    <Compile Include="Entities\MenuItemType.cs" />
     <Compile Include="ImageItem\ImageItemRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

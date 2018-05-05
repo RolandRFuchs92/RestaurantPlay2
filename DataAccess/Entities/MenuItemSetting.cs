@@ -15,5 +15,7 @@ namespace DataAccess.Entities
         public bool MenuItemSettingDisplayImage { get; set; }
         public bool MenuItemSettingDisplayPrice { get; set; }
         public int MenuItemId { get; set; }
+        public int MenuItemTypeId { get; set; }
+        public int MenuItemPriority { get; set; }
     }
 }
