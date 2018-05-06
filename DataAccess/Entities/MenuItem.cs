@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,5 +16,6 @@ namespace DataAccess.Entities
         public string MenuItemDescription { get; set; }
         public double MenuItemPrice { get; set; }
         public DateTime CreatedOn { get; set; }
+        public int FoodPreferenceId { get; set; }
     }
 }

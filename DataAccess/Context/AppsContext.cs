@@ -12,11 +12,18 @@ namespace DataAccess.Context
 {
     public class AppsContext : DbContext
     {
+        //public AppsContext()
+        //{
+        //    new AppsContext().Configuration.LazyLoadingEnabled = true;
+        //}
+
         public IDbSet<COREContent> CoreContents { get; set; }
         public IDbSet<IMAGEItem> ImageItems { get; set; }
-        public IDbSet<MenuItem> MenuItems { get; set; }
+        public IDbSet<Entities.MenuItem> MenuItems { get; set; }
         public IDbSet<MenuItemSetting> MenuItemSettings { get; set; }
         public IDbSet<MenuItemType> MenuItemTypes { get; set; }
+        public IDbSet<MenuItemCategory> MenuItemCategories { get; set; }
+        public IDbSet<FoodPreference> FoodPreferences { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

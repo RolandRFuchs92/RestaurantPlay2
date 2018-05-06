@@ -51,11 +51,14 @@
     <Compile Include="ContentRepo\ContentRepo.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Entities\COREContent.cs" />
+    <Compile Include="Entities\FoodPreference.cs" />
     <Compile Include="Entities\IMAGEItem.cs" />
     <Compile Include="Entities\MenuItem.cs" />
+    <Compile Include="Entities\MenuItemCategory.cs" />
     <Compile Include="Entities\MenuItemSetting.cs" />
     <Compile Include="Entities\MenuItemType.cs" />
     <Compile Include="ImageItem\ImageItemRepo.cs" />
+    <Compile Include="MenuItem\MenuItemRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
