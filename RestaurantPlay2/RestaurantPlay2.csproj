@@ -233,6 +233,7 @@
     <Compile Include="Areas\MenuBuilder\Controllers\MenuBuilderController.cs" />
     <Compile Include="Areas\MenuBuilder\Entities\SaveMenuItemViewModel.cs" />
     <Compile Include="Areas\MenuBuilder\MenuBuilderAreaRegistration.cs" />
+    <Compile Include="Areas\MenuBuilder\Models\LoadMenuBuilderLists.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -344,7 +345,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />
     <Folder Include="Areas\ImageItems\Models\" />
-    <Folder Include="Areas\MenuBuilder\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

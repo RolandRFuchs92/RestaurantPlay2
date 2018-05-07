@@ -17,5 +17,17 @@ namespace RestaurantPlay2.Areas.MenuBuilder.Entities
         public double MenuItemPrice { get; set; }
         [Display(Name="Preference Type")]
         public int FoodPreferenceId { get; set; }
+        [Display(Name="Display Menu Item")]
+        public bool IsActive { get; set; }
+        [Display(Name = "Display Image")]
+        public bool DisplayImage { get; set; }
+        [Display(Name = "Display Price")]
+        public bool DisplayPrice { get; set; }
+        [Display(Name="Menu Item Category")]
+        public int ItemTypeId { get; set; }
+        [Display(Name = "Priority")]
+        public int Priority { get; set; }
+        [Display(Name = "Category")]
+        public int CategoryId { get; set; }
     }
 }

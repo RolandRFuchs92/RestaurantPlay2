@@ -9,6 +9,6 @@ namespace DataAccess.Entities
     public class MenuItemCategory
     {
         public int MenuItemCategoryId { get; set; }
-        public int MenutItemCategoryName { get; set; }
+        public string MenuItemCategoryName { get; set; }
     }
 }
