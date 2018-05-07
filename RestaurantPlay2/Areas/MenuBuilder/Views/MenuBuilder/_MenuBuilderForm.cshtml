@@ -1,0 +1,66 @@
+﻿@using DataAccess.Context
+@using DataAccess.Entities
+@using RestaurantPlay2.Areas.MenuBuilder.Entities
+@model SaveMenuItemViewModel
+
+@{
+    var FoodPreferenceList = (from f in new AppsContext().FoodPreferences
+                              select new SelectListItem
+                              {
+                                  Text = f.FoodPreferenceName,
+                                  Value = f.FoodPreferenceId,
+                                  Selected =  f.FoodPreferenceId == Model.FoodPreferenceId
+                              }).ToList();
+}
+
+<div class="container">
+    @using (Ajax.BeginForm("Index", "MenuBuilder", new AjaxOptions
+    {
+        UpdateTargetId = "MenuDisplay",
+        InsertionMode = InsertionMode.Replace
+    }, new { @class = "form-horizontal" }))
+    {
+        <div class="col-sm-12">
+
+            <div class="form-group">
+                @Html.ValidationSummary(true)
+            </div>
+            
+            <div class="col-sm-6">
+                <div class="form-group">
+                    @Html.LabelFor(i => i.MenuItemName, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(i => i.MenuItemName, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    @Html.LabelFor(i => i.MenuItemDescription, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(i => i.MenuItemDescription, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-6">
+                <div class="form-group">
+                    @Html.LabelFor(i => i.MenuItemPrice, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(i => i.MenuItemPrice, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>    
+            
+            <div class="col-sm-6">
+                <div class="form-group">
+                    @Html.LabelFor(i => i.FoodPreferenceId)
+                </div>
+                
+                @Html.DropDownListFor(i =>i.FoodPreferenceId, new SelectList(FoodPreferenceList,"Value","Text"))
+            </div>
+
+        </div>
+    }
+</div>

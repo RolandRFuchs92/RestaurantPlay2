@@ -229,7 +229,10 @@
     <Compile Include="Areas\ImageItems\ViewModels\ImageCard\SaveImageCardViewModel.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\ImageItemViewModel.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\SaveImageItemViewModel.cs" />
-    <Compile Include="Areas\MenuCreator\MenuCreatorAreaRegistration.cs" />
+    <Compile Include="Areas\MenuBuilder\BusinessLogic\MenuBuilder.cs" />
+    <Compile Include="Areas\MenuBuilder\Controllers\MenuBuilderController.cs" />
+    <Compile Include="Areas\MenuBuilder\Entities\SaveMenuItemViewModel.cs" />
+    <Compile Include="Areas\MenuBuilder\MenuBuilderAreaRegistration.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -280,7 +283,10 @@
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselDisplay.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselFrame.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselStrip.cshtml" />
-    <Content Include="Areas\MenuCreator\Views\web.config" />
+    <Content Include="Areas\MenuBuilder\Views\web.config" />
+    <Content Include="Areas\MenuBuilder\Views\MenuBuilder\Index.cshtml" />
+    <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuBuilderForm.cshtml" />
+    <Content Include="Areas\MenuBuilder\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -338,9 +344,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />
     <Folder Include="Areas\ImageItems\Models\" />
-    <Folder Include="Areas\MenuCreator\Controllers\" />
-    <Folder Include="Areas\MenuCreator\Models\" />
-    <Folder Include="Areas\MenuCreator\Views\Shared\" />
+    <Folder Include="Areas\MenuBuilder\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

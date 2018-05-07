@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace RestaurantPlay2.Areas.MenuCreator
+namespace RestaurantPlay2.Areas.MenuBuilder
 {
-    public class MenuCreatorAreaRegistration : AreaRegistration 
+    public class MenuBuilderAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "MenuCreator";
+                return "MenuBuilder";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "MenuCreator_default",
-                "MenuCreator/{controller}/{action}/{id}",
+                "MenuBuilder_default",
+                "MenuBuilder/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }
