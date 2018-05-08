@@ -26,9 +26,10 @@ namespace DataAccess.MenuItem
             var db = new AppsContext();
 
             return (from ms in db.MenuItemSettings
-                join mi in db.MenuItems on ms.MenuItemId equals mi.MenuItemId
-                where ms.MenuItemSettingIsActive == true
-                select mi).ToList();
+                    join mi in db.MenuItems on ms.MenuItemId equals mi.MenuItemId
+                    where ms.MenuItemSettingIsActive == true
+                    && ms.MenuItemIsDeleted != true
+                    select mi).ToList();
         }
 
         /// <summary>
@@ -51,14 +52,18 @@ namespace DataAccess.MenuItem
         /// <returns></returns>
         public bool SaveMenuItem(Entities.MenuItem menuItem, MenuItemSetting menuItemSettings)
         {
-            using(var db = new AppsContext())
+            using (var db = new AppsContext())
             {
                 try
                 {
                     menuItem.CreatedOn = menuItem.CreatedOn ?? DateTime.Now;
 
                     db.MenuItems.AddOrUpdate(menuItem);
+                    db.SaveChanges();
+
+                    menuItemSettings.MenuItemId = menuItem.MenuItemId;
                     db.MenuItemSettings.AddOrUpdate(menuItemSettings);
+
                     db.SaveChanges();
                     return true;
                 }
@@ -73,10 +78,33 @@ namespace DataAccess.MenuItem
         /// "Deletes" the item but actually just flags the item as "IsDeleted"
         /// </summary>
         /// <returns></returns>
-        public bool DeleteMenuItems()
+        public bool DeleteMenuItems(int MenuItemId)
         {
+            using (var db = new AppsContext())
+            {
+                try
+                {
+                    var menuItem = (from item in db.MenuItemSettings
+                                    where item.MenuItemId == MenuItemId
+                                    select item).FirstOrDefault();
+
+                    menuItem.MenuItemIsDeleted = true;
+
+                    db.MenuItemSettings.AddOrUpdate(menuItem);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    //TODO Add Error Logging
+                }
+
+
+            }
+
+
             return false;
         }
 
-}
+    }
 }
