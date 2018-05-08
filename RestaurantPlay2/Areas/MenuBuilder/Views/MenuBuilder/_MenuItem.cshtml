@@ -1,0 +1,17 @@
+﻿@using RestaurantPlay2.Areas.MenuBuilder.ViewModels;
+@model List<MenuItemViewModel>
+
+
+@foreach (var item in Model)
+{
+
+    var itemPrice = !item.MenuItemDisplayPrice ? "" : item.MenuItemDisplayPrice.ToString();
+
+    <div class="col-sm-6">
+        <span class="menuItem-header">@item.MenuItemName</span>
+        <span class="pull-right menuItem-Text">@itemPrice</span>
+        <br />
+        <span class="menuItem-Text">@item.MenuItemDescription</span>
+        <hr />
+    </div>
+}

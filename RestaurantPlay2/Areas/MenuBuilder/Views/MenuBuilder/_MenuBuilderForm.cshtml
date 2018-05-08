@@ -1,7 +1,7 @@
 ﻿@using DataAccess.Context
 @using DataAccess.Entities
-@using RestaurantPlay2.Areas.MenuBuilder.Entities
 @using RestaurantPlay2.Areas.MenuBuilder.Models
+@using RestaurantPlay2.Areas.MenuBuilder.ViewModels
 @model SaveMenuItemViewModel
 @{
     var dropDownLists = new LoadMenuBuilderLists();
@@ -21,7 +21,7 @@
 
 
 <div class="container">
-    @using (Ajax.BeginForm("Index", "MenuBuilder", new AjaxOptions
+    @using (Ajax.BeginForm("SaveMenuItem", "MenuBuilder", new AjaxOptions
     {
         UpdateTargetId = "MenuDisplay",
         InsertionMode = InsertionMode.Replace
@@ -30,7 +30,7 @@
         <div class="col-sm-12">
 
             <div class="form-group">
-                @Html.ValidationSummary(true)
+                @Html.ValidationSummary()
             </div>
 
             <div class="form-group">
