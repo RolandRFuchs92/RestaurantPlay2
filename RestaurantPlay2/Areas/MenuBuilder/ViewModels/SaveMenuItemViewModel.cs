@@ -24,7 +24,7 @@ namespace RestaurantPlay2.Areas.MenuBuilder.ViewModels
         public bool DisplayImage { get; set; }
         [Display(Name = "Display Price")]
         public bool DisplayPrice { get; set; }
-        [Display(Name="Menu Item Category")]
+        [Display(Name="Menu Item Group")]
         public int ItemTypeId { get; set; }
         [Display(Name = "Priority")]
         public int Priority { get; set; }

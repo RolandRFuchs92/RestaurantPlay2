@@ -9,7 +9,11 @@ namespace RestaurantPlay2.Areas.MenuBuilder.Controllers
         // GET: MenuCreator/MenuBuilder
         public ActionResult Index()
         {
-            return View();
+            var model = new MenuBuilderViewModel();
+            model.SaveMenuItemViewModel = null;
+            model.MenuCategoryViewModel = new BusinessLogic.MenuBuilder().LoadMenuItemsViewModel();
+
+            return View(model);
         }
 
         public ActionResult SaveMenuItem(SaveMenuItemViewModel saveViewModel)
