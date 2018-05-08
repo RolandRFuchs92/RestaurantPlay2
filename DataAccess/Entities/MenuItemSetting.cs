@@ -17,5 +17,6 @@ namespace DataAccess.Entities
         public int MenuItemId { get; set; }
         public int MenuItemTypeId { get; set; }
         public int MenuItemPriority { get; set; }
+        public bool MenuItemIsDeleted { get; set; }
     }
 }

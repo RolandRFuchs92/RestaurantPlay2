@@ -15,7 +15,7 @@ namespace DataAccess.Entities
         public string MenuItemName { get; set; }
         public string MenuItemDescription { get; set; }
         public double MenuItemPrice { get; set; }
-        public DateTime CreatedOn { get; set; }
+        public DateTime? CreatedOn { get; set; }
         public int FoodPreferenceId { get; set; }
     }
 }

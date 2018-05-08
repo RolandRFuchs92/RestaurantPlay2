@@ -5,6 +5,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Context;
+using DataAccess.Entities;
+using System.Data.Entity.Migrations;
 
 namespace DataAccess.MenuItem
 {
@@ -41,7 +43,40 @@ namespace DataAccess.MenuItem
             return db.MenuItems.FirstOrDefault(i => i.MenuItemId == menuItemId);
         }
 
+        /// <summary>
+        /// Add a menu item and its settings, these 2 entities/tables are coupled.
+        /// </summary>
+        /// <param name="menuItem"></param>
+        /// <param name="menuItemSettings"></param>
+        /// <returns></returns>
+        public bool SaveMenuItem(Entities.MenuItem menuItem, MenuItemSetting menuItemSettings)
+        {
+            using(var db = new AppsContext())
+            {
+                try
+                {
+                    menuItem.CreatedOn = menuItem.CreatedOn ?? DateTime.Now;
 
+                    db.MenuItems.AddOrUpdate(menuItem);
+                    db.MenuItemSettings.AddOrUpdate(menuItemSettings);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
+        /// <summary>
+        /// "Deletes" the item but actually just flags the item as "IsDeleted"
+        /// </summary>
+        /// <returns></returns>
+        public bool DeleteMenuItems()
+        {
+            return false;
+        }
 
 }
 }
