@@ -228,6 +228,7 @@
     <Compile Include="Areas\ImageItems\ViewModels\ImageCarousel\SaveCarouselViewModel.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\ImageCard\SaveImageCardViewModel.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\ImageItemViewModel.cs" />
+    <Compile Include="Areas\ImageItems\ViewModels\BackgroundImage\SaveBackgroundImage.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\SaveImageItemViewModel.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -278,6 +279,7 @@
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselForm.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselDisplay.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselFrame.cshtml" />
+    <Content Include="Areas\ImageItems\Views\ImageBackground\_ImageBackgroundForm.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
