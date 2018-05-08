@@ -16,12 +16,12 @@
         <div class="form-group">
             <div class="col-sm-6">
                 @Html.LabelFor(i => i.DetailTitle, new { @class = "control-label col-sm-4" })
-                @Html.TextBoxFor(i => i.DetailTitle, new { @class = "form-control col-sm-8" })
+                @Html.TextBoxFor(i => i.DetailTitle, new { @class = "form-control col-sm-8", placeholder = "Title" })
                 @Html.ValidationMessageFor(i => i.DetailTitle)
             </div>
             <div class="col-sm-6">
                 @Html.LabelFor(i => i.DetailSubTitle, new { @class = "control-label col-sm-4" })
-                @Html.TextBoxFor(i => i.DetailSubTitle, new { @class = "form-control col-sm-8" })
+                @Html.TextBoxFor(i => i.DetailSubTitle, new { @class = "form-control col-sm-8" , placeholder = "Sub Title" })
                 @Html.ValidationMessageFor(i => i.DetailSubTitle)
             </div>
         </div>
@@ -44,7 +44,7 @@
     <div class="form-horizontal">
         <div class="form-group">
             
-            <div class="col-sm-6">
+            <div class="col-sm-offset-6 col-sm-6">
                 <button type="submit" class="btn btn-primary pull-right">Submit</button>
             </div>
         </div>

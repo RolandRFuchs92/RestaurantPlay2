@@ -27,5 +27,11 @@ namespace RestaurantPlay2.Areas.ImageItems.Interfaces
         /// <param name="imageItem"></param>
         /// <returns></returns>
         bool SaveImageItem(ISaveImageItem imageItem);
+        /// <summary>
+        /// Delete a Image Item
+        /// </summary>
+        /// <param name="imageId"></param>
+        /// <returns></returns>
+        bool DeleteImageItem(int imageId);
     }
 }

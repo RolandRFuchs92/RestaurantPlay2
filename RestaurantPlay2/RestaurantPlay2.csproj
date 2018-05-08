@@ -280,6 +280,7 @@
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselDisplay.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselFrame.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageBackground\_ImageBackgroundForm.cshtml" />
+    <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselStrip.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -324,16 +325,14 @@
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

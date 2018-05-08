@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
 }
 
@@ -72,4 +72,22 @@ img.card-img-top {
 .page-spacing {
     padding-top: 100px;
     padding-bottom: 100px;
+}
+
+.img-pos1 {
+}
+
+
+
+.img-cap-title {
+    font-weight: bold;
+}
+
+.img-cap {
+    position: relative;
+    color: white;
+    text-align: center;
+    bottom: 75px;
+    background-color: rgba(0, 0, 0, 0.60);
+    ;
 }

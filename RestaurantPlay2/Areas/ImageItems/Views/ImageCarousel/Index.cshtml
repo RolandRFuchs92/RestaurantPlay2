@@ -3,9 +3,35 @@
 
 
 @Html.Partial("_CarouselForm", Model.SaveCarouselItem)
-
 <hr />
-<h3>Preview Carousel</h3>
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.Partial("_CarouselStrip", Model.CarouselItems)
+    </div>
+</div>
+<hr />
+<div class="form-horizontal">
+    <div class="form-group">
+        <h3>Preview Carousel</h3>
+        @Html.Partial("_CarouselDisplay", Model.CarouselItems.Where(i => i.DetailIsActive).ToList())
+    </div>
+</div>
 
-@Html.Partial("_CarouselDisplay", Model.CarouselItems)
-
+@section Scripts
+{
+    <script>
+        function EditCarousel(imageId) {
+            $.ajax({
+                type: "POST",
+                url: "/ImageItems/ImageCarousel/EditCarouselItem",
+                data: { imageId : imageId},
+                success: function (data) {
+                    $("#imageID").val(data.ImageId);
+                    $("#DetailTitle").val(data.DetailTitle);
+                    $("#DetailSubTitle").val(data.DetailSubTitle);
+                    $("#IsActive").prop('checked', data.DetailIsActive);
+                }
+            });
+        }
+    </script>
+}
