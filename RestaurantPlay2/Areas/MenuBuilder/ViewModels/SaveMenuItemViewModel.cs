@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using DataAccess.Entities;
 
-namespace RestaurantPlay2.Areas.MenuBuilder.Entities
+namespace RestaurantPlay2.Areas.MenuBuilder.ViewModels
 {
     public class SaveMenuItemViewModel
     {

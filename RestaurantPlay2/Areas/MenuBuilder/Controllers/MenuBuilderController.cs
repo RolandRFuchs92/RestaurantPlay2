@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using RestaurantPlay2.Areas.MenuBuilder.ViewModels;
+using System.Web.Mvc;
 
 namespace RestaurantPlay2.Areas.MenuBuilder.Controllers
 {
@@ -10,7 +11,7 @@ namespace RestaurantPlay2.Areas.MenuBuilder.Controllers
             return View();
         }
 
-        public ActionResult SaveMenuItem()
+        public ActionResult SaveMenuItem(SaveMenuItemViewModel savedViewModel)
         {
             return View("_MenuBuilderForm");
         }

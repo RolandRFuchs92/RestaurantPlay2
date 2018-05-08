@@ -1,6 +1,6 @@
 ﻿@using DataAccess.Context
 @using DataAccess.Entities
-@using RestaurantPlay2.Areas.MenuBuilder.Entities
+@using RestaurantPlay2.Areas.MenuBuilder.ViewModels
 @using RestaurantPlay2.Areas.MenuBuilder.Models
 @model SaveMenuItemViewModel
 @{
@@ -21,7 +21,7 @@
 
 
 <div class="container">
-    @using (Ajax.BeginForm("Index", "MenuBuilder", new AjaxOptions
+    @using (Ajax.BeginForm("SaveMenuItem", "MenuBuilder", new AjaxOptions
     {
         UpdateTargetId = "MenuDisplay",
         InsertionMode = InsertionMode.Replace

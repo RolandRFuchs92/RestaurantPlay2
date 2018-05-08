@@ -231,7 +231,7 @@
     <Compile Include="Areas\ImageItems\ViewModels\SaveImageItemViewModel.cs" />
     <Compile Include="Areas\MenuBuilder\BusinessLogic\MenuBuilder.cs" />
     <Compile Include="Areas\MenuBuilder\Controllers\MenuBuilderController.cs" />
-    <Compile Include="Areas\MenuBuilder\Entities\SaveMenuItemViewModel.cs" />
+    <Compile Include="Areas\MenuBuilder\ViewModels\SaveMenuItemViewModel.cs" />
     <Compile Include="Areas\MenuBuilder\MenuBuilderAreaRegistration.cs" />
     <Compile Include="Areas\MenuBuilder\Models\LoadMenuBuilderLists.cs" />
     <Compile Include="Context\AppsContext.cs" />
@@ -260,6 +260,8 @@
     <Content Include="Content\Images\GinImage.jpg" />
     <Content Include="Content\Images\MilkShakeImage.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Models\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -288,6 +290,8 @@
     <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuBuilderForm.cshtml" />
     <Content Include="Areas\MenuBuilder\Views\_ViewStart.cshtml" />
     <Content Include="Areas\MenuBuilder\Views\web.config" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -304,6 +308,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -345,6 +351,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />
     <Folder Include="Areas\ImageItems\Models\" />
+    <Folder Include="Areas\MenuBuilder\Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\fonts\glyphicons-halflings-regular.woff" />

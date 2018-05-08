@@ -38,11 +38,13 @@ namespace RestaurantPlay2
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js",
                 "~/Scripts/Jquery/jquery.validate.js",
-                "~/Scripts/Jquery/jquery.validate.unobtrusive.js"));
+                "~/Scripts/Jquery/jquery.validate.unobtrusive.js",
+                "~/Scripts/toastr.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/bootstrap.css",
-                 "~/Content/Site.css"));
+                 "~/Content/Site.css",
+                 "~/Content/toastr.min.css"));
         }
     }
 }

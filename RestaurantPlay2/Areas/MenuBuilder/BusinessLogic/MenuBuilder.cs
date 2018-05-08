@@ -1,12 +1,15 @@
-﻿namespace RestaurantPlay2.Areas.MenuBuilder.BusinessLogic
+﻿using RestaurantPlay2.Areas.MenuBuilder.ViewModels;
+
+namespace RestaurantPlay2.Areas.MenuBuilder.BusinessLogic
 {
     public class MenuBuilder
     {
 
 
-        public bool SaveMenuItem()
+        public bool SaveMenuItem(SaveMenuItemViewModel savedViewModel)
         {
-            //TODO- Save Menu Item
+
+
 
             return false;
         }
