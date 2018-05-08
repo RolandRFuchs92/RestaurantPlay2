@@ -261,7 +261,7 @@
     <Content Include="Content\Images\MilkShakeImage.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Models\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\_run.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
@@ -284,10 +284,10 @@
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselDisplay.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselFrame.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselStrip.cshtml" />
-    <Content Include="Areas\MenuBuilder\Views\web.config" />
     <Content Include="Areas\MenuBuilder\Views\MenuBuilder\Index.cshtml" />
     <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuBuilderForm.cshtml" />
     <Content Include="Areas\MenuBuilder\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\MenuBuilder\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -347,13 +347,13 @@
     <Folder Include="Areas\ImageItems\Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Models\fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Models\fonts\glyphicons-halflings-regular.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Models\fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
