@@ -5,7 +5,8 @@
 
 @foreach (var category in Model)
 {
-    <h4>@category.Title</h4>
-    @Html.Partial("_MenuItem", category.MenuItems)
-    <br/>
+    <div class="col-sm-6">
+        <span clas="menu-item-title" style="font-size: 20px;">@category.Title</span>
+        @Html.Partial("_MenuItem", category.MenuItems)
+    </div>
 }

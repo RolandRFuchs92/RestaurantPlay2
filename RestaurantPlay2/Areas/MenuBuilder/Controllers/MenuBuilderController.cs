@@ -1,5 +1,6 @@
 ﻿using System.Web.Http.Results;
 using System.Web.Mvc;
+using DataAccess.MenuItem;
 using RestaurantPlay2.Areas.MenuBuilder.ViewModels;
 
 
@@ -7,13 +8,16 @@ namespace RestaurantPlay2.Areas.MenuBuilder.Controllers
 {
     public class MenuBuilderController : Controller
     {
+        private readonly BusinessLogic.MenuBuilder _repo;
+
+        public MenuBuilderController()
+        {
+            _repo = new BusinessLogic.MenuBuilder();    
+        }
         // GET: MenuCreator/MenuBuilder
         public ActionResult Index()
         {
-            var model = new MenuBuilderViewModel();
-            model.MenuCategoryViewModel = new BusinessLogic.MenuBuilder().LoadMenuItemsViewModel();
-            model.SaveMenuItemViewModelProp = new SaveMenuItemViewModel();
-
+            var model = _repo.LoadMenuBuilderViewModel();
             return View(model);
         }
 
@@ -24,8 +28,13 @@ namespace RestaurantPlay2.Areas.MenuBuilder.Controllers
                 ModelState.AddModelError("Error", "The data you supplied was incorrect, please review your data and try again.");
                 return View("_MenuBuilderForm", saveViewModel);
             }
+            var builder = new BusinessLogic.MenuBuilder();
+            builder.SaveMenuItem(saveViewModel);
+            ModelState.Clear();
 
-            return View("_MenuBuilderForm");
+            var model = _repo.LoadMenuBuilderViewModel();
+
+            return View("Index", model);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace DataAccess.Models
 {
     public class MenuItemModel 
     {
-        public Entities.MenuItem MenuItemUnit { get; set; }
+        public List<Entities.MenuItem> MenuItemUnit { get; set; }
         public MenuItemCategory MenuItemCategory { get; set; }
     }
 }

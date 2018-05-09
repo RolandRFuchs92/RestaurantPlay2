@@ -25,20 +25,25 @@ namespace DataAccess.MenuItem
         public List<MenuItemModel> GetMenuItemModels()
         {
             var db = new AppsContext();
+            var thing = (from ms in db.MenuItemSettings
+                         join mi in db.MenuItems on ms.MenuItemId equals mi.MenuItemId
+                         //join mc in db.MenuItemCategories on ms.MenuItemCategoryId equals mc.MenuItemCategoryId
+                         where ms.MenuItemSettingIsActive
+                               && !ms.MenuItemIsDeleted
+                         orderby ms.MenuItemPriority
+                         group mi by ms.MenuItemCategoryId into g
+                         select g).ToList();
+
+            var model = (from i in thing
+                         join mc in db.MenuItemCategories on i.Key equals mc.MenuItemCategoryId
+                         select new MenuItemModel
+                         {
+                             MenuItemCategory = mc,
+                             MenuItemUnit = i.ToList()
+                         }).ToList();
 
             //This is like super overboard for such a simple thing but i think it works fine... in production i would move this straight into stored proc...
-            return (from ms in db.MenuItemSettings
-                    join mi in db.MenuItems on ms.MenuItemId equals mi.MenuItemId
-                    join mc in db.MenuItemCategories on ms.MenuItemCategoryId equals mc.MenuItemCategoryId
-                    where ms.MenuItemSettingIsActive
-                          && !ms.MenuItemIsDeleted
-                    orderby ms.MenuItemCategoryId
-                        , ms.MenuItemPriority
-                    select new MenuItemModel
-                    {
-                        MenuItemUnit = mi,
-                        MenuItemCategory = mc
-                    }).ToList();
+            return model;
         }
 
         public MenuItemFormModel GetMenuItemFormModelById(int menuItemId)
@@ -47,7 +52,7 @@ namespace DataAccess.MenuItem
 
             return (from mi in db.MenuItems
                     join ms in db.MenuItemSettings on mi.MenuItemId equals ms.MenuItemId
-                    where mi.MenuItemId == menuItemId 
+                    where mi.MenuItemId == menuItemId
                           && ms.MenuItemId == menuItemId
                     select new MenuItemFormModel
                     {
@@ -78,12 +83,14 @@ namespace DataAccess.MenuItem
             {
                 try
                 {
+                    menuItem.CreatedOn = DateTime.Now;
                     db.MenuItems.AddOrUpdate(menuItem);
                     db.SaveChanges();
                     menuItemSettings.MenuItemId = menuItem.MenuItemId;
 
                     db.MenuItemSettings.AddOrUpdate(menuItemSettings);
                     db.SaveChanges();
+                    return true;
                 }
                 catch (Exception e)
                 {
@@ -91,8 +98,6 @@ namespace DataAccess.MenuItem
                     throw;
                 }
             }
-
-            return false;
         }
 
         /// <summary>

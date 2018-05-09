@@ -17,7 +17,7 @@ namespace RestaurantPlay2.Areas.MenuBuilder.BusinessLogic
         /// </summary>
         /// <param name="menuItemId"></param>
         /// <returns></returns>
-        public SaveMenuItemViewModel LoadMenuItemViewModel(int menuItemId)
+        public SaveMenuItemViewModel LoadFormMenuItemViewModel(int menuItemId)
         {
             var menuItemViewModel = new MenuItemRepo().GetMenuItemFormModelById(menuItemId);
 
@@ -47,25 +47,36 @@ namespace RestaurantPlay2.Areas.MenuBuilder.BusinessLogic
         {
             var menuItems = new MenuItemRepo().GetMenuItemModels();
 
+            //TODO User the displayPrice variable and stop hardcoding stuff brah
             var menuItemsViewModel = (from item in menuItems
                                       select new MenuCategoryViewModel
                                       {
-                                          MenuItems = new List<MenuItemViewModel>
-                                          {
-                                            new MenuItemViewModel
-                                            {
-                                               MenuItemDescription = item.MenuItemUnit.MenuItemDescription,
-                                                MenuItemName = item.MenuItemUnit.MenuItemName,
-                                                MenuItemPrice = item.MenuItemUnit.MenuItemPrice
-                                                //MenuItemDisplayPrice = item. // need to add the "isDisplay" flag at some point... TODO
-                                            }
-                                          } ,
+                                          MenuItems = (from i in item.MenuItemUnit
+                                                      select new MenuItemViewModel
+                                                      {
+                                                          MenuItemDescription =i.MenuItemDescription,
+                                                          MenuItemName =  i.MenuItemName,
+                                                          MenuItemPrice = i.MenuItemPrice,
+                                                          MenuItemDisplayPrice = true
+                                                      }).ToList(),
                                           Title = item.MenuItemCategory.MenuItemCategoryName
                                       }).ToList();
 
+
             return menuItemsViewModel;
         }
-        
+
+        public MenuBuilderViewModel LoadMenuBuilderViewModel()
+        {
+            var model = new MenuBuilderViewModel
+            {
+                MenuCategoryViewModel = new BusinessLogic.MenuBuilder().LoadMenuItemsViewModel(),
+                SaveMenuItemViewModelProp = new SaveMenuItemViewModel()
+            };
+
+            return model;
+        }
+
         /// <summary>
         /// Save the menu item from the user passed view model.
         /// </summary>

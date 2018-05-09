@@ -5,13 +5,14 @@
 @foreach (var item in Model)
 {
 
-    var itemPrice = !item.MenuItemDisplayPrice ? "" : item.MenuItemDisplayPrice.ToString();
+    var itemPrice = !item.MenuItemDisplayPrice ? "" : item.MenuItemPrice.ToString();
 
-    <div class="col-sm-6">
+    <div class="col-sm-12">
         <span class="menuItem-header">@item.MenuItemName</span>
         <span class="pull-right menuItem-Text">@itemPrice</span>
         <br />
         <span class="menuItem-Text">@item.MenuItemDescription</span>
-        <hr />
+        <br />
+
     </div>
 }

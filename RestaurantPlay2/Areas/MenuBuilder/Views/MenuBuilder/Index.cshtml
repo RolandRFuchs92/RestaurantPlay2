@@ -14,7 +14,7 @@
         margin: 5px;
     }
 
-    .menuItem-header{
+    .menuItem-header {
         font-family: fantasy;
     }
 
@@ -29,10 +29,9 @@
 @Html.Partial("_MenuBuilderForm", Model.SaveMenuItemViewModelProp)
 
 <hr />
+<h3>Menu Preview</h3>
 <div class="form-horizontal">
     <div class="form-group">
-        <div class="col-sm-12">
-            @Html.Partial("_MenuItemCategory", Model.MenuCategoryViewModel)
-        </div>
+        @Html.Partial("_MenuItemCategory", Model.MenuCategoryViewModel)
     </div>
 </div>
