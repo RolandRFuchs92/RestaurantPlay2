@@ -12,6 +12,7 @@ namespace RestaurantPlay2.Areas.MenuBuilder.Controllers
         {
             var model = new MenuBuilderViewModel();
             model.MenuCategoryViewModel = new BusinessLogic.MenuBuilder().LoadMenuItemsViewModel();
+            model.SaveMenuItemViewModelProp = new SaveMenuItemViewModel();
 
             return View(model);
         }
@@ -23,8 +24,6 @@ namespace RestaurantPlay2.Areas.MenuBuilder.Controllers
                 ModelState.AddModelError("Error", "The data you supplied was incorrect, please review your data and try again.");
                 return View("_MenuBuilderForm", saveViewModel);
             }
-
-
 
             return View("_MenuBuilderForm");
         }
