@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Context;
 using DataAccess.Entities;
-using System.Data.Entity.Migrations;
+using DataAccess.Models;
 
 namespace DataAccess.MenuItem
 {
@@ -21,15 +22,38 @@ namespace DataAccess.MenuItem
         /// Get menu Items that are active
         /// </summary>
         /// <returns></returns>
-        public List<Entities.MenuItem> GetActiveMenuItems()
+        public List<MenuItemModel> GetMenuItemModels()
         {
             var db = new AppsContext();
 
+            //This is like super overboard for such a simple thing but i think it works fine... in production i would move this straight into stored proc...
             return (from ms in db.MenuItemSettings
                     join mi in db.MenuItems on ms.MenuItemId equals mi.MenuItemId
-                    where ms.MenuItemSettingIsActive == true
-                    && ms.MenuItemIsDeleted != true
-                    select mi).ToList();
+                    join mc in db.MenuItemCategories on ms.MenuItemCategoryId equals mc.MenuItemCategoryId
+                    where ms.MenuItemSettingIsActive
+                          && !ms.MenuItemIsDeleted
+                    orderby ms.MenuItemCategoryId
+                        , ms.MenuItemPriority
+                    select new MenuItemModel
+                    {
+                        MenuItemUnit = mi,
+                        MenuItemCategory = mc
+                    }).ToList();
+        }
+
+        public MenuItemFormModel GetMenuItemFormModelById(int menuItemId)
+        {
+            var db = new AppsContext();
+
+            return (from mi in db.MenuItems
+                    join ms in db.MenuItemSettings on mi.MenuItemId equals ms.MenuItemId
+                    where mi.MenuItemId == menuItemId 
+                          && ms.MenuItemId == menuItemId
+                    select new MenuItemFormModel
+                    {
+                        MenuItem = mi,
+                        MenuItemSetting = ms
+                    }).FirstOrDefault();
         }
 
         /// <summary>
@@ -39,13 +63,11 @@ namespace DataAccess.MenuItem
         /// <returns></returns>
         public Entities.MenuItem GetMenuItemById(int menuItemId)
         {
-            var db = new AppsContext();
-
-            return db.MenuItems.FirstOrDefault(i => i.MenuItemId == menuItemId);
+            return new AppsContext().MenuItems.FirstOrDefault(i => i.MenuItemId == menuItemId);
         }
 
         /// <summary>
-        /// Add a menu item and its settings, these 2 entities/tables are coupled.
+        /// Add both a MenuItem and a MenuItemSettings row to the db.
         /// </summary>
         /// <param name="menuItem"></param>
         /// <param name="menuItemSettings"></param>
@@ -56,54 +78,49 @@ namespace DataAccess.MenuItem
             {
                 try
                 {
-                    menuItem.CreatedOn = menuItem.CreatedOn ?? DateTime.Now;
-
                     db.MenuItems.AddOrUpdate(menuItem);
                     db.SaveChanges();
-
                     menuItemSettings.MenuItemId = menuItem.MenuItemId;
-                    db.MenuItemSettings.AddOrUpdate(menuItemSettings);
 
+                    db.MenuItemSettings.AddOrUpdate(menuItemSettings);
                     db.SaveChanges();
-                    return true;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    return false;
+                    Console.WriteLine(e);
+                    throw;
                 }
             }
+
+            return false;
         }
 
         /// <summary>
-        /// "Deletes" the item but actually just flags the item as "IsDeleted"
+        /// this isnt a real delete its more of a fake one, cause we are really just flagging the row as deleted.
         /// </summary>
+        /// <param name="menuItemId"></param>
         /// <returns></returns>
-        public bool DeleteMenuItems(int MenuItemId)
+        public bool DeleteMenuItem(int menuItemId)
         {
             using (var db = new AppsContext())
             {
                 try
                 {
-                    var menuItem = (from item in db.MenuItemSettings
-                                    where item.MenuItemId == MenuItemId
-                                    select item).FirstOrDefault();
+                    var menuItemSettings = (from item in db.MenuItemSettings
+                                            where item.MenuItemId == menuItemId
+                                            select item).FirstOrDefault();
 
-                    menuItem.MenuItemIsDeleted = true;
+                    menuItemSettings.MenuItemIsDeleted = true;
 
-                    db.MenuItemSettings.AddOrUpdate(menuItem);
-                    db.SaveChanges();
+                    db.MenuItemSettings.AddOrUpdate(menuItemSettings);
+
                     return true;
                 }
                 catch (Exception e)
                 {
-                    //TODO Add Error Logging
+                    return false;
                 }
-
-
             }
-
-
-            return false;
         }
 
     }

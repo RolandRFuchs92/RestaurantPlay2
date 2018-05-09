@@ -231,6 +231,9 @@
     <Compile Include="Areas\ImageItems\ViewModels\SaveImageItemViewModel.cs" />
     <Compile Include="Areas\MenuBuilder\BusinessLogic\MenuBuilder.cs" />
     <Compile Include="Areas\MenuBuilder\Controllers\MenuBuilderController.cs" />
+    <Compile Include="Areas\MenuBuilder\ViewModels\MenuBuilderViewModel.cs" />
+    <Compile Include="Areas\MenuBuilder\ViewModels\MenuCategoryViewModel.cs" />
+    <Compile Include="Areas\MenuBuilder\ViewModels\MenuItemViewModel.cs" />
     <Compile Include="Areas\MenuBuilder\ViewModels\SaveMenuItemViewModel.cs" />
     <Compile Include="Areas\MenuBuilder\MenuBuilderAreaRegistration.cs" />
     <Compile Include="Areas\MenuBuilder\Models\LoadMenuBuilderLists.cs" />
@@ -290,9 +293,8 @@
     <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuBuilderForm.cshtml" />
     <Content Include="Areas\MenuBuilder\Views\_ViewStart.cshtml" />
     <Content Include="Areas\MenuBuilder\Views\web.config" />
-    <Content Include="Content\toastr.scss" />
-    <Content Include="Content\toastr.less" />
     <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuItem.cshtml" />
+    <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuItemCategory.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
