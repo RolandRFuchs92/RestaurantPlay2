@@ -54,6 +54,7 @@ namespace RestaurantPlay2.Areas.MenuBuilder.BusinessLogic
                                           MenuItems = (from i in item.MenuItemUnit
                                                       select new MenuItemViewModel
                                                       {
+                                                          MenuItemId = i.MenuItemId,
                                                           MenuItemDescription =i.MenuItemDescription,
                                                           MenuItemName =  i.MenuItemName,
                                                           MenuItemPrice = i.MenuItemPrice,
@@ -66,6 +67,10 @@ namespace RestaurantPlay2.Areas.MenuBuilder.BusinessLogic
             return menuItemsViewModel;
         }
 
+        /// <summary>
+        /// get the viewmodel required for the index page...
+        /// </summary>
+        /// <returns></returns>
         public MenuBuilderViewModel LoadMenuBuilderViewModel()
         {
             var model = new MenuBuilderViewModel
@@ -90,6 +95,16 @@ namespace RestaurantPlay2.Areas.MenuBuilder.BusinessLogic
             var moo = new DataAccess.MenuItem.MenuItemRepo().SaveMenuItem(menuItem, menuItemSettings);
 
             return moo;
+        }
+
+        /// <summary>
+        /// This is to keep with a solid principal, and a seperation of concerns...
+        /// </summary>
+        /// <param name="menuItemId"></param>
+        /// <returns></returns>
+        public bool DeleteMenuItem(int menuItemId)
+        {
+            return new MenuItemRepo().DeleteMenuItem(menuItemId); ;
         }
 
         #region private methods

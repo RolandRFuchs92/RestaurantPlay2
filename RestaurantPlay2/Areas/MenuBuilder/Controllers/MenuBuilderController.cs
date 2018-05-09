@@ -1,4 +1,5 @@
-﻿using System.Web.Http.Results;
+﻿using System;
+using System.Web.Http.Results;
 using System.Web.Mvc;
 using DataAccess.MenuItem;
 using RestaurantPlay2.Areas.MenuBuilder.ViewModels;
@@ -18,6 +19,7 @@ namespace RestaurantPlay2.Areas.MenuBuilder.Controllers
         public ActionResult Index()
         {
             var model = _repo.LoadMenuBuilderViewModel();
+
             return View(model);
         }
 
@@ -32,6 +34,18 @@ namespace RestaurantPlay2.Areas.MenuBuilder.Controllers
             builder.SaveMenuItem(saveViewModel);
             ModelState.Clear();
 
+            var model = _repo.LoadMenuBuilderViewModel();
+
+            return View("Index", model);
+        }
+
+        public ActionResult DeleteMenuItem(int menuItemId)
+        {
+            if (!_repo.DeleteMenuItem(menuItemId))
+            {
+                ModelState.AddModelError("Unable to find menu item!", new Exception("No menu item found."));
+                return null;
+            }
             var model = _repo.LoadMenuBuilderViewModel();
 
             return View("Index", model);

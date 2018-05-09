@@ -118,7 +118,7 @@ namespace DataAccess.MenuItem
                     menuItemSettings.MenuItemIsDeleted = true;
 
                     db.MenuItemSettings.AddOrUpdate(menuItemSettings);
-
+                    db.SaveChanges();
                     return true;
                 }
                 catch (Exception e)
@@ -127,6 +127,5 @@ namespace DataAccess.MenuItem
                 }
             }
         }
-
     }
 }

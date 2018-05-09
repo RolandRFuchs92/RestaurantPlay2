@@ -1,12 +1,10 @@
-﻿
-@using RestaurantPlay2.Areas.MenuBuilder.ViewModels
+﻿@using RestaurantPlay2.Areas.MenuBuilder.ViewModels
 @model List<MenuCategoryViewModel>
-
 
 @foreach (var category in Model)
 {
     <div class="col-sm-6">
         <span clas="menu-item-title" style="font-size: 20px;">@category.Title</span>
-        @Html.Partial("_MenuItem", category.MenuItems)
+        @Html.Partial("_MenuItem", category.MenuItems, new ViewDataDictionary{{"IsEdit",ViewData["IsEdit"]}})
     </div>
 }

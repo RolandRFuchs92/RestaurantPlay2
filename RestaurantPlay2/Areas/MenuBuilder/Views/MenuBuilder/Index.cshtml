@@ -32,6 +32,6 @@
 <h3>Menu Preview</h3>
 <div class="form-horizontal">
     <div class="form-group">
-        @Html.Partial("_MenuItemCategory", Model.MenuCategoryViewModel)
+        @Html.Partial("_MenuItemCategory", Model.MenuCategoryViewModel, new ViewDataDictionary{ {"IsEdit", true}})
     </div>
 </div>
