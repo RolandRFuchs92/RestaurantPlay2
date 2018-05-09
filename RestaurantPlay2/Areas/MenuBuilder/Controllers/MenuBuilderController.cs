@@ -11,7 +11,6 @@ namespace RestaurantPlay2.Areas.MenuBuilder.Controllers
         public ActionResult Index()
         {
             var model = new MenuBuilderViewModel();
-            model.SaveMenuItemViewModel = null;
             model.MenuCategoryViewModel = new BusinessLogic.MenuBuilder().LoadMenuItemsViewModel();
 
             return View(model);
