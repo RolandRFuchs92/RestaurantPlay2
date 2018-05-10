@@ -1,9 +1,9 @@
 ﻿@using RestaurantPlay2.Areas.MenuBuilder.Models
-
 @using RestaurantPlay2.Areas.MenuBuilder.ViewModels
-
 @model SaveMenuItemViewModel
+
 @{
+    Layout = null;
     var dropDownLists = new LoadMenuBuilderLists();
 
     var foodPreferenceId = 0;
@@ -27,8 +27,8 @@
         InsertionMode = InsertionMode.Replace
     }, new { @class = "form-horizontal" }))
     {
+        @Html.HiddenFor(i=>i.MenuItemId)
         <div class="col-sm-12">
-
             <div class="form-group">
                 @Html.ValidationSummary()
             </div>

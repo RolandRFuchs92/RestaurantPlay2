@@ -50,5 +50,11 @@ namespace RestaurantPlay2.Areas.MenuBuilder.Controllers
 
             return View("Index", model);
         }
+
+        public ActionResult GetMenuBuilderForm(int menuItemId)
+        {
+            var model = _repo.LoadFormMenuItemViewModel(menuItemId);
+            return View("_MenuBuilderForm", model);
+        }
     }
 }
