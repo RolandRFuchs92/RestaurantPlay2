@@ -11,7 +11,8 @@ namespace RestaurantPlay2
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                "~/Scripts/jquery-{version}.js"));
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/jquery.unobtrusive-ajax.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.unobtrusive*",
@@ -38,11 +39,13 @@ namespace RestaurantPlay2
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js",
                 "~/Scripts/Jquery/jquery.validate.js",
-                "~/Scripts/Jquery/jquery.validate.unobtrusive.js"));
+                "~/Scripts/Jquery/jquery.validate.unobtrusive.js",
+                "~/Scripts/toastr.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/bootstrap.css",
-                 "~/Content/Site.css"));
+                 "~/Content/Site.css",
+                 "~/Content/toastr.min.css"));
         }
     }
 }

@@ -1,0 +1,38 @@
+﻿@using RestaurantPlay2.Areas.MenuBuilder.ViewModels
+@model MenuBuilderViewModel
+
+<style>
+    .menuItem {
+        background-color: rgba(153,153,153,0.75);
+        border-radius: 5px;
+        border: 1px solid rgba(153,153,153,0.30);
+        padding: 10px;
+        height: 100px;
+    }
+
+    .killHr {
+        margin: 5px;
+    }
+
+    .menuItem-header {
+        font-family: fantasy;
+    }
+
+    .menuItem-Text {
+        font-family: unset;
+    }
+</style>
+
+<h3>Menu Builder</h3>
+<hr />
+
+<div id="MenuBuilderForm">
+    @Html.Partial("_MenuBuilderForm", Model.SaveMenuItemViewModelProp)
+</div>
+<hr />
+<h3>Menu Preview</h3>
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.Partial("_MenuItemCategory", Model.MenuCategoryViewModel, new ViewDataDictionary { { "IsEdit", true } })
+    </div>
+</div>

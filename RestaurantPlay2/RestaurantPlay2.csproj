@@ -230,6 +230,14 @@
     <Compile Include="Areas\ImageItems\ViewModels\ImageItemViewModel.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\BackgroundImage\SaveBackgroundImage.cs" />
     <Compile Include="Areas\ImageItems\ViewModels\SaveImageItemViewModel.cs" />
+    <Compile Include="Areas\MenuBuilder\BusinessLogic\MenuBuilder.cs" />
+    <Compile Include="Areas\MenuBuilder\Controllers\MenuBuilderController.cs" />
+    <Compile Include="Areas\MenuBuilder\ViewModels\MenuBuilderViewModel.cs" />
+    <Compile Include="Areas\MenuBuilder\ViewModels\MenuCategoryViewModel.cs" />
+    <Compile Include="Areas\MenuBuilder\ViewModels\MenuItemViewModel.cs" />
+    <Compile Include="Areas\MenuBuilder\ViewModels\SaveMenuItemViewModel.cs" />
+    <Compile Include="Areas\MenuBuilder\MenuBuilderAreaRegistration.cs" />
+    <Compile Include="Areas\MenuBuilder\Models\LoadMenuBuilderLists.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -256,8 +264,10 @@
     <Content Include="Content\Images\GinImage.jpg" />
     <Content Include="Content\Images\MilkShakeImage.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Models\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\_run.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
@@ -281,9 +291,17 @@
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselFrame.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageBackground\_ImageBackgroundForm.cshtml" />
     <Content Include="Areas\ImageItems\Views\ImageCarousel\_CarouselStrip.cshtml" />
+    <Content Include="Areas\MenuBuilder\Views\MenuBuilder\Index.cshtml" />
+    <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuBuilderForm.cshtml" />
+    <Content Include="Areas\MenuBuilder\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\MenuBuilder\Views\web.config" />
+    <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuItem.cshtml" />
+    <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuItemCategory.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\Jquery\jquery.validate.js" />
     <Content Include="Scripts\Jquery\jquery.validate.min.js" />
     <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.js" />
@@ -297,6 +315,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -338,15 +358,16 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />
     <Folder Include="Areas\ImageItems\Models\" />
+    <Folder Include="Areas\MenuBuilder\Entities\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Models\fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Models\fonts\glyphicons-halflings-regular.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Models\fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

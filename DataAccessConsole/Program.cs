@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Content;
 using DataAccess.Context;
 using DataAccess.Entities;
+using DataAccess.MenuItem;
 using Microsoft.SqlServer.Server;
 
 
@@ -23,7 +26,11 @@ namespace DataAccessConsole
 
         static void Main(string[] args)
         {
-            ContentRepos();
+            var a = new MenuItemRepo().GetMenuAllItems().FirstOrDefault();
+
+            Console.WriteLine(a.MenuItemDescription);
+
+            //ContentRepos();
         }
 
         private static void ContentRepos()

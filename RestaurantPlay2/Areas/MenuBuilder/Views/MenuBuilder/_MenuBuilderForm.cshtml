@@ -1,0 +1,121 @@
+﻿@using RestaurantPlay2.Areas.MenuBuilder.Models
+@using RestaurantPlay2.Areas.MenuBuilder.ViewModels
+@model SaveMenuItemViewModel
+
+@{
+    Layout = null;
+    var dropDownLists = new LoadMenuBuilderLists();
+
+    var foodPreferenceId = 0;
+    var MenuItemCategoryId = 0;
+    var MenuItemTypeId = 0;
+    var priority = 0;
+    if (Model != null)
+    {
+        foodPreferenceId = Model.FoodPreferenceId;
+        MenuItemCategoryId = Model.CategoryId;
+        MenuItemTypeId = Model.ItemTypeId;
+        priority = Model.Priority;
+    }
+}
+
+
+<div class="container">
+    @using (Ajax.BeginForm("SaveMenuItem", "MenuBuilder", new AjaxOptions
+    {
+        UpdateTargetId = "MenuDisplay",
+        InsertionMode = InsertionMode.Replace
+    }, new { @class = "form-horizontal" }))
+    {
+        @Html.HiddenFor(i=>i.MenuItemId)
+        <div class="col-sm-12">
+            <div class="form-group">
+                @Html.ValidationSummary()
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-6">
+                    @Html.LabelFor(i => i.MenuItemName, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(i => i.MenuItemName, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    @Html.LabelFor(i => i.MenuItemDescription, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(i => i.MenuItemDescription, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-6">
+                    @Html.LabelFor(i => i.MenuItemPrice, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(i => i.MenuItemPrice, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    @Html.LabelFor(i => i.IsActive, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.CheckBoxFor(i => i.IsActive)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-6">
+                    @Html.LabelFor(i => i.DisplayImage, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.CheckBoxFor(i => i.DisplayImage)
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    @Html.LabelFor(i => i.DisplayPrice, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.CheckBoxFor(i => i.DisplayPrice)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-6">
+                    @Html.LabelFor(i => i.FoodPreferenceId, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(i => i.FoodPreferenceId, new SelectList(dropDownLists.FoodPreferences.OrderBy(i => i.FoodPreferenceId), "FoodPreferenceId", "FoodPreferenceName", foodPreferenceId), new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    @Html.LabelFor(i => i.CategoryId, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(i => i.CategoryId, new SelectList(dropDownLists.MenuItemCategories.OrderBy(i => i.MenuItemCategoryId), "MenuItemCategoryId", "MenuItemCategoryName", MenuItemCategoryId), new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-6">
+                    @Html.LabelFor(i => i.ItemTypeId, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(i => i.ItemTypeId, new SelectList(dropDownLists.MenuItemTypes.OrderBy(i => i.MenuItemTypeId), "MenuItemTypeId", "MenuItemName", MenuItemTypeId), new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    @Html.LabelFor(i => i.Priority, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(i => i.Priority, new SelectList(dropDownLists.Priority, priority), new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <button class="btn btn-primary pull-right">Submit</button>
+            </div>
+        </div>
+    }
+</div>
