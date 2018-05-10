@@ -83,12 +83,26 @@ namespace DataAccess.MenuItem
             {
                 try
                 {
-                    menuItem.CreatedOn = DateTime.Now;
-                    db.MenuItems.AddOrUpdate(menuItem);
-                    db.SaveChanges();
-                    menuItemSettings.MenuItemId = menuItem.MenuItemId;
+                    var findMenuItem = db.MenuItems.SingleOrDefault(i => i.MenuItemId == menuItem.MenuItemId);
+                    var findMenuItemSettings = db.MenuItemSettings.SingleOrDefault(i => i.MenuItemId == menuItemSettings.MenuItemId);
 
-                    db.MenuItemSettings.AddOrUpdate(menuItemSettings);
+                    if (findMenuItem != null)
+                    {
+                        menuItem.CreatedOn = findMenuItem.CreatedOn;
+                        db.Entry(findMenuItem).CurrentValues.SetValues(menuItem);
+                        menuItemSettings.MenuItemSettingId = findMenuItemSettings.MenuItemSettingId;
+                        db.Entry(findMenuItemSettings).CurrentValues.SetValues(menuItemSettings); 
+                    }
+                    else
+                    {
+                        menuItem.CreatedOn = DateTime.Now;
+                        db.MenuItems.Add(menuItem);
+                        db.SaveChanges();
+
+                        menuItemSettings.MenuItemId = menuItem.MenuItemId;
+                        db.MenuItemSettings.AddOrUpdate(menuItemSettings);
+                    }
+
                     db.SaveChanges();
                     return true;
                 }
