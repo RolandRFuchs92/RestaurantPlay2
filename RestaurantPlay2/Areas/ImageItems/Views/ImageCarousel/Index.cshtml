@@ -2,18 +2,18 @@
 @model EditCarouselViewModel
 
 
-@Html.Partial("_CarouselForm", Model.SaveCarouselItem)
+@Html.Partial("~/Areas/ImageItems/Views/ImageCarousel/_CarouselForm.cshtml", Model.SaveCarouselItem)
 <hr />
 <div class="form-horizontal">
     <div class="form-group">
-        @Html.Partial("_CarouselStrip", Model.CarouselItems)
+        @Html.Partial("~/Areas/ImageItems/Views/ImageCarousel/_CarouselStrip.cshtml", Model.CarouselItems)
     </div>
 </div>
 <hr />
 <div class="form-horizontal">
     <div class="form-group">
         <h3>Preview Carousel</h3>
-        @Html.Partial("_CarouselDisplay", Model.CarouselItems.Where(i => i.DetailIsActive).ToList())
+        @Html.Partial("~/Areas/ImageItems/Views/ImageCarousel/_CarouselDisplay.cshtml", Model.CarouselItems.Where(i => i.DetailIsActive).ToList())
     </div>
 </div>
 

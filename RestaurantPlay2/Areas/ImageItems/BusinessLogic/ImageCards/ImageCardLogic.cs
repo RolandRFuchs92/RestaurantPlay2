@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.WebPages;
 using DataAccess.ImageItem;
+using RestaurantPlay2.Areas.ImageItems.BusinessLogic.Misc;
 using RestaurantPlay2.Areas.ImageItems.ViewModels;
 using RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCard;
 
@@ -83,7 +84,7 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCards
         /// <returns></returns>
         public bool SaveImageCard(SaveImageCardViewModel imageCard)
         {
-            var imagePath = new ImageCardLogic().SaveImageFile(imageCard.Image);
+            var imagePath = new ImageUtils().SaveImageFile(imageCard.Image,imageCard.ImageName);
 
             if (imagePath.IsEmpty())
                 return false;
@@ -101,31 +102,6 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCards
             var imageRepo = new ImageItemRepo();
 
             return imageRepo.SaveImageItem(imageCardRepo); 
-        }
-
-        /// <summary>
-        /// Save image file
-        /// </summary>
-        /// <param name="image"></param>
-        /// <returns></returns>
-        private string SaveImageFile(HttpPostedFileBase image)
-        {
-            try
-            {
-                if (image.ContentLength > 0)
-                {
-                    var _fileName = Path.GetFileName(image.FileName);
-                    var _serverPath = $"/Content/Images/{_fileName}";
-                    var _path = HttpContext.Current.Server.MapPath(_serverPath);
-                    image.SaveAs(_path);
-                    return _serverPath;
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-            return "Image save was unsuccessful!";
         }
     }
 }

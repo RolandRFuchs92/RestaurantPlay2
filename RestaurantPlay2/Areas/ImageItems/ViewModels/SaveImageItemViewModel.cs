@@ -20,7 +20,8 @@ namespace RestaurantPlay2.Areas.ImageItems.ViewModels
         public string DetailSubTitle { get; set; }
         [Required]
         [DataType(DataType.Upload)]
-        public HttpPostedFileBase Image { get; set; }
+        public string ImageBase { get; set; }
+        public string ImageName { get; set; }
         [Required]
         [MaxLength(2000)]
         [Display(Name = "Paragraph")]

@@ -70,7 +70,7 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCarousel
 
         public bool SaveImageItem(ISaveImageItem imageItem)
         {
-            var imagePath = new ImageUtils().SaveImageFile(imageItem.Image);
+            var imagePath = new ImageUtils().SaveImageFile(imageItem.ImageBase, imageItem.ImageName);
 
             if (imagePath.IsEmpty())
                 return false;

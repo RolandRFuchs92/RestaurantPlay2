@@ -60,7 +60,7 @@ namespace RestaurantPlay2.Areas.ImageItems.Controllers
             var model = new ImageCarouselLogic().LoadCarouselViewModel();
             ModelState.Clear();
 
-            return View("Index", model);
+            return View("~/Areas/ImageItems/Views/ImageCarousel/Index.cshtml", model);
         }
     }
 }

@@ -19,7 +19,8 @@ namespace RestaurantPlay2.Areas.ImageItems.Interfaces
         string DetailSubTitle { get; set; }
         [Required]
         [DataType(DataType.Upload)]
-        HttpPostedFileBase Image { get; set; }
+        string ImageBase { get; set; }
+        string ImageName { get; set; }
         [Display(Name = "Is Active")]
         bool IsActive { get; set; }
     }

@@ -27,7 +27,9 @@ namespace RestaurantPlay2.Areas.ImageItems.Controllers
 
             var model = new ImageCardLogic().LoadImageCardViewModels();
             ModelState.Clear();
-            return View("Index", model);
+
+            Response.StatusCode = 200;
+            return PartialView("~/Areas/ImageItems/Views/ImageCard/Presets/_GenerateImageCards.cshtml", model);
         }
 
         public JsonResult EditImageCard(int imageID)

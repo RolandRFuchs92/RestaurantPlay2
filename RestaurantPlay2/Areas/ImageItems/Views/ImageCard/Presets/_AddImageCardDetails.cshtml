@@ -3,7 +3,6 @@
 @using (Ajax.BeginForm("SaveImageCard", "ImageCard", new AjaxOptions
 {
     InsertionMode = InsertionMode.Replace,
-    UpdateTargetId = "imageCards",
     HttpMethod = "POST"
 }, new { enctype = "multipart/form-data" }))
 {
@@ -41,7 +40,7 @@
             <div class="col-sm-6">
                 @Html.LabelFor(i => i.Image, new { @class = "control-label col-sm-4" })
                 <div class="col-sm-8">
-                    @Html.TextBoxFor(i => i.Image, new { @class = "form-control", type = "file" })
+                    @Html.TextBoxFor(i => i.Image, new { @class = "form-control", type = "file", onchange= "imgChange();" })
                 </div>
                 @Html.ValidationMessageFor(i => i.Image)
             </div>
@@ -55,8 +54,33 @@
                 @Html.CheckBoxFor(i => i.IsActive)
             </div>
             <div class="col-sm-6">
-                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                <button type="button" class="btn btn-primary pull-right" onclick="SubmitCard(event)">Submit</button>
             </div>
         </div>
     </div>
 }
+<script>
+    function SubmitCard(e) {
+        e.preventDefault;
+
+        if (!$('form').valid())
+            return;
+
+        var formData = $('#form0').serializeArray();
+        var file = document.getElementById('Image').files[0];
+        formData.push({ name: "ImageName", value: file.name});
+        formData.push({ name: "Image", value: baseImg});
+        
+        $.post('/ImageCard/SaveImageCard',
+            formData,
+            function (data) {
+                debugger;
+                $('#ImageCardList').html(data);
+                $('form').find('input').val('');
+                toastr['success']('We were successfully able to save your card!', 'Success!');
+            }).fail(function(data) {
+                toastr['error']('We were unable to save the image error!', 'Error!');
+        });
+    }
+
+</script>
