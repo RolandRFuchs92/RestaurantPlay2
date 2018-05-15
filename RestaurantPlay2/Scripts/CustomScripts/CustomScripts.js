@@ -1,4 +1,9 @@
-﻿var CustomScripts = {
+﻿var urlRef = [
+    "/ImageItems/ImageCard/SaveImageCard",
+    "/ImageItems/ImageCarousel/SaveCarousel"
+]
+
+var CustomScripts = {
     baseImage: "",
 
     GetBase64String: function (file) {
@@ -26,8 +31,30 @@
             name: "ImageBase",
             value: CustomScripts.baseImg
         };
-
         return imageDetail;
+    },
+
+    SubmitImageBasedForm: function(e, cardRefId) {
+        e.preventDefault;
+
+        if (!$('form').valid())
+            return;
+
+        var formData = $('#form0').serializeArray();
+        var img = CustomScripts.GetImageJson();
+        formData.push(img[0]);
+        formData.push(img[1]);
+
+        $.post(urlRef[cardRefId],
+            formData,
+            function (data) {
+                $('#ImageCardList').html(data);
+                $('form')[0].reset();
+                $('form .id').val('0');
+                toastr['success']('Your new card has been saved!', 'Success!');
+            }).fail(function (data) {
+            toastr['error']('We were unable to save the image error!', 'Error!');
+        });
     }
 }
 

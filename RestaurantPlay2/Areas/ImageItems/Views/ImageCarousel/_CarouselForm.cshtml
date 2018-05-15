@@ -52,32 +52,8 @@
         <div class="form-group">
             
             <div class="col-sm-offset-6 col-sm-6">
-                <button type="button" class="btn btn-primary pull-right" onclick="SubmitCard(event);">Submit</button>
+                <button type="button" class="btn btn-primary pull-right" onclick="CustomScripts.SubmitImageBasedForm(event);">Submit</button>
             </div>
         </div>
     </div>
 }
-
-<script>
-    function SubmitCard(e) {
-        e.preventDefault;
-
-        if (!$('form').valid())
-            return;
-
-        var formData = $('#form0').serializeArray();
-        var img = CustomScripts.GetImageJson();
-        formData.push(img[0]);
-        formData.push(img[1]);
-
-        $.post('/ImageCarousel/SaveCarousel',
-            formData,
-            function (data) {
-                $('#ImageCardList').html(data);
-                $('form').find('input').val('');
-                toastr['success']('We were successfully able to save your card!', 'Success!');
-            }).fail(function(data) {
-            toastr['error']('We were unable to save the image error!', 'Error!');
-        });
-    }
-</script>

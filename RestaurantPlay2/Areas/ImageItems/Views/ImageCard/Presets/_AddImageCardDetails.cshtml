@@ -8,7 +8,7 @@
 {
     @Html.ValidationSummary(true)
     <div class="form-horizontal">
-        @Html.HiddenFor(i => i.imageID)
+        @Html.HiddenFor(i => i.imageID, new { @class="id"})
         <div class="form-group">
             <div class="col-sm-6">
                 @Html.LabelFor(i => i.DetailTitle, new { @class = "control-label col-sm-4" })
@@ -38,11 +38,11 @@
                 @Html.ValidationMessageFor(i => i.DetailParagraph)
             </div>
             <div class="col-sm-6">
-                @Html.LabelFor(i => i.Image, new { @class = "control-label col-sm-4" })
+                @Html.LabelFor(i => i.ImageBase, new { @class = "control-label col-sm-4" })
                 <div class="col-sm-8">
-                    @Html.TextBoxFor(i => i.Image, new { @class = "form-control", type = "file", onchange= "imgChange();" })
+                    @Html.TextBoxFor(i => i.ImageBase, new { @class = "form-control", type = "file", onchange= "CustomScripts.ImgChange();" })
                 </div>
-                @Html.ValidationMessageFor(i => i.Image)
+                @Html.ValidationMessageFor(i => i.ImageBase)
             </div>
         </div>
     </div>
@@ -54,33 +54,8 @@
                 @Html.CheckBoxFor(i => i.IsActive)
             </div>
             <div class="col-sm-6">
-                <button type="button" class="btn btn-primary pull-right" onclick="SubmitCard(event)">Submit</button>
+                <button type="button" class="btn btn-primary pull-right" onclick="CustomScripts.SubmitImageBasedForm(event,0);">Submit</button>
             </div>
         </div>
     </div>
 }
-<script>
-    function SubmitCard(e) {
-        e.preventDefault;
-
-        if (!$('form').valid())
-            return;
-
-        var formData = $('#form0').serializeArray();
-        var file = document.getElementById('Image').files[0];
-        formData.push({ name: "ImageName", value: file.name});
-        formData.push({ name: "Image", value: baseImg});
-        
-        $.post('/ImageCard/SaveImageCard',
-            formData,
-            function (data) {
-                debugger;
-                $('#ImageCardList').html(data);
-                $('form').find('input').val('');
-                toastr['success']('We were successfully able to save your card!', 'Success!');
-            }).fail(function(data) {
-                toastr['error']('We were unable to save the image error!', 'Error!');
-        });
-    }
-
-</script>

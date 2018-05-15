@@ -16,7 +16,7 @@ namespace RestaurantPlay2.Areas.ImageItems.ViewModels.ImageCard
         public string DetailSubTitle { get; set; }
         [Required]
         [DataType(DataType.Upload)]
-        public string Image { get; set; }
+        public string ImageBase { get; set; }
         public string ImageName { get; set; }
         [Required]
         [MaxLength(2000)]

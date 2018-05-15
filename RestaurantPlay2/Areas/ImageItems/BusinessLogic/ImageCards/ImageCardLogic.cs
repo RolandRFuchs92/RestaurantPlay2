@@ -84,7 +84,7 @@ namespace RestaurantPlay2.Areas.ImageItems.BusinessLogic.ImageCards
         /// <returns></returns>
         public bool SaveImageCard(SaveImageCardViewModel imageCard)
         {
-            var imagePath = new ImageUtils().SaveImageFile(imageCard.Image,imageCard.ImageName);
+            var imagePath = new ImageUtils().SaveImageFile(imageCard.ImageBase, imageCard.ImageName);
 
             if (imagePath.IsEmpty())
                 return false;
