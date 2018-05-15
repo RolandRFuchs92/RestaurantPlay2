@@ -25,13 +25,13 @@ namespace RestaurantPlay2.Areas.ImageItems.Controllers
         public ActionResult DisplayCarousel()
         {
             var carouselItems = new ImageCarouselLogic().LoadValidImageItems();
-            return View("_CarouselDisplay", carouselItems);
+            return PartialView("_CarouselDisplay", carouselItems);
         }
 
         public ActionResult DisplayCarouselStrip()
         {
             var model = new ImageCarouselLogic().LoadAllImageItems();
-            return View("_CarouselStrip",model);
+            return PartialView("_CarouselStrip",model);
         }
 
         public ActionResult DeleteCarouselItem(int imageId)
@@ -41,7 +41,7 @@ namespace RestaurantPlay2.Areas.ImageItems.Controllers
 
             var model = new ImageCarouselLogic().LoadCarouselViewModel();
             //Rather just reload the cards and the carousel instead of the whole form... but this will work
-            return View("Index", model);
+            return PartialView("Index", model);
         }
 
         public JsonResult EditCarouselItem(int imageId)
@@ -60,7 +60,7 @@ namespace RestaurantPlay2.Areas.ImageItems.Controllers
             var model = new ImageCarouselLogic().LoadCarouselViewModel();
             ModelState.Clear();
 
-            return View("~/Areas/ImageItems/Views/ImageCarousel/Index.cshtml", model);
+            return PartialView("~/Areas/ImageItems/Views/ImageCarousel/Index.cshtml", model);
         }
     }
 }

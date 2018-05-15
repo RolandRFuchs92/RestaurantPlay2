@@ -1,6 +1,12 @@
-﻿var urlRef = [
-    "/ImageItems/ImageCard/SaveImageCard",
-    "/ImageItems/ImageCarousel/SaveCarousel"
+﻿var Config = [
+    {
+        replace : "#ImageCardList",
+        url : "/ImageItems/ImageCard/SaveImageCard"
+    },
+    {
+        replace: ".container.body-content",
+        url: "/ImageItems/ImageCarousel/SaveCarousel"
+    }
 ]
 
 var CustomScripts = {
@@ -45,10 +51,10 @@ var CustomScripts = {
         formData.push(img[0]);
         formData.push(img[1]);
 
-        $.post(urlRef[cardRefId],
+        $.post(Config[cardRefId].url,
             formData,
             function (data) {
-                $('#ImageCardList').html(data);
+                $(Config[cardRefId].replace).html(data);
                 $('form')[0].reset();
                 $('form .id').val('0');
                 toastr['success']('Your new card has been saved!', 'Success!');
