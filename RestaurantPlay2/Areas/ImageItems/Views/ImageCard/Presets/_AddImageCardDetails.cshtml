@@ -3,13 +3,12 @@
 @using (Ajax.BeginForm("SaveImageCard", "ImageCard", new AjaxOptions
 {
     InsertionMode = InsertionMode.Replace,
-    UpdateTargetId = "imageCards",
     HttpMethod = "POST"
 }, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)
     <div class="form-horizontal">
-        @Html.HiddenFor(i => i.imageID)
+        @Html.HiddenFor(i => i.imageID, new { @class="id"})
         <div class="form-group">
             <div class="col-sm-6">
                 @Html.LabelFor(i => i.DetailTitle, new { @class = "control-label col-sm-4" })
@@ -39,11 +38,11 @@
                 @Html.ValidationMessageFor(i => i.DetailParagraph)
             </div>
             <div class="col-sm-6">
-                @Html.LabelFor(i => i.Image, new { @class = "control-label col-sm-4" })
+                @Html.LabelFor(i => i.ImageBase, new { @class = "control-label col-sm-4" })
                 <div class="col-sm-8">
-                    @Html.TextBoxFor(i => i.Image, new { @class = "form-control", type = "file" })
+                    @Html.TextBoxFor(i => i.ImageBase, new { @class = "form-control", type = "file", onchange= "CustomScripts.ImgChange();" })
                 </div>
-                @Html.ValidationMessageFor(i => i.Image)
+                @Html.ValidationMessageFor(i => i.ImageBase)
             </div>
         </div>
     </div>
@@ -55,7 +54,7 @@
                 @Html.CheckBoxFor(i => i.IsActive)
             </div>
             <div class="col-sm-6">
-                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                <button type="button" class="btn btn-primary pull-right" onclick="CustomScripts.SubmitImageBasedForm(event,0);">Submit</button>
             </div>
         </div>
     </div>

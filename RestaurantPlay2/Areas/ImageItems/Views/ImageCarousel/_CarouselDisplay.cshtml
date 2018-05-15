@@ -28,7 +28,7 @@ else
                 @foreach (var item in @Model)
                 {
                     <div class="item @isActive">
-                        @Html.Partial("_CarouselFrame", item)
+                        @Html.Partial("~/Areas/ImageItems/Views/ImageCarousel/_CarouselFrame.cshtml", item)
                     </div>
                     isActive = "";
                 }

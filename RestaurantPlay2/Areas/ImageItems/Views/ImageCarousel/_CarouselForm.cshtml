@@ -3,10 +3,10 @@
 
 <h3>Image Carousel Form</h3>
 
-@using (Ajax.BeginForm("SaveCarousel", "ImageCarousel", new AjaxOptions
+@using (Ajax.BeginForm("SaveCarousel", "ImageCarousel", FormMethod.Post, new AjaxOptions
 {
     InsertionMode = InsertionMode.Replace,
-    UpdateTargetId = "imageCards",
+    //UpdateTargetId = "imageCards"
     HttpMethod = "POST"
 }, new { enctype = "multipart/form-data" }))
 {
@@ -35,11 +35,11 @@
     <div class="form-horizontal">
         <div class="form-group">
             <div class="col-sm-6">
-                @Html.LabelFor(i => i.Image, new { @class = "control-label col-sm-4" })
+                @Html.LabelFor(i => i.ImageBase, new { @class = "control-label col-sm-4" })
                 <div class="col-sm-8">
-                    @Html.TextBoxFor(i => i.Image, new { @class = "form-control", type = "file" })
+                    @Html.TextBoxFor(i => i.ImageBase, new { @class = "form-control", type = "file", onchange= "CustomScripts.ImgChange();" })
                 </div>
-                @Html.ValidationMessageFor(i => i.Image)
+                @Html.ValidationMessageFor(i => i.ImageBase)
             </div>
             <div class="col-sm-6">
                 @Html.LabelFor(i => i.IsActive, new { @class = "control-label col-sm-4" })
@@ -52,7 +52,7 @@
         <div class="form-group">
             
             <div class="col-sm-offset-6 col-sm-6">
-                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                <button type="button" class="btn btn-primary pull-right" onclick="CustomScripts.SubmitImageBasedForm(event,1);">Submit</button>
             </div>
         </div>
     </div>

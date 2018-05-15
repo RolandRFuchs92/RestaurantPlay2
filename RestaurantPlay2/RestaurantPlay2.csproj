@@ -212,6 +212,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Blogger\BloggerAreaRegistration.cs" />
+    <Compile Include="Areas\Blogger\Controllers\BloggerController.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarouselLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\Misc\ImageUtils.cs" />
@@ -297,7 +299,11 @@
     <Content Include="Areas\MenuBuilder\Views\web.config" />
     <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuItem.cshtml" />
     <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuItemCategory.cshtml" />
+    <Content Include="Areas\Blogger\Views\web.config" />
+    <Content Include="Areas\Blogger\Views\Blogger\Index.cshtml" />
+    <Content Include="Areas\Blogger\Views\Blogger\_BloggerForm.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -356,6 +362,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Blogger\BusinessLogic\" />
+    <Folder Include="Areas\Blogger\Models\" />
+    <Folder Include="Areas\Blogger\Views\Shared\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />
     <Folder Include="Areas\ImageItems\Models\" />
     <Folder Include="Areas\MenuBuilder\Entities\" />

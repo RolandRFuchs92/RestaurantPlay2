@@ -4,7 +4,7 @@
     <div class="row page-spacing">
         @foreach (var image in Model)
         {
-            @Html.Partial("Presets/_ImageCard", image)
+            @Html.Partial("~/Areas/ImageItems/Views/ImageCard/Presets/_ImageCard.cshtml", image)
         }
     </div>
 </div>
