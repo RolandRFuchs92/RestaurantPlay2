@@ -13,5 +13,10 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
         {
             return View();
         }
+
+        public ActionResult BloggerForm()
+        {
+            return View("_BloggerForm");
+        }
     }
 }

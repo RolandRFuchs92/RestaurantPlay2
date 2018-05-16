@@ -302,6 +302,8 @@
     <Content Include="Areas\Blogger\Views\web.config" />
     <Content Include="Areas\Blogger\Views\Blogger\Index.cshtml" />
     <Content Include="Areas\Blogger\Views\Blogger\_BloggerForm.cshtml" />
+    <Content Include="Areas\Blogger\Views\Shared\_ViewStart.cshtml" />
+    <Content Include="Areas\Blogger\Views\Blogger\_BlogTile.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -364,7 +366,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Blogger\BusinessLogic\" />
     <Folder Include="Areas\Blogger\Models\" />
-    <Folder Include="Areas\Blogger\Views\Shared\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />
     <Folder Include="Areas\ImageItems\Models\" />
     <Folder Include="Areas\MenuBuilder\Entities\" />
