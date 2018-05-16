@@ -48,8 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BloggerRepo.cs" />
     <Compile Include="ContentRepo\ContentRepo.cs" />
     <Compile Include="Context\AppsContext.cs" />
+    <Compile Include="Entities\BlogDetail.cs" />
+    <Compile Include="Entities\BlogType.cs" />
+    <Compile Include="Entities\COREBlog.cs" />
     <Compile Include="Entities\COREContent.cs" />
     <Compile Include="Entities\FoodPreference.cs" />
     <Compile Include="Entities\IMAGEItem.cs" />
@@ -67,6 +71,8 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Blogger\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
