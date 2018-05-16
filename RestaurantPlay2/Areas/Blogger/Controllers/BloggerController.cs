@@ -18,5 +18,10 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
         {
             return View("_BloggerForm");
         }
+
+        public ActionResult LatestBlog()
+        {
+            return PartialView("_BlogTile");
+        }
     }
 }

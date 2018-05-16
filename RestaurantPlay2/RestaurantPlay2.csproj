@@ -214,6 +214,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Blogger\BloggerAreaRegistration.cs" />
     <Compile Include="Areas\Blogger\Controllers\BloggerController.cs" />
+    <Compile Include="Areas\Blogger\ViewModels\BloggerFormViewModel.cs" />
+    <Compile Include="Areas\Blogger\ViewModels\BloggerViewModel.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarouselLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\Misc\ImageUtils.cs" />
