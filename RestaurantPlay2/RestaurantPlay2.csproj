@@ -261,8 +261,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\datetimepicker\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap\datetimepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap\theme\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\theme\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\FixedScrollingBackgrounds.css" />
     <Content Include="Content\Images\EggsBenedictImage.jpg" />
     <Content Include="Content\Images\GinImage.jpg" />
@@ -271,6 +275,7 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Models\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\_run.js" />
@@ -278,6 +283,8 @@
     <Content Include="Scripts\app\app.viewmodel.js" />
     <Content Include="Scripts\app\common.js" />
     <Content Include="Scripts\app\home.viewmodel.js" />
+    <Content Include="Scripts\Bootstrap\datetimepicker\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\Bootstrap\datetimepicker\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -306,6 +313,11 @@
     <Content Include="Areas\Blogger\Views\Blogger\_BloggerForm.cshtml" />
     <Content Include="Areas\Blogger\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Blogger\Views\Blogger\_BlogTile.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\theme\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -321,6 +333,11 @@
     <Content Include="Scripts\knockout.validation.debug.js" />
     <Content Include="Scripts\knockout.validation.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment\locales\moment-with-locales.js" />
+    <Content Include="Scripts\moment\locales\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment\moment.js" />
+    <Content Include="Scripts\moment\moment.min.js" />
+    <Content Include="Scripts\moment\npm.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sammy-0.7.4.js" />
