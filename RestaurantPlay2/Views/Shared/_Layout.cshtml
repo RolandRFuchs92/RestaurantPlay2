@@ -29,8 +29,10 @@
 		@Scripts.Render("~/bundles/bootstrap")
 		@RenderSection("Scripts", required: false)
 
-		<script src="~/Scripts/bootstrap.min.js" type="text/javascript"></script>
-		<script src="~/Scripts/moment/moment.min.js"></script>
-		<script src="~/Scripts/Bootstrap/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('.date').datetimepicker();
+	})
+</script>
 </body>
 </html>

@@ -40,12 +40,13 @@ namespace RestaurantPlay2
 								"~/Scripts/respond.js",
 								"~/Scripts/Jquery/jquery.validate.js",
 								"~/Scripts/Jquery/jquery.validate.unobtrusive.js",
-								"~/Scripts/Bootstrap/datetimepicker/bootstrap-datetimepicker.min.js",
 								"~/Scripts/moment/moment.min.js",
+								"~/Scripts/Bootstrap/datetimepicker/bootstrap-datetimepicker.min.js",
 								"~/Scripts/moment/locales/moment-with-locales.min.js",
 								"~/Scripts/toastr.min.js"));
 
 						bundles.Add(new StyleBundle("~/Content/css").Include(
+								"~/Content/bootstrap.css",
 								 "~/Content/Site.css",
 								 "~/Content/toastr.min.css"
 							));

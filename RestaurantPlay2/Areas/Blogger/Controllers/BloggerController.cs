@@ -16,7 +16,7 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 
         public ActionResult BloggerForm()
         {
-            return View("_BloggerForm");
+            return PartialView("_BloggerForm");
         }
 
         public ActionResult LatestBlog()

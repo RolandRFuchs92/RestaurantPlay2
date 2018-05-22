@@ -2,10 +2,10 @@
 
 <div class="row">
 	<div class="form-group">
-			<h4>Write a Blog!</h4>
+		<h4>Write a Blog!</h4>
 	</div>
 	<div class="bloggerForm col-lg-6 col-md-12">
-		@Html.Partial("_BloggerForm")
+		@Html.Action("BloggerForm","Blogger", new{ Area="Blogger"})
 	</div>
 	<div class="bloggerTile col-lg-6 col-md-12">
 		@Html.Partial("_BlogTile")
