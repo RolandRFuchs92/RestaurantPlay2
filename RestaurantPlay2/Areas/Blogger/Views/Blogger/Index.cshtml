@@ -1,8 +1,13 @@
 ﻿
 
-<div class="bloggerForm">
-    @Html.Partial("_BloggerForm")
-</div>
-<div class="bloggerTile">
-    @Html.Partial("_BlogTile")
+<div class="row">
+	<div class="form-group">
+			<h4>Write a Blog!</h4>
+	</div>
+	<div class="bloggerForm col-lg-6 col-md-12">
+		@Html.Partial("_BloggerForm")
+	</div>
+	<div class="bloggerTile col-lg-6 col-md-12">
+		@Html.Partial("_BlogTile")
+	</div>
 </div>
