@@ -213,6 +213,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Blogger\BloggerAreaRegistration.cs" />
+    <Compile Include="Areas\Blogger\BusinessLogic\BloggerLogic.cs" />
     <Compile Include="Areas\Blogger\Controllers\BloggerController.cs" />
     <Compile Include="Areas\Blogger\ViewModels\BloggerFormViewModel.cs" />
     <Compile Include="Areas\Blogger\ViewModels\BloggerViewModel.cs" />
@@ -383,7 +384,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Blogger\BusinessLogic\" />
     <Folder Include="Areas\Blogger\Models\" />
     <Folder Include="Areas\Blogger\Views\Shared\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />

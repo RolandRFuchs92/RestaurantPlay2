@@ -18,8 +18,11 @@ namespace RestaurantPlay2.Areas.Blogger.ViewModels
         [Required]
 				[Display(Name = "Writen On")]
         public DateTime WritenOn { get; set; }
+				[Required]
 				[Display(Name = "Image")]
         public string ImageBase { get; set; }
+				[Required]
+				public string ImageName { get; set; }
         [MaxLength(500)]
         public string Intro { get; set; }
         [Required]
