@@ -16,7 +16,9 @@ namespace RestaurantPlay2.Areas.Blogger.ViewModels
         [MaxLength(50)]
         public string Author { get; set; }
         [Required]
+				[Display(Name = "Writen On")]
         public DateTime WritenOn { get; set; }
+				[Display(Name = "Image")]
         public string ImageBase { get; set; }
         [MaxLength(500)]
         public string Intro { get; set; }
@@ -26,6 +28,7 @@ namespace RestaurantPlay2.Areas.Blogger.ViewModels
         [MaxLength(100)]
         public string Remarks { get; set; }
         [MaxLength(100)]
+				[Display(Name = "Closing Caption")]
         public string ClosingCaption{ get; set; }
         [Required]
         public DateTime StartingDate { get; set; }

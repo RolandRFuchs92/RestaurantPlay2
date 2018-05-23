@@ -32,7 +32,13 @@
 <script>
 	$(document).ready(function() {
 		$('.date').datetimepicker();
-	})
+	});
+
+	$('.date').on('change dp.change',
+		function(e) {
+			$('#BlogDemo span.posted-on').html($(this).val());
+		});
+
 </script>
 </body>
 </html>

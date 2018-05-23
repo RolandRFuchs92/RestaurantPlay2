@@ -1,13 +1,15 @@
 ﻿@using RestaurantPlay2.Areas.Blogger.ViewModels
 @model BloggerFormViewModel
 
+
+@using(Ajax.BeginForm("SaveBlog", "Blogger", new AjaxOptions { }, new { Area = "Blogger" })){
 <div class="form-horizontal">
-				@Html.ValidationSummary()
+		@Html.ValidationSummary()
 
 		<div class="form-group">
 				@Html.LabelFor(i => i.Title, new { @class = "control-label col-sm-4" })
 				<div class="col-sm-8">
-						@Html.TextBoxFor(i => i.Title, new { @class = "form-control" })
+						@Html.TextBoxFor(i => i.Title, new { @class = "form-control", onkeyup = "CustomScripts.SyncChangeToElement(event, '#BlogDemo .PostTitle');" })
 						@Html.ValidationMessageFor(i => i.Title)
 				</div>
 		</div>
@@ -15,7 +17,7 @@
 		<div class="form-group">
 				@Html.LabelFor(i => i.Author, new { @class = "control-label col-sm-4" })
 				<div class="col-sm-8">
-						@Html.TextBoxFor(i => i.Author, new { @class = "form-control" })
+						@Html.TextBoxFor(i => i.Author, new { @class = "form-control", onkeyup = "CustomScripts.SyncChangeToElement(event, '#BlogDemo p.lead a');" })
 						@Html.ValidationMessageFor(i => i.Author)
 				</div>
 		</div>
@@ -23,21 +25,21 @@
 		<div class="form-group">
 				@Html.LabelFor(i => i.WritenOn, new { @class = "control-label col-sm-4" })
 				<div class="col-sm-8">
-						@Html.TextBoxFor(i => i.WritenOn, new { @class = "form-control date", onclick="showDate();", data_date_format="DD MMM YYYY", placeholder="DD MMM YYYY"})
+						@Html.TextBoxFor(i => i.WritenOn, new { @class = "form-control date", onchange = "CustomScripts.SyncChangeToElement(event, '#BlogDemo span.posted-on');", data_date_format = "DD MMM YYYY HH:MM", placeholder = "DD MMM YYYY" })
 				</div>
 		</div>
 
 		<div class="form-group">
 				@Html.LabelFor(i => i.ImageBase, new { @class = "control-label col-sm-4" })
 				<div class="col-sm-8">
-						@Html.TextBoxFor(i => i.ImageBase, new { @class = "form-control" , type="file"})
+						@Html.TextBoxFor(i => i.ImageBase, new { @class = "form-control", type = "file", onchange=@"CustomScripts.SycnImageToElement(event, '#BlogDemo img');" })
 				</div>
 		</div>
 
 		<div class="form-group">
 				@Html.LabelFor(i => i.Intro, new { @class = "control-label col-sm-4" })
 				<div class="col-sm-8">
-						@Html.TextAreaFor(i => i.Intro, new { @class = "form-control" })
+						@Html.TextAreaFor(i => i.Intro, new { @class = "form-control", onkeyup = "CustomScripts.SyncChangeToElement(event, '#BlogDemo div.blog-body p.lead');" })
 						@Html.ValidationMessageFor(i => i.Intro)
 				</div>
 		</div>
@@ -45,7 +47,7 @@
 		<div class="form-group">
 				@Html.LabelFor(i => i.Body, new { @class = "control-label col-sm-4" })
 				<div class="col-sm-8">
-						@Html.TextAreaFor(i => i.Body, new { @class = "form-control" })
+						@Html.TextAreaFor(i => i.Body, new { @class = "form-control", onkeyup = "CustomScripts.SyncChangeToElement(event, '#BlogDemo p.blog-content');" })
 						@Html.ValidationMessageFor(i => i.Body)
 				</div>
 		</div>
@@ -53,7 +55,7 @@
 		<div class="form-group">
 				@Html.LabelFor(i => i.Remarks, new { @class = "control-label col-sm-4" })
 				<div class="col-sm-8">
-						@Html.TextAreaFor(i => i.Remarks, new { @class = "form-control" })
+						@Html.TextAreaFor(i => i.Remarks, new { @class = "form-control", onkeyup = "CustomScripts.SyncChangeToElement(event, '#BlogDemo p.closing-statement');" })
 						@Html.ValidationMessageFor(i => i.Remarks)
 				</div>
 		</div>
@@ -61,9 +63,18 @@
 		<div class="form-group">
 				@Html.LabelFor(i => i.ClosingCaption, new { @class = "control-label col-sm-4" })
 				<div class="col-sm-8">
-						@Html.TextAreaFor(i => i.ClosingCaption, new { @class = "form-control" })
+						@Html.TextAreaFor(i => i.ClosingCaption, new { @class = "form-control", onkeyup = "CustomScripts.SyncChangeToElement(event, '#BlogDemo p.sign-off');" })
 						@Html.ValidationMessageFor(i => i.ClosingCaption)
 				</div>
 		</div>
+
+		<div class="form-group">
+			<div class="col-sm-12">
+					<input type="reset" value="Reset" class="btn btn-default pull-right"/>
+				<input type="button" value="Submit" class="btn btn-primary pull-right"/>
+			</div>
+		</div>
 </div>
+
+}
 

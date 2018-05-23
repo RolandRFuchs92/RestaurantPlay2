@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using RestaurantPlay2.Areas.Blogger.ViewModels;
 
 namespace RestaurantPlay2.Areas.Blogger.Controllers
 {
@@ -23,5 +24,10 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
         {
             return PartialView("_BlogTile");
         }
+
+	    public JsonResult SaveBlog(BloggerFormViewModel model)
+	    {
+		    return Json(new {});
+	    }
     }
 }
