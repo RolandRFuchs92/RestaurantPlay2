@@ -2,11 +2,10 @@
 @model BloggerFormViewModel
 
 
-@using (Ajax.BeginForm("SaveBlog", "Blogger", new AjaxOptions { }, new { Area = "Blogger" }))
+@using (Ajax.BeginForm("SaveBlog", "Blogger", new AjaxOptions { HttpMethod = "POST"  }, new { enctype = "multipart/form-data" }))
 {
 		<div class="form-horizontal">
-				@Html.ValidationSummary()
-
+				@Html.HiddenFor(i => i.BlogId, new {@Value="0"})
 				<div class="form-group">
 						@Html.LabelFor(i => i.Title, new { @class = "control-label col-sm-4" })
 						<div class="col-sm-8">
@@ -27,6 +26,7 @@
 						@Html.LabelFor(i => i.WritenOn, new { @class = "control-label col-sm-4" })
 						<div class="col-sm-8">
 								@Html.TextBoxFor(i => i.WritenOn, new { @class = "form-control date", onchange = "CustomScripts.SyncChangeToElement(event, '#BlogDemo span.posted-on');", data_date_format = "DD MMM YYYY HH:MM", placeholder = "DD MMM YYYY" })
+								@Html.ValidationMessageFor(i=>i.WritenOn)		
 						</div>
 				</div>
 
@@ -34,6 +34,7 @@
 						@Html.LabelFor(i => i.ImageBase, new { @class = "control-label col-sm-4" })
 						<div class="col-sm-8">
 								@Html.TextBoxFor(i => i.ImageBase, new { @class = "form-control", type = "file", onchange = @"CustomScripts.SycnImageToElement(event, '#BlogDemo img');" })
+								@Html.ValidationMessageFor(i => i.ImageBase)
 						</div>
 				</div>
 
@@ -72,18 +73,45 @@
 				<div class="form-group">
 						@Html.LabelFor(i => i.StartingDate, new { @class = "control-label col-sm-4" })
 						<div class="col-sm-8">
-								@Html.TextBoxFor(i => i.StartingDate, new { @class = "form-control" })
-								@Html.ValidationMessageFor(i => i.ClosingCaption)
+								@Html.TextBoxFor(i => i.StartingDate, new { @class = "form-control date", data_date_format = "DD MMM YYYY HH:MM", placeholder = "DD MMM YYYY" })
+								@Html.ValidationMessageFor(i => i.StartingDate)
 						</div>
 				</div>
 
 				<div class="form-group">
 						<div class="col-sm-12">
-								<input type="button" value="Submit" class="btn btn-primary pull-right" />
-								<input type="reset" value="Reset" class="btn btn-default pull-right" />
+								<input type="button" value="Submit" class="btn btn-primary pull-right" onclick="submitBlog(event);" />
+								<input type="reset" value="Reset" class="btn btn-default pull-right btn-space" />
 						</div>
 				</div>
 		</div>
-
 }
+
+
+<script>
+
+		function submitBlog(e) {
+				var form = $('form');
+				if (!form.valid())
+						return;
+
+				var url = "@Url.Action("SaveBlog", "Blogger", new {@Area="Blogger"})";
+				var formData = form.serializeArray();
+				var imgData = CustomScripts.GetImageJson();
+				formData.push(imgData[0]);
+				formData.push(imgData[1]);
+
+				formData = objectifyForm(formData);
+
+				CustomScripts.AjaxSubmit(url,formData);
+		}
+
+		function objectifyForm(formArray) {//serialize data function
+			var returnArray = {};
+			for (var i = 0; i < formArray.length; i++){
+				returnArray[formArray[i]['name']] = formArray[i]['value'];
+			}
+			return returnArray;
+		}
+</script>
 

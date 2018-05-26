@@ -89,5 +89,9 @@ img.card-img-top {
     text-align: center;
     bottom: 75px;
     background-color: rgba(0, 0, 0, 0.60);
-    ;
+}
+
+
+.btn-space {
+	margin-right: 5px;
 }

@@ -1,7 +1,7 @@
 ﻿var Config = [
 		{
-				replace : "#ImageCardList",
-				url : "/ImageItems/ImageCard/SaveImageCard"
+				replace: "#ImageCardList",
+				url: "/ImageItems/ImageCard/SaveImageCard"
 		},
 		{
 				replace: ".container.body-content",
@@ -14,33 +14,33 @@ var CustomScripts = {
 
 		GetBase64String: function (file) {
 				var reader = new FileReader();
-				reader.onload = function() {
-						CustomScripts.baseImg = reader.result;
+				reader.onload = function () {
+						CustomScripts.baseImage = reader.result;
 				};
 				reader.readAsDataURL(file);
 		},
 
-		ImgChange : function () {
+		ImgChange: function () {
 				var file = $('input[type=file]')[0].files[0];
 				CustomScripts.GetBase64String(file);
 		},
 
-		GetImageJson: function() {
+		GetImageJson: function () {
 				var imageDetail = {};
 				var file = $('input[type=file]')[0].files[0];
-				
+
 				imageDetail[0] = {
 						name: "ImageName",
-						value: file.name 
+						value: file.name
 				};
 				imageDetail[1] = {
 						name: "ImageBase",
-						value: CustomScripts.baseImg
+						value: CustomScripts.baseImage
 				};
 				return imageDetail;
 		},
 
-		SubmitImageBasedForm: function(e, cardRefId) {
+		SubmitImageBasedForm: function (e, cardRefId) {
 				e.preventDefault;
 
 				if (!$('form').valid())
@@ -59,8 +59,8 @@ var CustomScripts = {
 								$('form .id').val('0');
 								toastr['success']('Your new card has been saved!', 'Success!');
 						}).fail(function (data) {
-						toastr['error']('We were unable to save the image error!', 'Error!');
-				});
+								toastr['error']('We were unable to save the image error!', 'Error!');
+						});
 		},
 
 		SyncChangeToElement: function (event, toElement) {
@@ -75,10 +75,26 @@ var CustomScripts = {
 
 				var reader = new FileReader();
 				reader.onload = function (e) {
+						CustomScripts.baseImage = reader.result;
 						toEl.attr('src', e.target.result);
 				}
 				reader.readAsDataURL(file);
+		},
 
+		AjaxSubmit: function (urlLink, formData) {
+				$.ajax({
+						url: urlLink,
+						type: "POST",
+						data: formData,
+						dataType: 'json',
+						success: function (data) {
+								toastr['success'](data.message);
+						},
+						error: function (data) {
+								toastr['error'](data.message);
+
+						}
+				});
 		}
 
 }
