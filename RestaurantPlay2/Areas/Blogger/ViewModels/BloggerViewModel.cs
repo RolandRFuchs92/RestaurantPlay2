@@ -29,5 +29,6 @@ namespace RestaurantPlay2.Areas.Blogger.ViewModels
 				public string Body { get; set; }
 				public string Remarks { get; set; }
 				public string ClosingCaption { get; set; }
+				public DateTime StartingDate { get; set; }
 		}
 }

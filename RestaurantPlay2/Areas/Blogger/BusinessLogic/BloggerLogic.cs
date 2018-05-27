@@ -83,5 +83,33 @@ namespace RestaurantPlay2.Areas.Blogger.BusinessLogic
 
 						return model;
 				}
+
+				/// <summary>
+				/// Get the EditBloggerViewmodel, its made up of just the blog, but the demo needs to be up to date too.
+				/// </summary>
+				/// <param name="blogId"></param>
+				/// <returns></returns>
+				public EditBloggerViewModel EditBloggerViewModel(int blogId)
+				{
+						var model = new EditBloggerViewModel();
+						var blog = GetBlogById(blogId);
+
+						model.BloggerViewModel = blog;
+						model.BloggerFormViewModel = new BloggerFormViewModel
+						{
+								Author = blog.Author,
+								BlogId = blog.Id,
+								Body = blog.Body,
+								ClosingCaption = blog.ClosingCaption,
+								Intro = blog.Intro,
+								Remarks = blog.Remarks,
+								StartingDate = blog.StartingDate,
+								Title = blog.Title,
+								WritenOn = blog.WritenOn
+						};
+
+						return model;
+				}
+
 		}
 }

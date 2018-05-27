@@ -8,9 +8,13 @@
 				@foreach (var blog in Model)
 				{
 						<div class="col-sm-3">
-								<div class="blog-snippet">
-										@Html.Partial("_BlogTile", blog)
+							<div class="blog-snippet">
+								<div class="col-sm-12">
+									@Ajax.ActionLink("Edit","GetBlogById"))
+									<a href="#">Delete</a>
 								</div>
+								@Html.Partial("_BlogTile", blog)
+							</div>
 						</div>
 				}
 		</div>

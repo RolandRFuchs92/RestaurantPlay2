@@ -217,6 +217,7 @@
     <Compile Include="Areas\Blogger\Controllers\BloggerController.cs" />
     <Compile Include="Areas\Blogger\ViewModels\BloggerFormViewModel.cs" />
     <Compile Include="Areas\Blogger\ViewModels\BloggerViewModel.cs" />
+    <Compile Include="Areas\Blogger\ViewModels\EditBloggerViewModel.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarouselLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\Misc\ImageUtils.cs" />
@@ -319,7 +320,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap\bootstrap.css.map" />
     <Content Include="Content\bootstrap\theme\bootstrap-theme.css.map" />
-    <Content Include="Areas\Blogger\Views\Blogger\_bloggerSnippets.cshtml" />
+    <Content Include="Areas\Blogger\Views\Blogger\_BloggerSnippets.cshtml" />
+    <Content Include="Areas\Blogger\Views\Blogger\_BloggerEditor.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

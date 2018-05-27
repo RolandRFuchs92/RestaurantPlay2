@@ -32,6 +32,21 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 				}
 
 				/// <summary>
+				/// Get an editor related to the refered blogId
+				/// </summary>
+				/// <param name="blogId">BlogDetailId</param>
+				/// <returns></returns>
+				public ActionResult EditBlog(int blogId)
+				{
+						var model = new EditBloggerViewModel();
+
+						if (blogId != 0)
+								model = new BloggerLogic().EditBloggerViewModel(blogId);
+
+						return View("_BloggerEditor", model);
+				}
+
+				/// <summary>
 				/// Save the blog using the form viewmodel. Image is passed in as a base64 encoded string. 
 				/// </summary>
 				/// <param name="model"></param>
@@ -70,9 +85,9 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 				/// <returns></returns>
 				public ActionResult GetBlogSnippets()
 				{
-					var blogs = new BloggerLogic().GetBloggerSnippetsViewModel();	
+						var blogs = new BloggerLogic().GetBloggerSnippetsViewModel();
 
-					return PartialView("_bloggerSnippets",blogs);
+						return PartialView("_bloggerSnippets", blogs);
 				}
 		}
 }

@@ -1,0 +1,14 @@
+﻿@using RestaurantPlay2.Areas.Blogger.ViewModels
+@model EditBloggerViewModel
+
+@{
+	var formViewModel = Model.BloggerFormViewModel ?? new BloggerFormViewModel();
+	var blogViewModel = Model.BloggerViewModel ?? new BloggerViewModel();
+}
+
+<div class="bloggerForm col-lg-6 col-md-12">
+	@Html.Partial("_BloggerForm", formViewModel)
+</div>
+<div class="bloggerTile col-lg-6 col-md-12" id="BlogDemo">
+	@Html.Partial("_BlogTile", blogViewModel)
+</div>
