@@ -2,19 +2,21 @@
 @model BloggerViewModel
 
 <div class="row">
-    <div class="blog-container col-sm-12 col-lg-12">
-        <h4 class="PostTitle">@Model.Title</h4>
-        <p class="lead">By <a href="#">@Model.Author</a></p>
-        <hr class="blog-line" />
-        <p>Posted on <span class="posted-on">@Model.WritenOn</span></p>
-        <hr class="blog-line" />
-        <img src="@Model.ImagePath" alt="Alternate Text" class="blog-img" />
-        <br />
-        <div class="blog-body">
-            <p class="lead intro">@Model.Intro<p>
-            <p class="blog-content">@Model.Body</p>
-						<p class="closing-statement">@Model.Remarks</p>
-            <p class="sign-off">@Model.ClosingCaption</p>
-        </div>
-    </div>
+		<div class="col-sm-12 col-lg-12">
+				<div class="blog-container">
+						<h4 class="PostTitle">@Model.Title</h4>
+						<p class="lead">By <a href="#">@Model.Author</a></p>
+						<hr class="blog-line" />
+						<p>Posted on <span class="posted-on">@Model.WritenOn.ToString("dd MMM yyyy - hh'h'mm")</span></p>
+						<hr class="blog-line" />
+						<img src="@Model.ImagePath" alt="Alternate Text" class="blog-img" />
+						<br />
+						<div class="blog-body">
+								<p class="lead intro">@Model.Intro<p>
+								<p class="blog-content">@Model.Body</p>
+								<p class="closing-statement">@Model.Remarks</p>
+								<p class="sign-off">@Model.ClosingCaption</p>
+						</div>
+				</div>
+		</div>
 </div>

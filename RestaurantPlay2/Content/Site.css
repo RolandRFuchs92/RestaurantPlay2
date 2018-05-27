@@ -1,19 +1,19 @@
 ﻿body {
-    /*padding-top: 50px;*/
-    padding-bottom: 20px;
+		/*padding-top: 50px;*/
+		padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+		padding-left: 15px;
+		padding-right: 15px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
-    white-space: normal;
+		white-space: normal;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -25,53 +25,53 @@ textarea {
 
 /* Set padding to display errors that occur during databinding */
 .padding-error {
-    padding-top: 20px;
+		padding-top: 20px;
 }
 
 @media only screen and (max-width: 767px) {
-    .nofloat {
-        float: none;
-        padding: 10px 15px;
-    }
+		.nofloat {
+				float: none;
+				padding: 10px 15px;
+		}
 }
 
 .card .card-img-top {
-    max-height: 100%;
-    max-width: 100%;
+		max-height: 100%;
+		max-width: 100%;
 }
 
 
 .input-validation-error {
-    color: red;
-    border: 1px solid red;
+		color: red;
+		border: 1px solid red;
 }
 
 .field-validation-error {
-    color: red;
-    display: inline-block;
+		color: red;
+		display: inline-block;
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		transition: 0.3s;
 }
 
-    .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
+		.card:hover {
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
 
 .container {
-    padding: 2px 16px;
+		padding: 2px 16px;
 }
 
 img.card-img-top {
-    width: 100%;
-    height: 250px;
+		width: 100%;
+		height: 250px;
 }
 
 .page-spacing {
-    padding-top: 100px;
-    padding-bottom: 100px;
+		padding-top: 100px;
+		padding-bottom: 100px;
 }
 
 .img-pos1 {
@@ -80,54 +80,62 @@ img.card-img-top {
 
 
 .img-cap-title {
-    font-weight: bold;
+		font-weight: bold;
 }
 
 .img-cap {
-    position: relative;
-    color: white;
-    text-align: center;
-    bottom: 75px;
-    background-color: rgba(0, 0, 0, 0.60);
+		position: relative;
+		color: white;
+		text-align: center;
+		bottom: 75px;
+		background-color: rgba(0, 0, 0, 0.60);
 }
 
 
 .btn-space {
-	margin-right: 5px;
+		margin-right: 5px;
 }
 
+/*BLOGS*/
 .blog-container {
-	border: 1px solid lightgrey;
-	border-radius: 5px;
-	background-color: #61b6ff26;
+		border: 1px solid lightgrey;
+		border-radius: 5px;
+		background-color: #61b6ff26;
+		padding: 5px;
 }
+
 .blog-line {
-	margin: 10px 10px;
-	border-color: #53b4ec66;
+		margin: 10px 10px;
+		border-color: #53b4ec66;
 }
+
 .lead {
-	font-size: 1.25rem;
-	font-weight: 300;
+		font-size: 1.25rem;
+		font-weight: 300;
 }
+
 p .blog-container {
-	margin-top: 0px;
-	margin-bottom: 1rem;
-	line-height: 1.5;
+		margin-top: 0px;
+		margin-bottom: 1rem;
+		line-height: 1.5;
 }
+
 .blog-img {
-	margin-bottom: 10px;
-	width: 100%;
-	height: 300px;
-	border-radius: 5px;
+		margin-bottom: 10px;
+		width: 100%;
+		height: 300px;
+		border-radius: 5px;
 }
 
 body {
-	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
+		font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
 }
+
 p.closing-statement {
-	font-weight: 500;
+		font-weight: 500;
 }
+
 p.sign-off {
-	color: darkslategrey;
-	font-weight: 300;
+		color: darkslategrey;
+		font-weight: 300;
 }

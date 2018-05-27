@@ -28,9 +28,14 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 
 				public ActionResult LatestBlog()
 				{
-						return PartialView("_BlogTile");
+						return PartialView("_BlogTile", new BloggerViewModel());
 				}
 
+				/// <summary>
+				/// Save the blog using the form viewmodel. Image is passed in as a base64 encoded string. 
+				/// </summary>
+				/// <param name="model"></param>
+				/// <returns></returns>
 				public ActionResult SaveBlog(BloggerFormViewModel model)
 				{
 						if (!ModelState.IsValid)
@@ -47,6 +52,11 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 						return Json(new { message = savedBlogMessage });
 				}
 
+				/// <summary>
+				/// Display only the blog on a page according to the blog Id
+				/// </summary>
+				/// <param name="blogId">BlogDetailId</param>
+				/// <returns></returns>
 				public ActionResult Blog(int blogId)
 				{
 						var model = new BloggerLogic().GetBlogById(blogId);
@@ -54,10 +64,15 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 						return PartialView("_BlogTile", model);
 				}
 
-			public ActionResult GetBlogSnippets()
-			{
+				/// <summary>
+				/// Return a view with all valid blogs. 
+				/// </summary>
+				/// <returns></returns>
+				public ActionResult GetBlogSnippets()
+				{
+					var blogs = new BloggerLogic().GetBloggerSnippetsViewModel();	
 
-				return View();
-			}
+					return PartialView("_bloggerSnippets",blogs);
+				}
 		}
 }

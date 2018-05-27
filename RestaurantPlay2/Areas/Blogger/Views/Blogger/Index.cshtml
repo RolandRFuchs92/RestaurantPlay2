@@ -1,5 +1,4 @@
-﻿
-
+﻿@using RestaurantPlay2.Areas.Blogger.ViewModels
 <div class="row">
 	<div class="form-group">
 		<h3 class="text-center">Write a Blog!</h3>
@@ -8,6 +7,10 @@
 		@Html.Action("BloggerForm","Blogger", new{ Area="Blogger"})
 	</div>
 	<div class="bloggerTile col-lg-6 col-md-12" id="BlogDemo">
-		@Html.Partial("_BlogTile")
+		@Html.Partial("_BlogTile", new BloggerViewModel())
+	</div>
+	<hr />
+	<div class="blog-snippets">
+		@Html.Action("GetBlogSnippets", "Blogger", new{@Area="Blogger"} )
 	</div>
 </div>

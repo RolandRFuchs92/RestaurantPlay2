@@ -11,11 +11,11 @@ namespace RestaurantPlay2.Areas.Blogger.BusinessLogic
 {
 		public class BloggerLogic
 		{
-			/// <summary>
-			/// Save the blog afte rthe image has been saved, and use the returned path to save the blog correctly.
-			/// </summary>
-			/// <param name="model">Form Viewmodel will be translated into a blogDetail.</param>
-			/// <returns></returns>
+				/// <summary>
+				/// Save the blog afte rthe image has been saved, and use the returned path to save the blog correctly.
+				/// </summary>
+				/// <param name="model">Form Viewmodel will be translated into a blogDetail.</param>
+				/// <returns></returns>
 				public string SaveNewBlog(BloggerFormViewModel model)
 				{
 						var blogModel = new BlogDetail
@@ -72,8 +72,11 @@ namespace RestaurantPlay2.Areas.Blogger.BusinessLogic
 												 select new BloggerViewModel
 												 {
 														 Id = blog.BlogDetailId,
-														 Title = blog.BlogTitle.Substring(0, 20),
-														 Body = blog.BlogBody.Substring(200),
+														 Title = blog.BlogTitle.Length > 20 ? blog.BlogTitle.Substring(0, 20) : blog.BlogTitle,
+														 Body = blog.BlogBody.Length > 200 ? blog.BlogBody.Substring(0, 200) : blog.BlogBody,
+														 ClosingCaption = "",
+														 Intro = "",
+														 Remarks = "",
 														 ImagePath = blog.BlogImagePath,
 														 WritenOn = blog.BlogWritenOn
 												 }).ToList();
