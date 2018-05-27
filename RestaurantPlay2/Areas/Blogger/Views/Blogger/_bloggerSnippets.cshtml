@@ -8,13 +8,18 @@
 				@foreach (var blog in Model)
 				{
 						<div class="col-sm-3">
-							<div class="blog-snippet">
-								<div class="col-sm-12">
-										<a href="#" onclick="CustomScripts.EditBlog(@blog.Id)">Edit</a>
-										<a href="#" onclick="CustomScripts.DeleteBlog(event, @blog.Id)">Delete</a>
+								<div class="blog-snippet">
+										<div class="col-sm-12">
+												@Ajax.ActionLink("Edit", "EditBlog", new { blogId = @blog.Id }, new AjaxOptions
+												{
+														HttpMethod = "POST",
+														InsertionMode = InsertionMode.ReplaceWith,
+														UpdateTargetId = "blogEditor"
+												})
+												<a href="#" onclick="CustomScripts.DeleteBlog(event, @blog.Id)">Delete</a>
+										</div>
+										@Html.Partial("_BlogTile", blog)
 								</div>
-								@Html.Partial("_BlogTile", blog)
-							</div>
 						</div>
 				}
 		</div>

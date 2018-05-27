@@ -76,12 +76,14 @@ namespace RestaurantPlay2.Areas.Blogger.BusinessLogic
 						{
 								Author = blog.BlogAuthor,
 								WritenOn = blog.BlogWritenOn,
+								StartingDate = blog.BlogStartingDate,
 								Title = blog.BlogTitle,
 								Body = blog.BlogBody,
 								ClosingCaption = blog.BlogClosingCaption,
 								Remarks = blog.BlogRemarks,
 								Intro = blog.BlogIntro,
-								ImagePath = blog.BlogImagePath
+								ImagePath = blog.BlogImagePath,
+							Id = blog.BlogDetailId
 						};
 						return model;
 				}

@@ -9,6 +9,11 @@ namespace RestaurantPlay2.Areas.Blogger.ViewModels
 {
 		public class BloggerFormViewModel
 		{
+			public BloggerFormViewModel()
+			{
+				BlogId = 0;
+			}
+
 				public int BlogId { get; set; }
 				[Required]
 				[MaxLength(50)]

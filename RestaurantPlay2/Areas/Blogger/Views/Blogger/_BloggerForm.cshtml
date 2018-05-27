@@ -5,12 +5,12 @@
 @using (Ajax.BeginForm("SaveBlog", "Blogger", new AjaxOptions { HttpMethod = "POST"  }, new { enctype = "multipart/form-data" }))
 {
 		<div class="form-horizontal">
-				@Html.HiddenFor(i => i.BlogId, new {@Value="0"})
+				@Html.HiddenFor(i => i.BlogId)
 				<div class="form-group">
 						@Html.LabelFor(i => i.Title, new { @class = "control-label col-sm-4" })
 						<div class="col-sm-8">
 								@Html.TextBoxFor(i => i.Title, new { @class = "form-control", onkeyup = "CustomScripts.SyncChangeToElement(event, '#BlogDemo .PostTitle');" })
-								@Html.ValidationMessageFor(i => i.Title)
+								@Html.ValidationMessageFor(i => i.Title)Dropped 
 						</div>
 				</div>
 
