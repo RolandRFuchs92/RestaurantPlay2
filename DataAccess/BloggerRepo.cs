@@ -12,19 +12,34 @@ namespace DataAccess
 		{
 				private AppsContext _db => new AppsContext();
 
+				/// <summary>
+				/// Get all blogs regardless of weather they have been deleted or not.
+				/// </summary>
+				/// <returns></returns>
 				public List<BlogDetail> GetAllBlogDetails()
 				{
 						return (from blog in _db.BlogDetails
 										select blog).ToList();
 				}
 
+				/// <summary>
+				/// The latest blog must have a starting date earlier than today, it must also not be flagged as deleted.
+				/// </summary>
+				/// <returns></returns>
 				public BlogDetail GetLatestBlog()
 				{
 						return (from blog in _db.BlogDetails
+										where !blog.IsDeleted
+											&& blog.BlogStartingDate < DateTime.Today
 										orderby blog.BlogStartingDate
 										select blog).FirstOrDefault();
 				}
 
+				/// <summary>
+				/// Get Blog based on the BlogId and it must not be Deleted.
+				/// </summary>
+				/// <param name="blogId"></param>
+				/// <returns></returns>
 				public BlogDetail GetBlogDetailById(int blogId)
 				{
 						return (from blog in _db.BlogDetails
@@ -33,6 +48,11 @@ namespace DataAccess
 										select blog).FirstOrDefault();
 				}
 
+				/// <summary>
+				/// Hide the blog. This is done by flagging the blog as deleted.
+				/// </summary>
+				/// <param name="blogId"></param>
+				/// <returns></returns>
 				public bool DeleteBlogById(int blogId)
 				{
 						try
@@ -54,6 +74,11 @@ namespace DataAccess
 						}
 				}
 
+				/// <summary>
+				/// Save the blog - Must have an image path used when saving and image from base64 encoded string.
+				/// </summary>
+				/// <param name="blogDetail"></param>
+				/// <returns></returns>
 				public bool SaveBlog(BlogDetail blogDetail)
 				{
 						try

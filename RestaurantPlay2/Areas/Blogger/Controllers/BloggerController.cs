@@ -26,9 +26,14 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 						return PartialView("_BloggerForm");
 				}
 
+				/// <summary>
+				/// Get the latest Blog based on the Blog logic.
+				/// </summary>
+				/// <returns></returns>
 				public ActionResult LatestBlog()
 				{
-						return PartialView("_BlogTile", new BloggerViewModel());
+						var model = new BloggerLogic().GetLatestBlog();
+						return PartialView("_BlogTile", model);
 				}
 
 				/// <summary>

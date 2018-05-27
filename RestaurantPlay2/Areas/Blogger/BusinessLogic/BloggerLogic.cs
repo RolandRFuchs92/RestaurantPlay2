@@ -38,6 +38,32 @@ namespace RestaurantPlay2.Areas.Blogger.BusinessLogic
 				}
 
 				/// <summary>
+				/// Get the lates BlogViewModel. 
+				/// The blog must be valid, not flagged as deleted, and the starting date must be greater than today. 
+				/// </summary>
+				/// <returns></returns>
+				public BloggerViewModel GetLatestBlog()
+				{
+						var blog = new BloggerRepo().GetLatestBlog();
+
+						var model = new BloggerViewModel
+						{
+								WritenOn = blog.BlogWritenOn,
+								Title = blog.BlogTitle,
+								Author = blog.BlogAuthor,
+								Body = blog.BlogBody,
+								ClosingCaption = blog.BlogClosingCaption,
+								Remarks = blog.BlogRemarks,
+								Intro = blog.BlogIntro,
+								StartingDate = blog.BlogStartingDate,
+								ImagePath = blog.BlogImagePath,
+								Id = blog.BlogDetailId
+						};
+
+						return model;
+				}
+
+				/// <summary>
 				/// Return just the blog according to the specified ID
 				/// </summary>
 				/// <param name="blogId">BlogDetailId</param>
