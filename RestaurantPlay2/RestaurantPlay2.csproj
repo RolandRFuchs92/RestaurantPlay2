@@ -109,6 +109,12 @@
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -214,6 +220,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Blogger\BloggerAreaRegistration.cs" />
     <Compile Include="Areas\Blogger\Controllers\BloggerController.cs" />
+    <Compile Include="Areas\ContactForm\ContactFormAreaRegistration.cs" />
+    <Compile Include="Areas\ContactForm\Controllers\EnquiryController.cs" />
+    <Compile Include="Areas\ContactForm\ViewModels\ContactFormViewModel.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarouselLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\Misc\ImageUtils.cs" />
@@ -265,6 +274,7 @@
     <Content Include="Content\Images\EggsBenedictImage.jpg" />
     <Content Include="Content\Images\GinImage.jpg" />
     <Content Include="Content\Images\MilkShakeImage.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
@@ -304,6 +314,14 @@
     <Content Include="Areas\Blogger\Views\Blogger\_BloggerForm.cshtml" />
     <Content Include="Areas\Blogger\Views\Shared\_ViewStart.cshtml" />
     <Content Include="Areas\Blogger\Views\Blogger\_BlogTile.cshtml" />
+    <Content Include="Areas\ContactForm\Views\web.config" />
+    <Content Include="Areas\ContactForm\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\ContactForm\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\ContactForm\Views\Enquiry\Create.cshtml" />
+    <Content Include="Areas\ContactForm\Views\Enquiry\Delete.cshtml" />
+    <Content Include="Areas\ContactForm\Views\Enquiry\Details.cshtml" />
+    <Content Include="Areas\ContactForm\Views\Enquiry\Edit.cshtml" />
+    <Content Include="Areas\ContactForm\Views\Enquiry\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -366,6 +384,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Blogger\BusinessLogic\" />
     <Folder Include="Areas\Blogger\Models\" />
+    <Folder Include="Areas\ContactForm\BusinessLogic\" />
+    <Folder Include="Areas\ContactForm\Models\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />
     <Folder Include="Areas\ImageItems\Models\" />
     <Folder Include="Areas\MenuBuilder\Entities\" />

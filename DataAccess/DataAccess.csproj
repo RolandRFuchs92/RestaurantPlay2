@@ -36,6 +36,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -48,9 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactForm\ContactFormRepo.cs" />
+    <Compile Include="ContactForm\IContactFormRepo.cs" />
     <Compile Include="ContentRepo\ContentRepo.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Entities\COREContent.cs" />
+    <Compile Include="Entities\EnquiryFormSubs.cs" />
     <Compile Include="Entities\FoodPreference.cs" />
     <Compile Include="Entities\IMAGEItem.cs" />
     <Compile Include="Entities\MenuItem.cs" />
@@ -59,6 +68,7 @@
     <Compile Include="Entities\MenuItemType.cs" />
     <Compile Include="ImageItem\ImageItemRepo.cs" />
     <Compile Include="MenuItem\MenuItemRepo.cs" />
+    <Compile Include="Models\ContactFormModel.cs" />
     <Compile Include="Models\MenuItemFormModel.cs" />
     <Compile Include="Models\MenuItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +77,8 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Content\PagedList.css" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
