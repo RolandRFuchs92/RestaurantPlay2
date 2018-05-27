@@ -4,14 +4,15 @@
 
 <div class="row">
 		<div class="col-sm-12">
-				<h4>Blog Snippets</h4>
+				<h3 class="text-center">Blog Snippets</h3>
 				@foreach (var blog in Model)
 				{
 						<div class="col-sm-3">
 							<div class="blog-snippet">
 								<div class="col-sm-12">
-									@Ajax.ActionLink("Edit","GetBlogById"))
-									<a href="#">Delete</a>
+										<a href="#" onclick="CustomScripts.EditBlog(@blog.Id)">Edit</a>
+									
+									@Ajax.ActionLink("Delete","DeleteBlog", new { blogId = blog.Id }, new AjaxOptions{ Confirm = "Are you sure you want to delete this blog post?", HttpMethod = "POST"})
 								</div>
 								@Html.Partial("_BlogTile", blog)
 							</div>
@@ -19,6 +20,8 @@
 				}
 		</div>
 </div>
+
+
 
 <style>
 		.blog-snippets {

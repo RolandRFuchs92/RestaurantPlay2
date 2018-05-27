@@ -49,7 +49,7 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 						if (blogId != 0)
 								model = new BloggerLogic().EditBloggerViewModel(blogId);
 
-						return View("_BloggerEditor", model);
+						return PartialView("_BloggerEditor", model);
 				}
 
 				/// <summary>

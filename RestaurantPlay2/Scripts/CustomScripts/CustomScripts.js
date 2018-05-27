@@ -95,7 +95,39 @@ var CustomScripts = {
 
 						}
 				});
+		},
+
+		ToastrWrapper: function (message, heading, success) {
+				if (success)
+						toastr['success'](Message, heading);
+				else
+						toastr['error'](message, heading);
+		},
+
+		EditBlog: function (blogId) {
+				var url = "/Blogger/Blogger/EditBlog";
+				var inputData = { "blogId": blogId };
+
+				$.post(url,
+						inputData,
+						function (data) {
+								
+								toastr['success'](data.message, 'Success!');
+						}).fail(function (data) {
+								toastr['error'](data.message, "Error!");
+						});
+		},
+
+		deleteBlo: function(blogId) {
+				var url = "/Blogger/Blogger/DeleteBlog";
+				var inputData = { "blogId": blogId };
+
+			$.post(url,
+				inputData,
+				function(data) {
+						
+				}).fail(function() {
+
+			});
 		}
-
 }
-

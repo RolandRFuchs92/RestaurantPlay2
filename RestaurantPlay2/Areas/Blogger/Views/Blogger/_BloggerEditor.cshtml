@@ -6,9 +6,11 @@
 	var blogViewModel = Model.BloggerViewModel ?? new BloggerViewModel();
 }
 
-<div class="bloggerForm col-lg-6 col-md-12">
-	@Html.Partial("_BloggerForm", formViewModel)
-</div>
-<div class="bloggerTile col-lg-6 col-md-12" id="BlogDemo">
-	@Html.Partial("_BlogTile", blogViewModel)
+<div id="blogEditor">
+		<div class="bloggerForm col-lg-6 col-md-12">
+				@Html.Partial("_BloggerForm", formViewModel)
+		</div>
+		<div class="bloggerTile col-lg-6 col-md-12" id="BlogDemo">
+				@Html.Partial("_BlogTile", blogViewModel)
+		</div>
 </div>
