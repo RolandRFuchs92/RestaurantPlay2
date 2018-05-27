@@ -71,7 +71,8 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 						model.ImageBase = imagePath;
 						var savedBlogMessage = new BloggerLogic().SaveNewBlog(model);
 
-						return new HttpStatusCodeResult(HttpStatusCode.OK, "Your blog was successfully saved!");
+						Response.StatusCode = (int)HttpStatusCode.OK;
+						return Json(new { message = savedBlogMessage });
 				}
 
 				/// <summary>
@@ -81,17 +82,17 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 				/// <returns></returns>
 				public ActionResult DeleteBlog(int blogId)
 				{
-					if (!new BloggerLogic().DeleteBlogById(blogId))
-					{
-						Response.StatusCode = (int) HttpStatusCode.InternalServerError;
-						return Json(new {message = "Oops, There seems to have been an error deleteing this blog! Please try again?"});
-					}
+						if (!new BloggerLogic().DeleteBlogById(blogId))
+						{
+								Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+								return Json(new { message = "Oops, There seems to have been an error deleteing this blog! Please try again?" });
+						}
 
-					Response.StatusCode = (int) HttpStatusCode.OK;
-					return Json(new
-					{
-						message = "Your blog was successfully deleted!",
-					});
+						Response.StatusCode = (int)HttpStatusCode.OK;
+						return Json(new
+						{
+								message = "Your blog was successfully deleted!",
+						});
 				}
 
 				/// <summary>

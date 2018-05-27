@@ -88,9 +88,11 @@ var CustomScripts = {
 						data: formData,
 						dataType: 'json',
 						success: function (data) {
+					debugger;
 								toastr['success'](data.message);
 						},
 						error: function (data) {
+					debugger;
 								toastr['error'](data.message);
 
 						}

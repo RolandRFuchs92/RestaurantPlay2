@@ -32,7 +32,10 @@ namespace RestaurantPlay2.Areas.Blogger.BusinessLogic
 								BlogWritenOn = model.WritenOn,
 						};
 
-						var result = new BloggerRepo().SaveBlog(blogModel) ? "Successfully saved your blog!" : "An error occured while saving your blog.";
+						var result = new BloggerRepo().SaveBlog(blogModel)
+							? (model.BlogId == 0 ? "Successfully saved your blog!"
+								: "Your blog has successfully been updated!")
+							: "An error occured while saving your blog.";
 
 						return result;
 				}
@@ -83,7 +86,7 @@ namespace RestaurantPlay2.Areas.Blogger.BusinessLogic
 								Remarks = blog.BlogRemarks,
 								Intro = blog.BlogIntro,
 								ImagePath = blog.BlogImagePath,
-							Id = blog.BlogDetailId
+								Id = blog.BlogDetailId
 						};
 						return model;
 				}

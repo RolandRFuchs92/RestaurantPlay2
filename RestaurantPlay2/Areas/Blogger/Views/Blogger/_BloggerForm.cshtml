@@ -10,7 +10,7 @@
 						@Html.LabelFor(i => i.Title, new { @class = "control-label col-sm-4" })
 						<div class="col-sm-8">
 								@Html.TextBoxFor(i => i.Title, new { @class = "form-control", onkeyup = "CustomScripts.SyncChangeToElement(event, '#BlogDemo .PostTitle');" })
-								@Html.ValidationMessageFor(i => i.Title)Dropped 
+								@Html.ValidationMessageFor(i => i.Title) 
 						</div>
 				</div>
 

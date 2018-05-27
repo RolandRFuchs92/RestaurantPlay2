@@ -103,7 +103,10 @@ namespace DataAccess
 
 										if (foundBlog != null)
 										{
+												blogDetail.CreatedOn = foundBlog.CreatedOn;
+												blogDetail.IsDeleted = foundBlog.IsDeleted;
 												db.Entry(foundBlog).CurrentValues.SetValues(blogDetail);
+												db.SaveChanges();
 										}
 										else
 										{
