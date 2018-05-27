@@ -111,23 +111,29 @@ var CustomScripts = {
 				$.post(url,
 						inputData,
 						function (data) {
-								
+								//Do something with the data returned..
 								toastr['success'](data.message, 'Success!');
 						}).fail(function (data) {
 								toastr['error'](data.message, "Error!");
 						});
 		},
 
-		deleteBlo: function(blogId) {
+		DeleteBlog: function (blogId) {
 				var url = "/Blogger/Blogger/DeleteBlog";
 				var inputData = { "blogId": blogId };
 
-			$.post(url,
-				inputData,
-				function(data) {
-						
-				}).fail(function() {
+				bootbox.confirm("Are you sure you want to delete this blog?", YesDeleteBlog);
 
-			});
+				function YesDeleteBlog(result) {
+						if (result)
+								$.post(url,
+										inputData,
+										function (data) {
+												//do something with the data returned...
+												toastr["success"]("Successfully Deleted your blog post!", "Success!");
+										}).fail(function () {
+												toatr["error"]("Oop, we were unable to delete your post!", "Error");
+										});
+				}
 		}
 }
