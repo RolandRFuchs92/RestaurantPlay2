@@ -23,6 +23,17 @@ namespace DataAccess
 				}
 
 				/// <summary>
+				/// the only thing that makes a blog invalid, is the fact that its marked as deleted.
+				/// </summary>
+				/// <returns></returns>
+				public List<BlogDetail> GetAllValidBlogDetails()
+				{
+						return (from blog in _db.BlogDetails
+										where !blog.IsDeleted
+										select blog).ToList();
+				}
+
+				/// <summary>
 				/// The latest blog must have a starting date earlier than today, it must also not be flagged as deleted.
 				/// </summary>
 				/// <returns></returns>
@@ -57,17 +68,17 @@ namespace DataAccess
 				{
 						try
 						{
-							using (var db = new AppsContext())
-							{
-								var blog = (from blogDetail in db.BlogDetails
-									where blogDetail.BlogDetailId == blogId
-									select blogDetail).FirstOrDefault();
+								using (var db = new AppsContext())
+								{
+										var blog = (from blogDetail in db.BlogDetails
+																where blogDetail.BlogDetailId == blogId
+																select blogDetail).FirstOrDefault();
 
-								blog.IsDeleted = true;
+										blog.IsDeleted = true;
 
-								db.SaveChanges();
+										db.SaveChanges();
 
-								return true;
+										return true;
 								}
 						}
 						catch (Exception e)

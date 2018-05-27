@@ -92,7 +92,7 @@ namespace RestaurantPlay2.Areas.Blogger.BusinessLogic
 				/// <returns></returns>
 				public List<BloggerViewModel> GetBloggerSnippetsViewModel()
 				{
-						var blogs = new BloggerRepo().GetAllBlogDetails();
+						var blogs = new BloggerRepo().GetAllValidBlogDetails();
 
 						var model = (from blog in blogs
 												 select new BloggerViewModel

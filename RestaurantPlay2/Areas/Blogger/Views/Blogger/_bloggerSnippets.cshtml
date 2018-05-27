@@ -11,7 +11,7 @@
 							<div class="blog-snippet">
 								<div class="col-sm-12">
 										<a href="#" onclick="CustomScripts.EditBlog(@blog.Id)">Edit</a>
-										<a href="#" onclick="CustomScripts.DeleteBlog(@blog.Id)">Delete</a>
+										<a href="#" onclick="CustomScripts.DeleteBlog(event, @blog.Id)">Delete</a>
 								</div>
 								@Html.Partial("_BlogTile", blog)
 							</div>

@@ -88,7 +88,10 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 					}
 
 					Response.StatusCode = (int) HttpStatusCode.OK;
-					return Json(new {message = "Your blog was successfully deleted!"});
+					return Json(new
+					{
+						message = "Your blog was successfully deleted!",
+					});
 				}
 
 				/// <summary>

@@ -111,16 +111,17 @@ var CustomScripts = {
 				$.post(url,
 						inputData,
 						function (data) {
-							debugger;
-							// TODO Do something with the data returned..
+								debugger;
+								// TODO Do something with the data returned..
 						}).fail(function (data) {
 								toastr['error'](data.message, "Error!");
 						});
 		},
 
-		DeleteBlog: function (blogId) {
+		DeleteBlog: function (event, blogId) {
 				var url = "/Blogger/Blogger/DeleteBlog";
 				var inputData = { "blogId": blogId };
+				var refObj = $(event.currentTarget);
 
 				bootbox.confirm("Are you sure you want to delete this blog?", YesDeleteBlog);
 
@@ -129,11 +130,10 @@ var CustomScripts = {
 								$.post(url,
 										inputData,
 										function (data) {
-											debugger;
-												//TODO do something with the data returned...
+												refObj.parents('div.col-sm-3').remove();
 												toastr["success"](data.message, "Success!");
 										}).fail(function () {
-												toatr["error"](data.message, "Error");
+												toastr["error"]("Oops, there seems to have been an error!", "Error");
 										});
 				}
 		}
