@@ -43,7 +43,9 @@ namespace RestaurantPlay2
 								"~/Scripts/moment/moment.min.js",
 								"~/Scripts/Bootstrap/datetimepicker/bootstrap-datetimepicker.min.js",
 								"~/Scripts/moment/locales/moment-with-locales.min.js",
-								"~/Scripts/toastr.min.js"));
+								"~/Scripts/toastr.min.js",
+								"~/Scripts/Bootstrap/bootboxjs/bootbox.min.js",
+								"~/Scripts/Bootstrap/bootboxjs/sammy-0.7.4.min.js"));
 
 						bundles.Add(new StyleBundle("~/Content/css").Include(
 								"~/Content/bootstrap.css",

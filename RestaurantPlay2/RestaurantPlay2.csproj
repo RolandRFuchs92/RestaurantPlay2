@@ -285,6 +285,8 @@
     <Content Include="Scripts\app\app.viewmodel.js" />
     <Content Include="Scripts\app\common.js" />
     <Content Include="Scripts\app\home.viewmodel.js" />
+    <Content Include="Scripts\Bootstrap\bootboxjs\bootbox.js" />
+    <Content Include="Scripts\Bootstrap\bootboxjs\bootbox.min.js" />
     <Content Include="Scripts\Bootstrap\datetimepicker\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\Bootstrap\datetimepicker\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -344,8 +346,8 @@
     <Content Include="Scripts\moment\npm.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\sammy-0.7.4.js" />
-    <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Scripts\Bootstrap\bootboxjs\sammy-0.7.4.js" />
+    <Content Include="Scripts\Bootstrap\bootboxjs\sammy-0.7.4.min.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Views\_ViewStart.cshtml" />
