@@ -70,7 +70,7 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 						model.ImageBase = imagePath;
 						var savedBlogMessage = new BloggerLogic().SaveNewBlog(model);
 
-						return Json(new { message = savedBlogMessage });
+						return new HttpStatusCodeResult(HttpStatusCode.OK, "Your blog was successfully saved!");
 				}
 
 				/// <summary>
