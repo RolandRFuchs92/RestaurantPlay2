@@ -137,5 +137,14 @@ namespace RestaurantPlay2.Areas.Blogger.BusinessLogic
 						return model;
 				}
 
+				/// <summary>
+				/// Deleted blog by flagging it as "IsDeleted".
+				/// </summary>
+				/// <param name="blogId">BlogDetailId</param>
+				/// <returns></returns>
+				public bool DeleteBlogById(int blogId)
+				{
+						return new BloggerRepo().DeleteBlogById(blogId); ;
+				}
 		}
 }

@@ -7,6 +7,7 @@ using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.WebPages;
 using DataAccess;
+using Microsoft.Owin.Security.Provider;
 using RestaurantPlay2.Areas.Blogger.BusinessLogic;
 using RestaurantPlay2.Areas.Blogger.ViewModels;
 using RestaurantPlay2.Areas.ImageItems.BusinessLogic.Misc;
@@ -70,6 +71,19 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 						var savedBlogMessage = new BloggerLogic().SaveNewBlog(model);
 
 						return Json(new { message = savedBlogMessage });
+				}
+
+				/// <summary>
+				/// Delete the users blog based in the.
+				/// </summary>
+				/// <param name="blogId"></param>
+				/// <returns></returns>
+				public ActionResult DeleteBlog(int blogId)
+				{
+						if (!new BloggerLogic().DeleteBlogById(blogId))
+								return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, "We were unable to find or delete this blog!");
+
+						return new HttpStatusCodeResult(HttpStatusCode.OK, "Your blog was successfully deleted!");
 				}
 
 				/// <summary>
