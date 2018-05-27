@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 using System.Web.WebPages;
 using DataAccess;
 using Microsoft.Owin.Security.Provider;
@@ -80,10 +81,14 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 				/// <returns></returns>
 				public ActionResult DeleteBlog(int blogId)
 				{
-						if (!new BloggerLogic().DeleteBlogById(blogId))
-								return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, "We were unable to find or delete this blog!");
+					if (!new BloggerLogic().DeleteBlogById(blogId))
+					{
+						Response.StatusCode = (int) HttpStatusCode.InternalServerError;
+						return Json(new {message = "Oops, There seems to have been an error deleteing this blog! Please try again?"});
+					}
 
-						return new HttpStatusCodeResult(HttpStatusCode.OK, "Your blog was successfully deleted!");
+					Response.StatusCode = (int) HttpStatusCode.OK;
+					return Json(new {message = "Your blog was successfully deleted!"});
 				}
 
 				/// <summary>

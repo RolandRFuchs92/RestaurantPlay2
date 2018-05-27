@@ -11,8 +11,7 @@
 							<div class="blog-snippet">
 								<div class="col-sm-12">
 										<a href="#" onclick="CustomScripts.EditBlog(@blog.Id)">Edit</a>
-									
-									@Ajax.ActionLink("Delete","DeleteBlog", new { blogId = blog.Id }, new AjaxOptions{ Confirm = "Are you sure you want to delete this blog post?", HttpMethod = "POST"})
+										<a href="#" onclick="CustomScripts.DeleteBlog(@blog.Id)">Delete</a>
 								</div>
 								@Html.Partial("_BlogTile", blog)
 							</div>

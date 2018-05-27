@@ -111,8 +111,8 @@ var CustomScripts = {
 				$.post(url,
 						inputData,
 						function (data) {
-								//Do something with the data returned..
-								toastr['success'](data.message, 'Success!');
+							debugger;
+							// TODO Do something with the data returned..
 						}).fail(function (data) {
 								toastr['error'](data.message, "Error!");
 						});
@@ -129,10 +129,11 @@ var CustomScripts = {
 								$.post(url,
 										inputData,
 										function (data) {
-												//do something with the data returned...
-												toastr["success"]("Successfully Deleted your blog post!", "Success!");
+											debugger;
+												//TODO do something with the data returned...
+												toastr["success"](data.message, "Success!");
 										}).fail(function () {
-												toatr["error"]("Oop, we were unable to delete your post!", "Error");
+												toatr["error"](data.message, "Error");
 										});
 				}
 		}
