@@ -218,6 +218,7 @@
     <Compile Include="Areas\Blogger\ViewModels\BloggerFormViewModel.cs" />
     <Compile Include="Areas\Blogger\ViewModels\BloggerViewModel.cs" />
     <Compile Include="Areas\Blogger\ViewModels\EditBloggerViewModel.cs" />
+    <Compile Include="Areas\Blogger\ViewModels\ResponseViewModel.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarouselLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\Misc\ImageUtils.cs" />

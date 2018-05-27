@@ -88,12 +88,12 @@ var CustomScripts = {
 						data: formData,
 						dataType: 'json',
 						success: function (data) {
-					debugger;
-								toastr['success'](data.message);
+								debugger;
+								window.location.replace("/Blogger/Blogger/Blog?blogId="+data.Id);
+								toastr['success'](data.Message);
 						},
 						error: function (data) {
-					debugger;
-								toastr['error'](data.message);
+								toastr['error'](data.Message);
 
 						}
 				});
@@ -103,7 +103,7 @@ var CustomScripts = {
 				if (success)
 						toastr['success'](Message, heading);
 				else
-						toastr['error'](message, heading);
+						toastr['error'](Message, heading);
 		},
 
 		EditBlog: function (blogId) {

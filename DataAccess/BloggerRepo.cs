@@ -72,6 +72,7 @@ namespace DataAccess
 								{
 										var blog = (from blogDetail in db.BlogDetails
 																where blogDetail.BlogDetailId == blogId
+																			&& !blogDetail.IsDeleted
 																select blogDetail).FirstOrDefault();
 
 										blog.IsDeleted = true;
@@ -92,8 +93,10 @@ namespace DataAccess
 				/// </summary>
 				/// <param name="blogDetail"></param>
 				/// <returns></returns>
-				public bool SaveBlog(BlogDetail blogDetail)
+				public int SaveBlog(BlogDetail blogDetail)
 				{
+						var Id = 0;
+
 						try
 						{
 								using (var db = new AppsContext())
@@ -107,6 +110,8 @@ namespace DataAccess
 												blogDetail.IsDeleted = foundBlog.IsDeleted;
 												db.Entry(foundBlog).CurrentValues.SetValues(blogDetail);
 												db.SaveChanges();
+												Id = blogDetail.BlogDetailId;
+												return Id;
 										}
 										else
 										{
@@ -120,14 +125,13 @@ namespace DataAccess
 														BLOGTypeID = 1
 												});
 												db.SaveChanges();
+												return blogDetail.BlogDetailId;
 										}
-
-										return true;
 								}
 						}
 						catch (Exception e)
 						{
-								return false;
+								return 0;
 						}
 				}
 		}

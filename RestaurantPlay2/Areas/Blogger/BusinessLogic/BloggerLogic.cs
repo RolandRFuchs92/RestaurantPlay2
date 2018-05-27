@@ -16,7 +16,7 @@ namespace RestaurantPlay2.Areas.Blogger.BusinessLogic
 				/// </summary>
 				/// <param name="model">Form Viewmodel will be translated into a blogDetail.</param>
 				/// <returns></returns>
-				public string SaveNewBlog(BloggerFormViewModel model)
+				public ResponseViewModel SaveNewBlog(BloggerFormViewModel model)
 				{
 						var blogModel = new BlogDetail
 						{
@@ -32,10 +32,18 @@ namespace RestaurantPlay2.Areas.Blogger.BusinessLogic
 								BlogWritenOn = model.WritenOn,
 						};
 
-						var result = new BloggerRepo().SaveBlog(blogModel)
-							? (model.BlogId == 0 ? "Successfully saved your blog!"
-								: "Your blog has successfully been updated!")
-							: "An error occured while saving your blog.";
+						var blogId = new BloggerRepo().SaveBlog(blogModel);
+
+
+						var result = new ResponseViewModel
+						{
+								Message = blogId > 0
+								? (model.BlogId == 0
+									? "Successfully saved your blog!"
+									: "Your blog has successfully been updated!")
+								: "An error occured while saving your blog.",
+								Id = blogId
+						};
 
 						return result;
 				}

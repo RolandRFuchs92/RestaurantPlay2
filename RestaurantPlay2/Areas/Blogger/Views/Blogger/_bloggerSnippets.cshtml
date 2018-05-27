@@ -10,13 +10,14 @@
 						<div class="col-sm-3">
 								<div class="blog-snippet">
 										<div class="col-sm-12">
+												@Html.ActionLink("View", "Blog", new { blogId = @blog.Id })
 												@Ajax.ActionLink("Edit", "EditBlog", new { blogId = @blog.Id }, new AjaxOptions
 												{
 														HttpMethod = "POST",
 														InsertionMode = InsertionMode.ReplaceWith,
 														UpdateTargetId = "blogEditor"
 												})
-												<a href="#" onclick="CustomScripts.DeleteBlog(event, @blog.Id)">Delete</a>
+												<a href="#" onclick="CustomScripts.DeleteBlog(event, @blog.Id)" class="pull-right">Delete</a>
 										</div>
 										@Html.Partial("_BlogTile", blog)
 								</div>

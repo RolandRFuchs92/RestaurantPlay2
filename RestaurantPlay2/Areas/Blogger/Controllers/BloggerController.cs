@@ -69,10 +69,10 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 								return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "We were unable to save your file. Please try again.");
 
 						model.ImageBase = imagePath;
-						var savedBlogMessage = new BloggerLogic().SaveNewBlog(model);
+						var saveBlog = new BloggerLogic().SaveNewBlog(model);
 
 						Response.StatusCode = (int)HttpStatusCode.OK;
-						return Json(new { message = savedBlogMessage });
+						return Json(saveBlog);
 				}
 
 				/// <summary>
@@ -103,8 +103,9 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 				public ActionResult Blog(int blogId)
 				{
 						var model = new BloggerLogic().GetBlogById(blogId);
+						ViewData["SingleBlog"] = true;
 
-						return PartialView("_BlogTile", model);
+						return View("_BlogTile", model);
 				}
 
 				/// <summary>

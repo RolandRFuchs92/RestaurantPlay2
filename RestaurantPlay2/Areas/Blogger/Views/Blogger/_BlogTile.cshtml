@@ -1,22 +1,42 @@
 ﻿@using RestaurantPlay2.Areas.Blogger.ViewModels
 @model BloggerViewModel
 
-<div class="row">
-		<div class="col-sm-12 col-lg-12">
-				<div class="blog-container">
-						<h4 class="PostTitle">@Model.Title</h4>
-						<p class="lead">By <a href="#">@Model.Author</a></p>
-						<hr class="blog-line" />
-						<p>Posted on <span class="posted-on">@Model.WritenOn.ToString("dd MMM yyyy - hh'h'mm")</span></p>
-						<hr class="blog-line" />
-						<img src="@Model.ImagePath" alt="Alternate Text" class="blog-img" />
-						<br />
-						<div class="blog-body">
-								<p class="lead intro">@Model.Intro<p>
-								<p class="blog-content">@Model.Body</p>
-								<p class="closing-statement">@Model.Remarks</p>
-								<p class="sign-off">@Model.ClosingCaption</p>
+@{
+		var singleBlogClass = "";
+		var isSingleBlog = ViewData["SingleBlog"];
+		if (isSingleBlog != null)
+		{
+				singleBlogClass = (bool)isSingleBlog ? "col-lg-offset-2 col-lg-10 col-sm-12 singleBlog" : "";
+		}
+}
+
+<div class="@singleBlogClass">
+		<div class="row">
+				<div class="col-sm-12 col-lg-12">
+						<div class="blog-container">
+								<h4 class="PostTitle">@Model.Title</h4>
+								<p class="lead">By <a href="#">@Model.Author</a></p>
+								<hr class="blog-line" />
+								<p>Posted on <span class="posted-on">@Model.WritenOn.ToString("dd MMM yyyy - hh'h'mm")</span></p>
+								<hr class="blog-line" />
+								<img src="@Model.ImagePath" alt="Alternate Text" class="blog-img" />
+								<br />
+								<div class="blog-body">
+										<p class="lead intro">@Model.Intro<p>
+										<p class="blog-content">@Model.Body</p>
+										<p class="closing-statement">@Model.Remarks</p>
+										<p class="sign-off">@Model.ClosingCaption</p>
+								</div>
 						</div>
 				</div>
 		</div>
 </div>
+
+<style>
+		.singleBlog img {
+				height: 100%
+		}
+		.singleBlog {
+			padding-bottom: 100px;
+		}
+</style>
