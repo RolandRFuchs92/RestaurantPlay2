@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.WebPages;
+using DataAccess;
 using RestaurantPlay2.Areas.Blogger.BusinessLogic;
 using RestaurantPlay2.Areas.Blogger.ViewModels;
 using RestaurantPlay2.Areas.ImageItems.BusinessLogic.Misc;
@@ -36,14 +37,27 @@ namespace RestaurantPlay2.Areas.Blogger.Controllers
 								return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "The data submitted was invalid, please try again!");
 
 						var imagePath = new ImageUtils().SaveImageFile(model.ImageBase, model.ImageName);
-						
+
 						if (imagePath.IsEmpty())
 								return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "We were unable to save your file. Please try again.");
 
 						model.ImageBase = imagePath;
 						var savedBlogMessage = new BloggerLogic().SaveNewBlog(model);
 
-						return Json(new { message= savedBlogMessage });
+						return Json(new { message = savedBlogMessage });
 				}
+
+				public ActionResult Blog(int blogId)
+				{
+						var model = new BloggerLogic().GetBlogById(blogId);
+
+						return PartialView("_BlogTile", model);
+				}
+
+			public ActionResult GetBlogSnippets()
+			{
+
+				return View();
+			}
 		}
 }

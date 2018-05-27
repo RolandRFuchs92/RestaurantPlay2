@@ -29,6 +29,7 @@ namespace DataAccess
 				{
 						return (from blog in _db.BlogDetails
 										where blog.BlogDetailId == blogId
+													&& !blog.IsDeleted
 										select blog).FirstOrDefault();
 				}
 
