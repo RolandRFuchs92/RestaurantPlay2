@@ -144,7 +144,7 @@ namespace RestaurantPlay2.Areas.Blogger.BusinessLogic
 				/// <returns></returns>
 				public bool DeleteBlogById(int blogId)
 				{
-						return new BloggerRepo().DeleteBlogById(blogId); ;
+						return new BloggerRepo().DeleteBlogById(blogId);
 				}
 		}
 }

@@ -57,16 +57,18 @@ namespace DataAccess
 				{
 						try
 						{
-								var blog = (from blogDetail in _db.BlogDetails
-														where blogDetail.BlogDetailId == blogId
-														select blogDetail).FirstOrDefault();
+							using (var db = new AppsContext())
+							{
+								var blog = (from blogDetail in db.BlogDetails
+									where blogDetail.BlogDetailId == blogId
+									select blogDetail).FirstOrDefault();
 
 								blog.IsDeleted = true;
 
-								_db.BlogDetails.Attach(blog);
-								_db.SaveChanges();
+								db.SaveChanges();
 
 								return true;
+								}
 						}
 						catch (Exception e)
 						{
