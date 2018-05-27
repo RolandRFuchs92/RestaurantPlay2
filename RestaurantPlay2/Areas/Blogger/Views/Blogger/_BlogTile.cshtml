@@ -1,15 +1,42 @@
-﻿
+﻿@using RestaurantPlay2.Areas.Blogger.ViewModels
+@model BloggerViewModel
 
-<div class="form-group">
-    <div class="col-sm-12">
-        <h3>This is the heading</h3>
-        <hr />
-        <div>
-            <img src="/Content/Images/EggsBenedictImage.jpg" alt="Alternate Text" />
-        </div>
-        <div class="col-sm-12">
-            <h4>This is the title of the blog</h4>
-            <span>This is the text that we added to the blogger post, its really cool and it says alot about our place. I really wonder what else i could add to this paragraph... it should become quite pretty buy yolo ig uess.</span>
-        </div>
-    </div>
+@{
+		var singleBlogClass = "";
+		var isSingleBlog = ViewData["SingleBlog"];
+		if (isSingleBlog != null)
+		{
+				singleBlogClass = (bool)isSingleBlog ? "col-lg-offset-2 col-lg-10 col-sm-12 singleBlog" : "";
+		}
+}
+
+<div class="@singleBlogClass">
+		<div class="row">
+				<div class="col-sm-12 col-lg-12">
+						<div class="blog-container">
+								<h4 class="PostTitle">@Model.Title</h4>
+								<p class="lead">By <a href="#">@Model.Author</a></p>
+								<hr class="blog-line" />
+								<p>Posted on <span class="posted-on">@Model.WritenOn.ToString("dd MMM yyyy - hh'h'mm")</span></p>
+								<hr class="blog-line" />
+								<img src="@Model.ImagePath" alt="Alternate Text" class="blog-img" />
+								<br />
+								<div class="blog-body">
+										<p class="lead intro">@Model.Intro<p>
+										<p class="blog-content">@Model.Body</p>
+										<p class="closing-statement">@Model.Remarks</p>
+										<p class="sign-off">@Model.ClosingCaption</p>
+								</div>
+						</div>
+				</div>
+		</div>
 </div>
+
+<style>
+		.singleBlog img {
+				height: 100%
+		}
+		.singleBlog {
+			padding-bottom: 100px;
+		}
+</style>

@@ -1,0 +1,55 @@
+﻿@using RestaurantPlay2.Areas.Blogger.ViewModels
+@model List<BloggerViewModel>
+
+
+<div class="row">
+		<div class="col-sm-12">
+				<h3 class="text-center">Blog Snippets</h3>
+				@foreach (var blog in Model)
+				{
+						<div class="col-sm-3">
+								<div class="blog-snippet">
+										<div class="col-sm-12">
+												@Html.ActionLink("View", "Blog", new { blogId = @blog.Id })
+												@Ajax.ActionLink("Edit", "EditBlog", new { blogId = @blog.Id }, new AjaxOptions
+												{
+														HttpMethod = "POST",
+														InsertionMode = InsertionMode.ReplaceWith,
+														UpdateTargetId = "blogEditor"
+												})
+												<a href="#" onclick="CustomScripts.DeleteBlog(event, @blog.Id)" class="pull-right">Delete</a>
+										</div>
+										@Html.Partial("_BlogTile", blog)
+								</div>
+						</div>
+				}
+		</div>
+</div>
+
+
+
+<style>
+		.blog-snippets {
+				font-size: 10px;
+		}
+
+		.blog-snippet {
+				margin: 5px;
+		}
+
+		.blog-snippets img {
+				height: 150px;
+		}
+
+		.blog-snippets h4 {
+				font-size: 14px;
+		}
+
+		.blog-snippets .lead {
+				font-size: 12px;
+		}
+
+		.blog-snippets .blog-container {
+				height: 400px;
+		}
+</style>

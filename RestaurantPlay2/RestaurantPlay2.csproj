@@ -213,7 +213,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Blogger\BloggerAreaRegistration.cs" />
+    <Compile Include="Areas\Blogger\BusinessLogic\BloggerLogic.cs" />
     <Compile Include="Areas\Blogger\Controllers\BloggerController.cs" />
+    <Compile Include="Areas\Blogger\ViewModels\BloggerFormViewModel.cs" />
+    <Compile Include="Areas\Blogger\ViewModels\BloggerViewModel.cs" />
+    <Compile Include="Areas\Blogger\ViewModels\EditBloggerViewModel.cs" />
+    <Compile Include="Areas\Blogger\ViewModels\ResponseViewModel.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarouselLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\Misc\ImageUtils.cs" />
@@ -259,8 +264,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\datetimepicker\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap\datetimepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap\theme\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\theme\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\FixedScrollingBackgrounds.css" />
     <Content Include="Content\Images\EggsBenedictImage.jpg" />
     <Content Include="Content\Images\GinImage.jpg" />
@@ -269,6 +278,7 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Models\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\_run.js" />
@@ -276,6 +286,10 @@
     <Content Include="Scripts\app\app.viewmodel.js" />
     <Content Include="Scripts\app\common.js" />
     <Content Include="Scripts\app\home.viewmodel.js" />
+    <Content Include="Scripts\Bootstrap\bootboxjs\bootbox.js" />
+    <Content Include="Scripts\Bootstrap\bootboxjs\bootbox.min.js" />
+    <Content Include="Scripts\Bootstrap\datetimepicker\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\Bootstrap\datetimepicker\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -302,8 +316,15 @@
     <Content Include="Areas\Blogger\Views\web.config" />
     <Content Include="Areas\Blogger\Views\Blogger\Index.cshtml" />
     <Content Include="Areas\Blogger\Views\Blogger\_BloggerForm.cshtml" />
-    <Content Include="Areas\Blogger\Views\Shared\_ViewStart.cshtml" />
+    <Content Include="Areas\Blogger\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Blogger\Views\Blogger\_BlogTile.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\theme\bootstrap-theme.css.map" />
+    <Content Include="Areas\Blogger\Views\Blogger\_BloggerSnippets.cshtml" />
+    <Content Include="Areas\Blogger\Views\Blogger\_BloggerEditor.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -319,10 +340,15 @@
     <Content Include="Scripts\knockout.validation.debug.js" />
     <Content Include="Scripts\knockout.validation.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment\locales\moment-with-locales.js" />
+    <Content Include="Scripts\moment\locales\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment\moment.js" />
+    <Content Include="Scripts\moment\moment.min.js" />
+    <Content Include="Scripts\moment\npm.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\sammy-0.7.4.js" />
-    <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Scripts\Bootstrap\bootboxjs\sammy-0.7.4.js" />
+    <Content Include="Scripts\Bootstrap\bootboxjs\sammy-0.7.4.min.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -364,8 +390,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Blogger\BusinessLogic\" />
     <Folder Include="Areas\Blogger\Models\" />
+    <Folder Include="Areas\Blogger\Views\Shared\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />
     <Folder Include="Areas\ImageItems\Models\" />
     <Folder Include="Areas\MenuBuilder\Entities\" />
