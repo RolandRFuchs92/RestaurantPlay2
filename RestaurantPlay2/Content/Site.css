@@ -95,3 +95,39 @@ img.card-img-top {
 .btn-space {
 	margin-right: 5px;
 }
+
+.blog-container {
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	background-color: #61b6ff26;
+}
+.blog-line {
+	margin: 10px 10px;
+	border-color: #53b4ec66;
+}
+.lead {
+	font-size: 1.25rem;
+	font-weight: 300;
+}
+p .blog-container {
+	margin-top: 0px;
+	margin-bottom: 1rem;
+	line-height: 1.5;
+}
+.blog-img {
+	margin-bottom: 10px;
+	width: 100%;
+	height: 300px;
+	border-radius: 5px;
+}
+
+body {
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
+}
+p.closing-statement {
+	font-weight: 500;
+}
+p.sign-off {
+	color: darkslategrey;
+	font-weight: 300;
+}
