@@ -222,7 +222,7 @@
     <Compile Include="Areas\BookNow\BookNowAreaRegistration.cs" />
     <Compile Include="Areas\BookNow\BusinessLogic\BookNow.cs" />
     <Compile Include="Areas\BookNow\Controllers\BookNowController.cs" />
-    <Compile Include="Areas\BookNow\ViewModels\BloggerFormViewModel.cs" />
+    <Compile Include="Areas\BookNow\ViewModels\BookNowFormViewModel.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarouselLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\Misc\ImageUtils.cs" />
@@ -331,6 +331,7 @@
     <Content Include="Areas\Blogger\Views\Blogger\_BloggerEditor.cshtml" />
     <Content Include="Areas\BookNow\Views\web.config" />
     <Content Include="Areas\BookNow\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\BookNow\Views\BookNow\_BookNowForm.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -399,7 +400,6 @@
     <Folder Include="Areas\Blogger\Models\" />
     <Folder Include="Areas\Blogger\Views\Shared\" />
     <Folder Include="Areas\BookNow\Models\" />
-    <Folder Include="Areas\BookNow\Views\BookNow\" />
     <Folder Include="Areas\BookNow\Views\Shared\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />
     <Folder Include="Areas\ImageItems\Models\" />

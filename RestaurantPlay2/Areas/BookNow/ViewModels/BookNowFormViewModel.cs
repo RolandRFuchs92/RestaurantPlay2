@@ -7,13 +7,12 @@ using System.Web.Management;
 
 namespace RestaurantPlay2.Areas.BookNow.ViewModels
 {
-		public class BloggerFormViewModel
+		public class BookNowFormViewModel
 		{
-				public BloggerFormViewModel()
+				public BookNowFormViewModel()
 				{
 						BookingId = 0;
 				}
-
 				public int BookingId { get; set; }
 				[MaxLength(50)]
 				[Required]
