@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -12,17 +13,17 @@ using DataAccess.Entities;
 
 namespace RestaurantPlay2.Areas.ContactForm.Controllers
 {
-    public class ContactController : Controller
+    public class EnquiryController : Controller
     {
         private AppsContext db = new AppsContext();
 
-        // GET: ContactForm/Contact
+        // GET: ContactForm/Enquiry
         public ActionResult Index()
         {
             return View(db.EnquiryFormSubs.ToList());
         }
 
-        // GET: ContactForm/Contact/Details/5
+        // GET: ContactForm/Enquiry/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,7 +37,6 @@ namespace RestaurantPlay2.Areas.ContactForm.Controllers
             }
             return View(enquiryFormSubs);
         }
-
         public ActionResult Contact()
         {
             return View();
@@ -44,7 +44,7 @@ namespace RestaurantPlay2.Areas.ContactForm.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Contact([Bind(Include = "Id,Name,PhoneNumber,EmailAddress,FormMessage,Comments")] EnquiryFormSubs enquiryFormSubs)
+        public ActionResult Contact([Bind(Include = "EnquiryId,Name,PhoneNumber,EmailAddress,FormMessage,Comments")] EnquiryFormSubs enquiryFormSubs)
         {
 
             try
@@ -58,11 +58,11 @@ namespace RestaurantPlay2.Areas.ContactForm.Controllers
                 //sending emails with secure protocol  
                 WebMail.EnableSsl = true;
                 //EmailId used to send emails from application  
-                WebMail.UserName = "xienaudh@gmail.com";
-                WebMail.Password = "xienleonaudh";
+                WebMail.UserName = "thecrazydeveloperemail@gmail.com";
+                WebMail.Password = "LoremIpsum01!";
 
                 //Sender email address.  
-                WebMail.From = "SenderGamilId@gmail.com";
+                WebMail.From = "infoemail@www-www.co.za";
                 //Send email  
                 enquiryFormSubs.FormMessage = @"
                     <img src='http://www-www.co.za/X-Crazy-Dv.png' width='80px' height='50px'>
@@ -83,7 +83,9 @@ namespace RestaurantPlay2.Areas.ContactForm.Controllers
                     "<a href='mailto:info@www-www.co.za?subject=Web Enquiry'>Email Us Today</a>" +
                     "</div>";
 
-                WebMail.Send(to: enquiryFormSubs.EmailAddress, subject:"Client", body: enquiryFormSubs.FormMessage, cc: "", bcc: "xienaudh@gmail.com", isBodyHtml: true);
+                WebMail.Send(to: enquiryFormSubs.EmailAddress, subject: "Client", body: enquiryFormSubs.FormMessage, cc: "", bcc: "xienaudh@gmail.com", isBodyHtml: true);
+                SendSMS sendSMS = new SendSMS();
+                sendSMS.SMSAdmin(enquiryFormSubs.Name, enquiryFormSubs.FormMessage);
                 ViewBag.Status = "Email Sent Successfully.";
                 if (ModelState.IsValid)
                 {
@@ -105,18 +107,18 @@ namespace RestaurantPlay2.Areas.ContactForm.Controllers
             return View();
         }
 
-        // GET: ContactForm/Contact/Create
+        // GET: ContactForm/Enquiry/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ContactForm/Contact/Create
+        // POST: ContactForm/Enquiry/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,PhoneNumber,EmailAddress,FormMessage,Comments")] EnquiryFormSubs enquiryFormSubs)
+        public ActionResult Create([Bind(Include = "EnquiryId,Name,PhoneNumber,EmailAddress,FormMessage,Comments")] EnquiryFormSubs enquiryFormSubs)
         {
             if (ModelState.IsValid)
             {
@@ -128,7 +130,7 @@ namespace RestaurantPlay2.Areas.ContactForm.Controllers
             return View(enquiryFormSubs);
         }
 
-        // GET: ContactForm/Contact/Edit/5
+        // GET: ContactForm/Enquiry/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -143,12 +145,13 @@ namespace RestaurantPlay2.Areas.ContactForm.Controllers
             return View(enquiryFormSubs);
         }
 
-        // POST: ContactForm/Contact/Edit/5
+        // POST: ContactForm/Enquiry/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,PhoneNumber,EmailAddress,FormMessage,Comments")] EnquiryFormSubs enquiryFormSubs)
+        public ActionResult Edit([Bind(Include = "EnquiryId,Name,PhoneNumber,EmailAddress,FormMessage,Comments")] EnquiryFormSubs enquiryFormSubs)
         {
             if (ModelState.IsValid)
             {
@@ -159,7 +162,7 @@ namespace RestaurantPlay2.Areas.ContactForm.Controllers
             return View(enquiryFormSubs);
         }
 
-        // GET: ContactForm/Contact/Delete/5
+        // GET: ContactForm/Enquiry/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -174,7 +177,7 @@ namespace RestaurantPlay2.Areas.ContactForm.Controllers
             return View(enquiryFormSubs);
         }
 
-        // POST: ContactForm/Contact/Delete/5
+        // POST: ContactForm/Enquiry/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -193,11 +196,5 @@ namespace RestaurantPlay2.Areas.ContactForm.Controllers
             }
             base.Dispose(disposing);
         }
-
-        private string response;
-        private string api;
-        Dictionary<string, string> Params = new Dictionary<string, string>();
-
-        response = Api.SendSMS(api, Params);
     }
 }

@@ -9,8 +9,9 @@ namespace DataAccess.Entities
 {
     public class EnquiryFormSubs
     {
+        [Key]
         [Required]
-        public int Id { get; set; }
+        public int EnquiryId { get; set; }
 
         [Display(Name = "Your Name")]
         [Required]
@@ -18,7 +19,8 @@ namespace DataAccess.Entities
 
         
         [Display(Name = "Your Contact Number")]
-        public int PhoneNumber { get; set; }
+        [Required]
+        public string PhoneNumber { get; set; }
 
         [Display(Name = "Your Email Address :")]
         [Required]

@@ -47,15 +47,15 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Enquire" onclick='SendSMS($( ".CName" ).val(),$( ".CEmail" ).val(),$( ".CMes" ).val().substring(0, 40));' class="btn btn-default" />
+                <input type="submit" value="Contact Us" onclick='SendSMS($( ".CName" ).val(),$( ".CEmail" ).val(),$( ".CMes" ).val().substring(0, 40));' class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-    <script type="text/javascript">
+<script type="text/javascript">
         function SendSMS(Cname, CEmail, CMes) {
-           
+
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "https://platform.clickatell.com/messages/http/send?apiKey=FukUwrKiTDmf9rxeRzIciQ==&to=27837074655&content=You+Recieved+A+Message+From:" + Cname + " Contact them on: " + CEmail + " They Said : " + CMes, true);
             xhr.onreadystatechange = function () {

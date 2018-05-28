@@ -9,12 +9,12 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <h4>EnquiryFormSubs</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.EnquiryId)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -43,9 +43,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FormMessage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DisplayFor(model => model.FormMessage)
-                <div class="clear"></div>
-                <span class="btn btn-success btn-block" id="preview">Preview</span>
+                @Html.EditorFor(model => model.FormMessage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FormMessage, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -64,25 +63,7 @@
         </div>
     </div>
 }
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <div class="modal-content">
-        @Html.Raw(Model.FormMessage)
-    </div>
-</div>
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-<script>
-    var modal = document.getElementById('myModal');
-    var FormMessage = document.getElementById('preview');
-    //var modalImg = document.getElementById("myModal");
-    FormMessage.onclick = function () {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-    }
-    var span = document.getElementsByClassName("close")[0];
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-</script>

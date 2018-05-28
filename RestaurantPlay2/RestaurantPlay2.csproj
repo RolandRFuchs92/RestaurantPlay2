@@ -222,11 +222,11 @@
     <Compile Include="Areas\Blogger\BusinessLogic\BloggerLogic.cs" />
     <Compile Include="Areas\Blogger\Controllers\BloggerController.cs" />
     <Compile Include="Areas\ContactForm\ContactFormAreaRegistration.cs" />
-    <Compile Include="Areas\ContactForm\Controllers\ContactController.cs" />
     <Compile Include="Areas\Blogger\ViewModels\BloggerFormViewModel.cs" />
     <Compile Include="Areas\Blogger\ViewModels\BloggerViewModel.cs" />
     <Compile Include="Areas\Blogger\ViewModels\EditBloggerViewModel.cs" />
     <Compile Include="Areas\Blogger\ViewModels\ResponseViewModel.cs" />
+    <Compile Include="Areas\ContactForm\Controllers\EnquiryController.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarouselLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\Misc\ImageUtils.cs" />
@@ -269,6 +269,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="SMSService\Api.cs" />
+    <Compile Include="SMSService\SendSMS.cs" />
+    <Compile Include="SMSService\Rest.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -322,21 +325,12 @@
     <Content Include="Areas\MenuBuilder\Views\web.config" />
     <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuItem.cshtml" />
     <Content Include="Areas\MenuBuilder\Views\MenuBuilder\_MenuItemCategory.cshtml" />
-    <Content Include="Areas\Blogger\Views\web.config" />
     <Content Include="Areas\Blogger\Views\Blogger\Index.cshtml" />
     <Content Include="Areas\Blogger\Views\Blogger\_BloggerForm.cshtml" />
     <Content Include="Areas\Blogger\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Blogger\Views\Blogger\_BlogTile.cshtml" />
     <Content Include="Areas\ContactForm\Views\web.config" />
     <Content Include="Areas\ContactForm\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\ContactForm\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\ContactForm\Views\Contact\Create.cshtml" />
-    <Content Include="Areas\ContactForm\Views\Contact\Delete.cshtml" />
-    <Content Include="Areas\ContactForm\Views\Contact\Details.cshtml" />
-    <Content Include="Areas\ContactForm\Views\Contact\Edit.cshtml" />
-    <Content Include="Areas\ContactForm\Views\Contact\Index.cshtml" />
-    <Content Include="Areas\ContactForm\Views\Contact\Contact.cshtml" />
-    <Content Include="Areas\ContactForm\Views\Contact\Success.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -344,6 +338,14 @@
     <Content Include="Content\bootstrap\theme\bootstrap-theme.css.map" />
     <Content Include="Areas\Blogger\Views\Blogger\_BloggerSnippets.cshtml" />
     <Content Include="Areas\Blogger\Views\Blogger\_BloggerEditor.cshtml" />
+    <Content Include="Areas\Blogger\Views\web.config" />
+    <Content Include="Areas\ContactForm\Views\Enquiry\Create.cshtml" />
+    <Content Include="Areas\ContactForm\Views\Enquiry\Delete.cshtml" />
+    <Content Include="Areas\ContactForm\Views\Enquiry\Details.cshtml" />
+    <Content Include="Areas\ContactForm\Views\Enquiry\Edit.cshtml" />
+    <Content Include="Areas\ContactForm\Views\Enquiry\Index.cshtml" />
+    <Content Include="Areas\ContactForm\Views\Enquiry\Success.cshtml" />
+    <Content Include="Areas\ContactForm\Views\Enquiry\Contact.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -410,9 +412,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Blogger\Models\" />
+    <Folder Include="Areas\Blogger\Views\Shared\" />
     <Folder Include="Areas\ContactForm\BusinessLogic\" />
     <Folder Include="Areas\ContactForm\Models\" />
-    <Folder Include="Areas\Blogger\Views\Shared\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />
     <Folder Include="Areas\ImageItems\Models\" />
     <Folder Include="Areas\MenuBuilder\Entities\" />
