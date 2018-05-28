@@ -222,6 +222,7 @@
     <Compile Include="Areas\BookNow\BookNowAreaRegistration.cs" />
     <Compile Include="Areas\BookNow\BusinessLogic\BookNow.cs" />
     <Compile Include="Areas\BookNow\Controllers\BookNowController.cs" />
+    <Compile Include="Areas\BookNow\ViewModels\BloggerFormViewModel.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarouselLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\Misc\ImageUtils.cs" />
@@ -398,7 +399,6 @@
     <Folder Include="Areas\Blogger\Models\" />
     <Folder Include="Areas\Blogger\Views\Shared\" />
     <Folder Include="Areas\BookNow\Models\" />
-    <Folder Include="Areas\BookNow\ViewModels\" />
     <Folder Include="Areas\BookNow\Views\BookNow\" />
     <Folder Include="Areas\BookNow\Views\Shared\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />
