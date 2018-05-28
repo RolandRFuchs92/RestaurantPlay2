@@ -57,6 +57,8 @@
     <Compile Include="Entities\COREContent.cs" />
     <Compile Include="Entities\FoodPreference.cs" />
     <Compile Include="Entities\IMAGEItem.cs" />
+    <Compile Include="Entities\ItemList.cs" />
+    <Compile Include="Entities\ItemListCategory.cs" />
     <Compile Include="Entities\MenuItem.cs" />
     <Compile Include="Entities\MenuItemCategory.cs" />
     <Compile Include="Entities\MenuItemSetting.cs" />
