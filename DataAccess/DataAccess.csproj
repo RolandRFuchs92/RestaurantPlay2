@@ -53,6 +53,7 @@
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Entities\BlogDetail.cs" />
     <Compile Include="Entities\BlogType.cs" />
+    <Compile Include="Entities\Booking.cs" />
     <Compile Include="Entities\COREBlog.cs" />
     <Compile Include="Entities\COREContent.cs" />
     <Compile Include="Entities\FoodPreference.cs" />

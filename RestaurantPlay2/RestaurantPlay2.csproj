@@ -398,6 +398,7 @@
     <Folder Include="Areas\Blogger\Models\" />
     <Folder Include="Areas\Blogger\Views\Shared\" />
     <Folder Include="Areas\BookNow\Models\" />
+    <Folder Include="Areas\BookNow\ViewModels\" />
     <Folder Include="Areas\BookNow\Views\BookNow\" />
     <Folder Include="Areas\BookNow\Views\Shared\" />
     <Folder Include="Areas\ImageItems\BusinessLogic\ImageBackground\" />
