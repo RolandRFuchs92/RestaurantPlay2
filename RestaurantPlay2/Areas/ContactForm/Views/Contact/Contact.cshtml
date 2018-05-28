@@ -1,25 +1,23 @@
 ﻿@model DataAccess.Entities.EnquiryFormSubs
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Contact";
 }
 
-<h2>Edit</h2>
+<h2>Contact</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>EnquiryFormSubs</h4>
+        <h4>Contact Us Today</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.EnquiryId)
-
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control CName" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -27,7 +25,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control CNum" } })
                 @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -35,7 +33,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control CEmail" } })
                 @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -43,27 +41,29 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FormMessage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FormMessage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.FormMessage, new { htmlAttributes = new { @class = "form-control CMes" } })
                 @Html.ValidationMessageFor(model => model.FormMessage, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Enquire" onclick='SendSMS($( ".CName" ).val(),$( ".CEmail" ).val(),$( ".CMes" ).val().substring(0, 40));' class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <script type="text/javascript">
+        function SendSMS(Cname, CEmail, CMes) {
+           
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://platform.clickatell.com/messages/http/send?apiKey=FukUwrKiTDmf9rxeRzIciQ==&to=27837074655&content=You+Recieved+A+Message+From:" + Cname + " Contact them on: " + CEmail + " They Said : " + CMes, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log('success')
+                }
+            };
+            xhr.send();
+        }
+
+    </script>
