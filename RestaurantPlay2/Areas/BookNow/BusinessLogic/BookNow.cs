@@ -82,6 +82,11 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 						return model;
 				}
 
+				/// <summary>
+				/// Pass in the form model booking and this will translate it to what the repo requires inorder to save the booking.
+				/// </summary>
+				/// <param name="saveBooking"></param>
+				/// <returns></returns>
 				public bool IsSavedBooking(SaveBookingViewModel saveBooking)
 				{
 						var db = new AppsContext();
