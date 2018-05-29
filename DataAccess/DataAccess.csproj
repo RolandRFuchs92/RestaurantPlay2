@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BloggerRepo.cs" />
+    <Compile Include="BookingRepo.cs" />
     <Compile Include="ContentRepo\ContentRepo.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Entities\BlogDetail.cs" />

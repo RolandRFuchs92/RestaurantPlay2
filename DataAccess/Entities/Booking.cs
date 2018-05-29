@@ -20,5 +20,6 @@ namespace DataAccess.Entities
 				public bool IsConfirmed { get; set; }
 				public bool IsCanceled { get; set; }
 				public DateTime CreateOn { get; set; }
+				public DateTime BookingDate { get; set; }
 		}
 }
