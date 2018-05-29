@@ -1,0 +1,8 @@
+﻿@using RestaurantPlay2.Areas.BookNow.ViewModels
+@model List<BookingViewModel>
+
+
+@foreach (var booking in Model)
+{
+		@Html.Partial("_Booking", booking)
+}

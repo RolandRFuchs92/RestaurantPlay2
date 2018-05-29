@@ -4,13 +4,6 @@
 @model BookNowFormViewModel
 
 
-@{
-	var occasionList = RestaurantPlay2.Areas.BookNow.BusinessLogic.BookNow();
-
-
-}
-
-
 <div class="row">
 		<div class="col-lg-offset-2 col-lg-10 col-sm-12">
 				<h4>Want to make a book?</h4>
@@ -19,17 +12,17 @@
 
 				<div class="col-sm-12 col-md-6">
 						<div class="form-group">
-								@Html.LabelFor(i => i.Name, new { @class = "col-sm-4 control-label" })
+								@Html.LabelFor(i => i.SaveBookingViewModel.Name, new { @class = "col-sm-4 control-label" })
 								<div class="col-sm-8">
-										@Html.TextBoxFor(i => i.Name, new { @class = "form-control" })
-										@Html.ValidationMessageFor(i => i.Name)
+										@Html.TextBoxFor(i => i.SaveBookingViewModel.Name, new { @class = "form-control" })
+										@Html.ValidationMessageFor(i => i.SaveBookingViewModel.Name)
 								</div>
 						</div>
 				</div>
 
 				<div class="col-sm-12 col-md-6">
 						<div class="form-group">
-								@Html.LabelFor(i => i.HeadCount)
+								@Html.LabelFor(i => i.SaveBookingViewModel.HeadCount)
 								<div class="col-sm-8">
 										@* DROP DOWN LIST NOOOOO *@
 								</div>
@@ -38,48 +31,48 @@
 
 				<div class="col-sm-12 col-md-6">
 						<div class="form-group">
-								@Html.LabelFor(i => i.MobileNumber, new { @class = "col-sm-4 control-label" })
+								@Html.LabelFor(i => i.SaveBookingViewModel.MobileNumber, new { @class = "col-sm-4 control-label" })
 								<div class="col-sm-8">
-										@Html.TextBoxFor(i => i.MobileNumber, new { @class = "form-control" })1
-										@Html.ValidationMessageFor(i => i.MobileNumber)
+										@Html.TextBoxFor(i => i.SaveBookingViewModel.MobileNumber, new { @class = "form-control" })1
+										@Html.ValidationMessageFor(i => i.SaveBookingViewModel.MobileNumber)
 								</div>
 						</div>
 				</div>
 
 				<div class="col-sm-12 col-md-6">
 						<div class="form-group">
-								@Html.LabelFor(i => i.EmailAddress, new { @class = "col-sm-4 control-label" })
+								@Html.LabelFor(i => i.SaveBookingViewModel.EmailAddress, new { @class = "col-sm-4 control-label" })
 								<div class="col-sm-8">
-										@Html.TextBoxFor(i => i.EmailAddress, new { @class = "form-control" })
-										@Html.ValidationMessageFor(i => i.EmailAddress)
+										@Html.TextBoxFor(i => i.SaveBookingViewModel.EmailAddress, new { @class = "form-control" })
+										@Html.ValidationMessageFor(i => i.SaveBookingViewModel.EmailAddress)
 								</div>
 						</div>
 				</div>
 
 			<div class="col-sm-12 col-md-6">
 				<div class="form-group">
-					@Html.LabelFor(i=>i.OccasionId, new{@class="col-sm-4 control-label"})
+					@Html.LabelFor(i=>i.SaveBookingViewModel.OccasionId, new{@class="col-sm-4 control-label"})
 					<div class="col-sm-8">
 						@*@Html.DropDownListFor(i=>i.OccasionId)*@
-						@Html.ValidationMessageFor(i=>i.OccasionId)
+						@Html.ValidationMessageFor(i=>i.SaveBookingViewModel.OccasionId)
 					</div>
 				</div>
 			</div>
 
 			<div class="col-sm-12 col-md-6">
 				<div class="form-group">
-					@Html.LabelFor(i=>i.IsConfirmed)
+					@Html.LabelFor(i=>i.SaveBookingViewModel.IsConfirmed)
 					<div class="col-sm-8">
-						@Html.TextBoxFor(i=>i.IsConfirmed, new{ type="checkbox"})
+						@Html.TextBoxFor(i=>i.SaveBookingViewModel.IsConfirmed, new{ type="checkbox"})
 					</div>
 				</div>
 			</div>
 			
 			<div class="col-sm-12 col-md-12">
 				<div class="form-group">
-					@Html.LabelFor(i=>i.Comment,new {@class="col-sm-4 control-label"})
+					@Html.LabelFor(i=>i.SaveBookingViewModel.Comment,new {@class="col-sm-4 control-label"})
 					<div class="col-sm-8">
-						@Html.TextAreaFor(i=>i.Comment, new {@class="form-control"})
+						@Html.TextAreaFor(i=>i.SaveBookingViewModel.Comment, new {@class="form-control"})
 					</div>
 				</div>
 			</div>
