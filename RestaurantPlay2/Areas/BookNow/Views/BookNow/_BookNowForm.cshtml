@@ -1,89 +1,96 @@
 ﻿@using System.Collections
+@using System.Data.Entity.Core.Metadata.Edm
 @using System.Web.UI.WebControls
 @using RestaurantPlay2.Areas.BookNow.ViewModels
 @model BookNowFormViewModel
 
 
-<div class="row">
-		<div class="col-lg-offset-2 col-lg-10 col-sm-12">
-				<h4>Want to make a book?</h4>
-				<h3>Book here!</h3>
-				<br />
+@using (Ajax.BeginForm("SaveBooking", "BookNow", new AjaxOptions
+{
+		HttpMethod = "Post",
+		UpdateTargetId = ""
+}, new { @class = "form-horizontal" }
+))
+{
+		<div class="row">
+				<div class="col-lg-offset-2 col-lg-8 col-sm-12">
+						<h3>Want to make a booking?</h3>
+						<h4>Book here!</h4>
+						<br />
 
-				<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-								@Html.LabelFor(i => i.SaveBookingViewModel.Name, new { @class = "col-sm-4 control-label" })
-								<div class="col-sm-8">
-										@Html.TextBoxFor(i => i.SaveBookingViewModel.Name, new { @class = "form-control" })
-										@Html.ValidationMessageFor(i => i.SaveBookingViewModel.Name)
+						<div class="col-sm-12 col-md-6">
+								<div class="form-group">
+										@Html.LabelFor(i => i.SaveBookingViewModel.Name, new { @class = "col-sm-4 control-label" })
+										<div class="col-sm-8">
+												@Html.TextBoxFor(i => i.SaveBookingViewModel.Name, new { @class = "form-control" })
+												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.Name)
+										</div>
 								</div>
 						</div>
-				</div>
 
-				<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-								@Html.LabelFor(i => i.SaveBookingViewModel.HeadCount)
-								<div class="col-sm-8">
-										@* DROP DOWN LIST NOOOOO *@
+						<div class="col-sm-12 col-md-6">
+								<div class="form-group">
+										@Html.LabelFor(i => i.SaveBookingViewModel.HeadCount, new { @class = "col-sm-4 control-label" })
+										<div class="col-sm-8">
+												@Html.DropDownListFor(i => i.SaveBookingViewModel.HeadCount, Model.HeadCountList, new { @class = "form-control btn-default" })
+												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.HeadCount)
+										</div>
 								</div>
 						</div>
-				</div>
 
-				<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-								@Html.LabelFor(i => i.SaveBookingViewModel.MobileNumber, new { @class = "col-sm-4 control-label" })
-								<div class="col-sm-8">
-										@Html.TextBoxFor(i => i.SaveBookingViewModel.MobileNumber, new { @class = "form-control" })1
-										@Html.ValidationMessageFor(i => i.SaveBookingViewModel.MobileNumber)
+						<div class="col-sm-12 col-md-6">
+								<div class="form-group">
+										@Html.LabelFor(i => i.SaveBookingViewModel.MobileNumber, new { @class = "col-sm-4 control-label" })
+										<div class="col-sm-8">
+												@Html.TextBoxFor(i => i.SaveBookingViewModel.MobileNumber, new { @class = "form-control" })
+												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.MobileNumber)
+										</div>
 								</div>
 						</div>
-				</div>
 
-				<div class="col-sm-12 col-md-6">
-						<div class="form-group">
-								@Html.LabelFor(i => i.SaveBookingViewModel.EmailAddress, new { @class = "col-sm-4 control-label" })
-								<div class="col-sm-8">
-										@Html.TextBoxFor(i => i.SaveBookingViewModel.EmailAddress, new { @class = "form-control" })
-										@Html.ValidationMessageFor(i => i.SaveBookingViewModel.EmailAddress)
+						<div class="col-sm-12 col-md-6">
+								<div class="form-group">
+										@Html.LabelFor(i => i.SaveBookingViewModel.EmailAddress, new { @class = "col-sm-4 control-label" })
+										<div class="col-sm-8">
+												@Html.TextBoxFor(i => i.SaveBookingViewModel.EmailAddress, new { @class = "form-control" })
+												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.EmailAddress)
+										</div>
 								</div>
 						</div>
-				</div>
 
-			<div class="col-sm-12 col-md-6">
-				<div class="form-group">
-					@Html.LabelFor(i=>i.SaveBookingViewModel.OccasionId, new{@class="col-sm-4 control-label"})
-					<div class="col-sm-8">
-						@*@Html.DropDownListFor(i=>i.OccasionId)*@
-						@Html.ValidationMessageFor(i=>i.SaveBookingViewModel.OccasionId)
-					</div>
-				</div>
-			</div>
+						<div class="col-sm-12 col-md-6">
+								<div class="form-group">
+										@Html.LabelFor(i => i.SaveBookingViewModel.OccasionId, new { @class = "col-sm-4 control-label" })
+										<div class="col-sm-8">
+												@Html.DropDownListFor(i => i.SaveBookingViewModel.OccasionId, Model.ListCategoryViewModel, new { @class = "form-control btn-default" })
+												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.OccasionId)
+										</div>
+								</div>
+						</div>
 
-			<div class="col-sm-12 col-md-6">
-				<div class="form-group">
-					@Html.LabelFor(i=>i.SaveBookingViewModel.IsConfirmed)
-					<div class="col-sm-8">
-						@Html.TextBoxFor(i=>i.SaveBookingViewModel.IsConfirmed, new{ type="checkbox"})
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-12 col-md-12">
-				<div class="form-group">
-					@Html.LabelFor(i=>i.SaveBookingViewModel.Comment,new {@class="col-sm-4 control-label"})
-					<div class="col-sm-8">
-						@Html.TextAreaFor(i=>i.SaveBookingViewModel.Comment, new {@class="form-control"})
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-sm-12">
-					<input type="button" name="submit" value="Submit" class="btn btn-primary"/>
-					<input type="button" name="Reset" value="Reset" class="btn btn-default"/>
-				</div>
-			</div>
+						<div class="col-sm-12 col-md-6">
+								<div class="form-group">
+										@Html.LabelFor(i => i.SaveBookingViewModel.IsConfirmed, new { @class = "control-label col-sm-4" })
+										<div class="col-sm-8">
+												@Html.TextBoxFor(i => i.SaveBookingViewModel.IsConfirmed, new { type = "checkbox" })
+										</div>
+								</div>
+						</div>
 
+						<div class="col-sm-12 col-md-12">
+								<div class="form-group">
+										@Html.LabelFor(i => i.SaveBookingViewModel.Comment, new { @class = "col-sm-4 col-md-2 control-label" })
+										<div class="col-sm-8 col-md-10">
+												@Html.TextAreaFor(i => i.SaveBookingViewModel.Comment, new { @class = "form-control" })
+										</div>
+								</div>
+						</div>
+
+						<div class="col-sm-12">
+								<input type="button" name="submit" value="Submit" class="btn btn-primary pull-right" />
+								<input type="button" name="Reset" value="Reset" class="btn btn-default pull-right btn-space" />
+						</div>
+
+				</div>
 		</div>
-</div>
-
+}

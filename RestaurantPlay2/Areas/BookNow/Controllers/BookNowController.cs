@@ -2,18 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using DataAccess.Context;
+using RestaurantPlay2.Areas.BookNow.BusinessLogic;
 
 namespace RestaurantPlay2.Areas.BookNow.Controllers
 {
-    public class BookNowController : Controller
-    {
-        // GET: BookNow/BookNow
-        public ActionResult Index()
-        {
-            return View();
-        }
+		public class BookNowController : Controller
+		{
+
+				public ActionResult Index()
+				{
+						return View();
+				}
 
 				/// <summary>
 				/// Get the form view model, meant for client side viewing.
@@ -21,14 +24,42 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 				/// <returns></returns>
 				public ActionResult BookNowForm()
 				{
-						var model = new BookNowFormViewModel();
-						return PartialView(model);
+						var db = new AppsContext();
+						var model = new BookNowFormViewModel
+						{
+								SaveBookingViewModel = new SaveBookingViewModel(),
+								ListCategoryViewModel = new BusinessLogic.BookNow().GetListItemOccasion()
+						};
+
+						return View("_BookNowForm", model);
 				}
 
+				/// <summary>
+				/// Get All bookings that are available for today.
+				/// </summary>
+				/// <returns></returns>
 				public ActionResult BookingsForToday()
 				{
+						var model = new BusinessLogic.BookNow().GetTodaysBookings();
+
+						return View("_BookingReport", model);
+				}
+
+				public ActionResult SaveBooking(SaveBookingViewModel model)
+				{
+						if (!ModelState.IsValid)
+						{
+								Response.StatusCode = (int)HttpStatusCode.BadRequest;
+								return Json(new
+								{
+										Message = "There are missing fields in the submitted data. Please correct these fields and try again."
+								});
+						}
+
+
+
 						return View();
 				}
 
-    }
+		}
 }

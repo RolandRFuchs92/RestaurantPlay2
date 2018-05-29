@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using DataAccess.Context;
 using RestaurantPlay2.Areas.BookNow.ViewModels;
 using DataAccess;
@@ -23,8 +25,8 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 						var model = (from item in itemList
 												 select new ListCategoryViewModel
 												 {
-														 Id = item.ListId,
-														 Name = item.ListData
+														 Id = item.ItemListId,
+														 Name = item.ItemListData
 												 }).ToList();
 
 						return model;
@@ -34,14 +36,14 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 				/// Get a list of bookings for today
 				/// </summary>
 				/// <returns></returns>
-				private List<BookingViewModel> GetTodaysBookings()
+				public List<BookingViewModel> GetTodaysBookings()
 				{
 						var db = new AppsContext();
 						var bookingRepo = new BookingRepo(db);
 						var ItemListRepo = new ItemListRepo(db);
 
 						var model = (from booking in bookingRepo.GetTodaysBookings()
-												 join occasion in ItemListRepo.GetListItemsByCateogry(1) on booking.BookingOccassionId equals occasion.ListId
+												 join occasion in ItemListRepo.GetListItemsByCateogry(1) on booking.BookingOccassionId equals occasion.ItemListId
 												 select new BookingViewModel
 												 {
 														 Comments = booking.BookingComments,
@@ -54,7 +56,26 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 														 IsConfirmed = booking.IsConfirmed,
 														 MobileNumber = booking.BookingMobileNumber,
 														 Name = booking.Name,
-														 Occasion = occasion.ListData
+														 Occasion = occasion.ItemListData
+												 }).ToList();
+
+						return model;
+				}
+
+				/// <summary>
+			/// Get A list for the Occasion dropdown list
+			/// </summary>
+			/// <returns></returns>
+				public List<SelectListItem> GetListItemOccasion()
+				{
+						var db = new AppsContext();
+						var repo = new ItemListRepo(db);
+
+						var model = (from item in repo.GetListItemsByCateogry(1)
+												 select new SelectListItem
+												 {
+														 Value = item.ItemListId.ToString(),
+														 Text = item.ItemListData
 												 }).ToList();
 
 						return model;

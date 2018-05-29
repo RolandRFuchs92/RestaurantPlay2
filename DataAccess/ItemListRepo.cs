@@ -34,8 +34,8 @@ namespace DataAccess
 				public List<ItemList> GetListItemsByCateogry(int litItemCategory)
 				{
 						return (from item in _db.ItemLists
-										where item.ListCategoryId == litItemCategory
-										orderby item.ListPriority
+										where item.ItemListCategoryId == litItemCategory
+										orderby item.ItemListPriority
 										select item).ToList();
 				}
 		}

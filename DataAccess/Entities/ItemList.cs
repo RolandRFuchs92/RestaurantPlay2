@@ -10,9 +10,9 @@ namespace DataAccess.Entities
     public class ItemList
     {
 				[Key]
-        public int ListId { get; set; }
-        public int ListCategoryId { get; set; }
-        public int ListPriority { get; set; }
-        public string ListData { get; set; }
+        public int ItemListId { get; set; }
+        public int ItemListCategoryId { get; set; }
+        public int ItemListPriority { get; set; }
+        public string ItemListData { get; set; }
     }
 }
