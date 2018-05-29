@@ -11,7 +11,9 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
     {
         public List<ListCategoryViewModel> GetListCategoryViewModel()
         {
-            
+						var repo = new Repo
+            var model = (from item in ) new List<ListCategoryViewModel>
+
 
             return new AppsContext().ItemLists.Where(i => i.ListCategoryId == 1).ToList();
         }
