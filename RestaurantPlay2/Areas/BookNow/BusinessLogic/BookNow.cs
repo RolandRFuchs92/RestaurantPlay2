@@ -4,18 +4,25 @@ using System.Linq;
 using System.Web;
 using DataAccess.Context;
 using RestaurantPlay2.Areas.BookNow.ViewModels;
+using DataAccess;
 
 namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 {
-    public class BookNow
-    {
-        public List<ListCategoryViewModel> GetListCategoryViewModel()
-        {
-						var repo = new Repo
-            var model = (from item in ) new List<ListCategoryViewModel>
+		public class BookNow
+		{
+				private readonly int _CategoryId = 1;
+				public List<ListCategoryViewModel> GetListCategoryViewModel()
+				{
+						var db = new AppsContext();
+						var itemList = new ItemListRepo(db).GetListItemsByCateogry(_CategoryId);
+						var model = (from item in itemList
+												 select new ListCategoryViewModel
+												 {
+														 Id = item.ListId,
+														 Name = item.ListData
+												 }).ToList();
 
-
-            return new AppsContext().ItemLists.Where(i => i.ListCategoryId == 1).ToList();
-        }
-    }
+						return model;
+				}
+		}
 }
