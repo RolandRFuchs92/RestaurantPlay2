@@ -223,6 +223,7 @@
     <Compile Include="Areas\BookNow\BusinessLogic\BookNow.cs" />
     <Compile Include="Areas\BookNow\Controllers\BookNowController.cs" />
     <Compile Include="Areas\BookNow\ViewModels\BookNowFormViewModel.cs" />
+    <Compile Include="Areas\BookNow\ViewModels\BookNowViewModel.cs" />
     <Compile Include="Areas\BookNow\ViewModels\ListCategoryViewModel.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarouselLogic.cs" />
