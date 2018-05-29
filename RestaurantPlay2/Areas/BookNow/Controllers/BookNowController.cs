@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 using DataAccess.Context;
 using RestaurantPlay2.Areas.BookNow.BusinessLogic;
 
@@ -56,9 +57,23 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 								});
 						}
 
+						var isSaved = new BusinessLogic.BookNow().IsSavedBooking(model);
 
+						if (!isSaved)
+						{
+								Response.StatusCode = (int)HttpStatusCode.ExpectationFailed;
+								return Json(new
+								{
+										Message = "There seems to have been an error while saving your booking! Please refresh the page and try again."
+								});
+						}
 
-						return View();
+						Response.StatusCode = (int)HttpStatusCode.OK;
+						return Json(new
+						{
+								Message =
+								"Your Booking has been made! An Email will be sent to you shortly, please follow the instuctions to confirm your booking."
+						});
 				}
 
 		}

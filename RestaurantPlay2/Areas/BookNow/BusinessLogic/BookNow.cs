@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using DataAccess.Context;
 using RestaurantPlay2.Areas.BookNow.ViewModels;
 using DataAccess;
+using DataAccess.Entities;
 
 namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 {
@@ -63,9 +64,9 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 				}
 
 				/// <summary>
-			/// Get A list for the Occasion dropdown list
-			/// </summary>
-			/// <returns></returns>
+				/// Get A list for the Occasion dropdown list
+				/// </summary>
+				/// <returns></returns>
 				public List<SelectListItem> GetListItemOccasion()
 				{
 						var db = new AppsContext();
@@ -81,5 +82,23 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 						return model;
 				}
 
+				public bool IsSavedBooking(SaveBookingViewModel saveBooking)
+				{
+						var db = new AppsContext();
+						var model = new Booking
+						{
+								Name = saveBooking.Name,
+								IsConfirmed = saveBooking.IsConfirmed,
+								BookingId = saveBooking.BookingId,
+								BookingComments = saveBooking.Comment,
+								BookingDate = saveBooking.DateFor,
+								BookingEmailAddress = saveBooking.EmailAddress,
+								BookingHeadCount = saveBooking.HeadCount,
+								BookingMobileNumber = saveBooking.MobileNumber,
+								BookingOccassionId = saveBooking.OccasionId
+						};
+
+						return new BookingRepo(db).IsSavedBooking(model);
+				}
 		}
 }

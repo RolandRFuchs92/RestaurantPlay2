@@ -30,5 +30,7 @@ namespace RestaurantPlay2.Areas.BookNow.ViewModels
 			public int OccasionId { get; set; }
 			[Required]
 			public bool IsConfirmed { get; set; }
+			[Required]
+			public DateTime DateFor { get; set; }
 		}
 }

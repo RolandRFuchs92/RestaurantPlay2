@@ -94,7 +94,7 @@ namespace DataAccess
 				/// </summary>
 				/// <param name="booking"></param>
 				/// <returns></returns>
-				public bool SaveBooking(Booking booking)
+				public bool IsSavedBooking(Booking booking)
 				{
 						try
 						{
