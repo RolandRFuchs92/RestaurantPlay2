@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantPlay2.Areas.BookNow.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,5 +14,21 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
         {
             return View();
         }
+
+				/// <summary>
+				/// Get the form view model, meant for client side viewing.
+				/// </summary>
+				/// <returns></returns>
+				public ActionResult BookNowForm()
+				{
+						var model = new BookNowFormViewModel();
+						return PartialView(model);
+				}
+
+				public ActionResult BookingsForToday()
+				{
+						return View();
+				}
+
     }
 }

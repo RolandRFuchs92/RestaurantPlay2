@@ -223,7 +223,7 @@
     <Compile Include="Areas\BookNow\BusinessLogic\BookNow.cs" />
     <Compile Include="Areas\BookNow\Controllers\BookNowController.cs" />
     <Compile Include="Areas\BookNow\ViewModels\BookNowFormViewModel.cs" />
-    <Compile Include="Areas\BookNow\ViewModels\BookNowViewModel.cs" />
+    <Compile Include="Areas\BookNow\ViewModels\BookingViewModel.cs" />
     <Compile Include="Areas\BookNow\ViewModels\ListCategoryViewModel.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCards\ImageCardLogic.cs" />
     <Compile Include="Areas\ImageItems\BusinessLogic\ImageCarousel\ImageCarouselLogic.cs" />
@@ -334,6 +334,7 @@
     <Content Include="Areas\BookNow\Views\web.config" />
     <Content Include="Areas\BookNow\Views\_ViewStart.cshtml" />
     <Content Include="Areas\BookNow\Views\BookNow\_BookNowForm.cshtml" />
+    <Content Include="Areas\BookNow\Views\BookNow\_Bookings.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

@@ -1,0 +1,24 @@
+﻿@using RestaurantPlay2.Areas.BookNow.ViewModels
+@model BookingViewModel
+
+<div class="col-sm-4">
+		<div class="bookings">
+				<h3>@Model.Name</h3>
+				@Html.LabelFor(i => i.ForDate, new { @class = "control-label" })
+				@Html.LabelFor(i => i.MobileNumber, new { @class = "control-label" })
+				@Html.LabelFor(i => i.EmailAddress, new { @class = "control-label" })
+				@Html.LabelFor(i => i.HeadCount, new { @class = "control-label" })
+				@Html.LabelFor(i => i.IsConfirmed, new { @class = "control-label" })
+				@Html.LabelFor(i => i.Occasion, new { @class = "control-label" })
+				@Html.LabelFor(i => i.IsCanceled, new { @class = "control-label" })
+				@Html.LabelFor(i => i.Comments, new { @class = "control-label" })
+		</div>
+</div>
+
+
+<style>
+				.bookings{
+						border: 1px solid black;
+				}
+
+</style>

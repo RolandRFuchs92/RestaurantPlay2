@@ -11,6 +11,11 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 		public class BookNow
 		{
 				private readonly int _CategoryId = 1;
+
+				/// <summary>
+				/// get a list of categories
+				/// </summary>
+				/// <returns></returns>
 				public List<ListCategoryViewModel> GetListCategoryViewModel()
 				{
 						var db = new AppsContext();
@@ -25,7 +30,11 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 						return model;
 				}
 
-				private List<BookNowViewModel> GetTodaysBookings()
+				/// <summary>
+				/// Get a list of bookings for today
+				/// </summary>
+				/// <returns></returns>
+				private List<BookingViewModel> GetTodaysBookings()
 				{
 						var db = new AppsContext();
 						var bookingRepo = new BookingRepo(db);
@@ -33,7 +42,7 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 
 						var model = (from booking in bookingRepo.GetTodaysBookings()
 												 join occasion in ItemListRepo.GetListItemsByCateogry(1) on booking.BookingOccassionId equals occasion.ListId
-												 select new BookNowViewModel
+												 select new BookingViewModel
 												 {
 														 Comments = booking.BookingComments,
 														 CreatedOn = booking.CreateOn,
