@@ -67,13 +67,11 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 						if (isSaved)
 						{
 								Response.StatusCode = (int)HttpStatusCode.OK;
-								return Json(new { Message ="Your booking has been made! You will receive and email to confirm your booking!"});
+								return Json(new { Message = "Your booking has been made! You will receive and email to confirm your booking!" });
 						}
-						else
-						{
-								Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-								return Json(new { Message = "There was an error saving your booking, please try again later." });
-						}
+
+						return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, "There was an error saving your booking, please try again later.");
+
 				}
 		}
 }

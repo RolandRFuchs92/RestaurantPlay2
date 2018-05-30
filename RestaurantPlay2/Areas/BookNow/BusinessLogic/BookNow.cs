@@ -101,7 +101,7 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 								BookingDate = booking.ForDate
 						};
 
-						return repo.SaveBooking(model);
+						return repo.IsSavedBooking(model);
 				}
 
 		}

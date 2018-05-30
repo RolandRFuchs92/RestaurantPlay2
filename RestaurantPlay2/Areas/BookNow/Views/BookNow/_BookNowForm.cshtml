@@ -10,7 +10,7 @@
 		HttpMethod = "Post",
 		UpdateTargetId = "",
 		OnSuccess = "SaveBookingSuccess(data)",
-		OnFailure = "SaveBookingError(data)"
+		OnFailure = "SaveBookingError(xhr)"
 }, new { @class = "form-horizontal" }
 												))
 {
@@ -114,7 +114,8 @@
 				toastr['success'](result.Message, "Success!");
 		}
 
-		function SaveBookingError(result) {
-				toastr['error'](result.Message, "Error!");
+		function SaveBookingError(xhr) {
+			debugger;
+				toastr['error'](xhr.statusText, "Error!");
 		}
 </script>
