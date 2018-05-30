@@ -100,12 +100,13 @@ namespace DataAccess
 						{
 								if (booking.BookingId == 0)
 								{
-										_db.Bookings.Attach(booking);
+										booking.CreatedOn = DateTime.Now;
+										_db.Bookings.Add(booking);
 										_db.SaveChanges();
 								}
 								else
 								{
-										_db.Bookings.Add(booking);
+										_db.Bookings.Attach(booking);
 										_db.SaveChanges();
 								}
 

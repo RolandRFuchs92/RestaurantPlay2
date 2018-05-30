@@ -8,9 +8,11 @@
 @using (Ajax.BeginForm("SaveBooking", "BookNow", new AjaxOptions
 {
 		HttpMethod = "Post",
-		UpdateTargetId = ""
+		UpdateTargetId = "",
+		OnSuccess = "SaveBookingSuccess(data)",
+		OnFailure = "SaveBookingError(data)"
 }, new { @class = "form-horizontal" }
-))
+												))
 {
 		<div class="row">
 				<div class="col-lg-offset-2 col-lg-8 col-sm-12">
@@ -30,10 +32,10 @@
 
 						<div class="col-sm-12 col-md-6">
 								<div class="form-group">
-										@Html.LabelFor(i => i.SaveBookingViewModel.DateFor, new { @class = "col-sm-4 control-label" })
+										@Html.LabelFor(i => i.SaveBookingViewModel.EmailAddress, new { @class = "col-sm-4 control-label" })
 										<div class="col-sm-8">
-												@Html.TextBoxFor(i => i.SaveBookingViewModel.DateFor, new { @type = "input", @class = "form-control date", placeholder = "dd MMM yyyy", data_date_format = "DD MMM YYYY" })
-												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.DateFor)
+												@Html.TextBoxFor(i => i.SaveBookingViewModel.EmailAddress, new { type="email", @class = "form-control" })
+												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.EmailAddress)
 										</div>
 								</div>
 						</div>
@@ -50,10 +52,10 @@
 
 						<div class="col-sm-12 col-md-6">
 								<div class="form-group">
-										@Html.LabelFor(i => i.SaveBookingViewModel.EmailAddress, new { @class = "col-sm-4 control-label" })
+										@Html.LabelFor(i => i.SaveBookingViewModel.ForDate, new { @class = "col-sm-4 control-label" })
 										<div class="col-sm-8">
-												@Html.TextBoxFor(i => i.SaveBookingViewModel.EmailAddress, new { @class = "form-control" })
-												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.EmailAddress)
+												@Html.TextBoxFor(i => i.SaveBookingViewModel.ForDate, new { @class = "form-control date", placeholder = "dd MMM yyyy HHh:ss", data_date_format = "DD MMM YYYY HH:ss" })
+												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.ForDate)
 										</div>
 								</div>
 						</div>
@@ -88,10 +90,31 @@
 						</div>
 
 						<div class="col-sm-12">
-								<input type="button" name="submit" value="Submit" class="btn btn-primary pull-right" />
-								<input type="button" name="Reset" value="Reset" class="btn btn-default pull-right btn-space" />
+								<input type="submit" name="submit" value="Submit" class="btn btn-primary pull-right" />
+								<input type="reset" name="Reset" value="Reset" class="btn btn-default pull-right btn-space" />
 						</div>
 
 				</div>
 		</div>
 }
+
+<style>
+	.input-validation-error {
+			border: 1px solid red;
+	}
+
+	.field-validation-error {
+			font-size: 10px;
+	}
+</style>
+
+
+<script>
+		function SaveBookingSuccess(result) {
+				toastr['success'](result.Message, "Success!");
+		}
+
+		function SaveBookingError(result) {
+				toastr['error'](result.Message, "Error!");
+		}
+</script>

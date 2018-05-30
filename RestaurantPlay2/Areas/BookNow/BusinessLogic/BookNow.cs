@@ -44,11 +44,11 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 						var ItemListRepo = new ItemListRepo(db);
 
 						var model = (from booking in bookingRepo.GetTodaysBookings()
-												 join occasion in ItemListRepo.GetListItemsByCateogry(1) on booking.BookingOccassionId equals occasion.ItemListId
+												 join occasion in ItemListRepo.GetListItemsByCateogry(1) on booking.BookingOccasionId equals occasion.ItemListId
 												 select new BookingViewModel
 												 {
 														 Comments = booking.BookingComments,
-														 CreatedOn = booking.CreateOn,
+														 CreatedOn = booking.CreatedOn,
 														 EmailAddress = booking.BookingEmailAddress,
 														 ForDate = booking.BookingDate,
 														 HeadCount = booking.BookingHeadCount,
@@ -56,7 +56,7 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 														 Id = booking.BookingId,
 														 IsConfirmed = booking.IsConfirmed,
 														 MobileNumber = booking.BookingMobileNumber,
-														 Name = booking.Name,
+														 Name = booking.BookingName,
 														 Occasion = occasion.ItemListData
 												 }).ToList();
 
@@ -82,28 +82,27 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 						return model;
 				}
 
-				/// <summary>
-				/// Pass in the form model booking and this will translate it to what the repo requires inorder to save the booking.
-				/// </summary>
-				/// <param name="saveBooking"></param>
-				/// <returns></returns>
-				public bool IsSavedBooking(SaveBookingViewModel saveBooking)
+				public bool SaveBooking(SaveBookingViewModel booking)
 				{
 						var db = new AppsContext();
+						var repo = new BookingRepo(db);
+
 						var model = new Booking
 						{
-								Name = saveBooking.Name,
-								IsConfirmed = saveBooking.IsConfirmed,
-								BookingId = saveBooking.BookingId,
-								BookingComments = saveBooking.Comment,
-								BookingDate = saveBooking.DateFor,
-								BookingEmailAddress = saveBooking.EmailAddress,
-								BookingHeadCount = saveBooking.HeadCount,
-								BookingMobileNumber = saveBooking.MobileNumber,
-								BookingOccassionId = saveBooking.OccasionId
+								BookingId = booking.BookingId,
+								BookingName = booking.Name,
+								BookingMobileNumber = booking.MobileNumber,
+								BookingEmailAddress = booking.EmailAddress,
+								BookingHeadCount = booking.HeadCount,
+								BookingComments = booking.Comment,
+								BookingOccasionId = booking.OccasionId,
+								IsCanceled = booking.IsCanceled,
+								IsConfirmed = booking.IsConfirmed,
+								BookingDate = booking.ForDate
 						};
 
-						return new BookingRepo(db).IsSavedBooking(model);
+						return repo.SaveBooking(model);
 				}
+
 		}
 }
