@@ -10,7 +10,7 @@
 		HttpMethod = "Post",
 		UpdateTargetId = ""
 }, new { @class = "form-horizontal" }
-))
+						))
 {
 		<div class="row">
 				<div class="col-lg-offset-2 col-lg-8 col-sm-12">
@@ -30,20 +30,20 @@
 
 						<div class="col-sm-12 col-md-6">
 								<div class="form-group">
-										@Html.LabelFor(i => i.SaveBookingViewModel.HeadCount, new { @class = "col-sm-4 control-label" })
+										@Html.LabelFor(i => i.SaveBookingViewModel.MobileNumber, new { @class = "col-sm-4 control-label" })
 										<div class="col-sm-8">
-												@Html.DropDownListFor(i => i.SaveBookingViewModel.HeadCount, Model.HeadCountList, new { @class = "form-control btn-default" })
-												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.HeadCount)
+												@Html.TextBoxFor(i => i.SaveBookingViewModel.MobileNumber, new { @class = "form-control" })
+												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.MobileNumber)
 										</div>
 								</div>
 						</div>
 
 						<div class="col-sm-12 col-md-6">
 								<div class="form-group">
-										@Html.LabelFor(i => i.SaveBookingViewModel.MobileNumber, new { @class = "col-sm-4 control-label" })
+										@Html.LabelFor(i => i.SaveBookingViewModel.ForDate, new { @class = "col-sm-4 control-label" })
 										<div class="col-sm-8">
-												@Html.TextBoxFor(i => i.SaveBookingViewModel.MobileNumber, new { @class = "form-control" })
-												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.MobileNumber)
+												@Html.TextBoxFor(i => i.SaveBookingViewModel.ForDate, new { @class = "form-control date", placeholder="dd MMM yyyy HHh:ss", data_date_format="DD MMM YYYY HH:ss" })
+												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.ForDate)
 										</div>
 								</div>
 						</div>
@@ -70,9 +70,10 @@
 
 						<div class="col-sm-12 col-md-6">
 								<div class="form-group">
-										@Html.LabelFor(i => i.SaveBookingViewModel.IsConfirmed, new { @class = "control-label col-sm-4" })
+										@Html.LabelFor(i => i.SaveBookingViewModel.HeadCount, new { @class = "col-sm-4 control-label" })
 										<div class="col-sm-8">
-												@Html.TextBoxFor(i => i.SaveBookingViewModel.IsConfirmed, new { type = "checkbox" })
+												@Html.DropDownListFor(i => i.SaveBookingViewModel.HeadCount, Model.HeadCountList, new { @class = "form-control btn-default" })
+												@Html.ValidationMessageFor(i => i.SaveBookingViewModel.HeadCount)
 										</div>
 								</div>
 						</div>
@@ -87,10 +88,20 @@
 						</div>
 
 						<div class="col-sm-12">
-								<input type="button" name="submit" value="Submit" class="btn btn-primary pull-right" />
-								<input type="button" name="Reset" value="Reset" class="btn btn-default pull-right btn-space" />
+								<input type="submit" name="submit" value="Submit" class="btn btn-primary pull-right" />
+								<input type="reset" name="Reset" value="Reset" class="btn btn-default pull-right btn-space" />
 						</div>
 
 				</div>
 		</div>
 }
+
+<style>
+	.input-validation-error {
+			border: 1px solid red;
+	}
+
+	.field-validation-error {
+			font-size: 10px;
+	}
+</style>
