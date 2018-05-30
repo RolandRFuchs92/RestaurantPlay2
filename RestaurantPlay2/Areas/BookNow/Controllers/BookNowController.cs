@@ -32,7 +32,7 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 				ListCategoryViewModel = new BusinessLogic.BookNow().GetListItemOccasion()
 			};
 
-			return View("_BookNowForm", model);
+			return PartialView("_BookNowForm", model);
 		}
 
 		/// <summary>
@@ -43,7 +43,7 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 		{
 			var model = new BusinessLogic.BookNow().GetTodaysBookings();
 
-			return View("_BookingReport", model);
+			return PartialView("_BookingReport", model);
 		}
 
 		public ActionResult GetAllBookings()
@@ -52,10 +52,15 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 			return View("_BookingReport", model);
 		}
 
+		public ActionResult GetBookingsAdminView()
+		{
+			return View("_BookingAdminView");
+		}
+
 		public ActionResult GetBookings(DateTime? fromDate, DateTime? toDate, bool? isConfirmed, bool? isCanceled)
 		{
 			var model = new BusinessLogic.BookNow().GetBookingsList(fromDate, toDate, isConfirmed, isCanceled);
-			return View("_BookingReport", model);
+			return PartialView("_BookingReport", model);
 		}
 	
 		/// <summary>

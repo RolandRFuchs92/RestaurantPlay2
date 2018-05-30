@@ -2,7 +2,9 @@
 using DataAccess.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,9 +34,11 @@ namespace DataAccess
 		/// <returns></returns>
 		public List<Booking> GetTodaysBookings()
 		{
-			return (from booking in _db.Bookings
-					where booking.BookingDate.Date == DateTime.Today
-					select booking).ToList();
+			var model = (from booking in _db.Bookings
+				where  DbFunctions.TruncateTime(booking.BookingDate) == DateTime.Today
+				select booking).ToList();
+
+			return model;
 		}
 
 		public List<Booking> GetBookings(DateTime? FromDate, DateTime? ToDate, bool? isCanceled, bool? isConfirmed)

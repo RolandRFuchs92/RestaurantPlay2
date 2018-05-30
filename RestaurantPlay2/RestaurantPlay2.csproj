@@ -337,6 +337,7 @@
     <Content Include="Areas\BookNow\Views\BookNow\_BookNowForm.cshtml" />
     <Content Include="Areas\BookNow\Views\BookNow\_Booking.cshtml" />
     <Content Include="Areas\BookNow\Views\BookNow\_BookingReport.cshtml" />
+    <Content Include="Areas\BookNow\Views\BookNow\_BookingAdminView.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

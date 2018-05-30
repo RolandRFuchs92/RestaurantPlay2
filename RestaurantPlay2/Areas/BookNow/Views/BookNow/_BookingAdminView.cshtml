@@ -1,0 +1,11 @@
+﻿
+
+<div class="form-horizontal">
+	<div class="row">
+		@Html.Action("BookNowForm", "BookNow", new { @area = "BookNow" })
+		<hr />
+		<h3>Booking Report</h3>
+		<br />
+		@Html.Action("BookingsForToday", "BookNow", new { @area = "BookNow" })
+	</div>
+</div>
