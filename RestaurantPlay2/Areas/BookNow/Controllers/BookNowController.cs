@@ -45,7 +45,12 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 						return View("_BookingReport", model);
 				}
 
-				public ActionResult SaveBooking(SaveBookingViewModel model)
+				/// <summary>
+				/// Save or update a booking.
+				/// </summary>
+				/// <param name="model"></param>
+				/// <returns></returns>
+				public ActionResult SaveBooking(BookNowFormViewModel model)
 				{
 						if (!ModelState.IsValid)
 						{
@@ -56,10 +61,18 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 								});
 						}
 
+						var isSaved = new BusinessLogic.BookNow().SaveBooking(model.SaveBookingViewModel);
 
-
-						return View();
+						if (isSaved)
+						{
+								Response.StatusCode = (int)HttpStatusCode.OK;
+								return Json(new { Message ="Your booking has been made! You will receive and email to confirm your booking!"});
+						}
+						else
+						{
+								Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+								return Json(new { Message = "There was an error saving your booking, please try again later." });
+						}
 				}
-
 		}
 }

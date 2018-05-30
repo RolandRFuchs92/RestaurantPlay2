@@ -12,6 +12,8 @@ namespace RestaurantPlay2.Areas.BookNow.ViewModels
 				{
 						BookingId = 0;
 						ForDate = DateTime.Now;
+						IsCanceled = false;
+						IsConfirmed = false;
 				}
 
 				public int BookingId { get; set; }
@@ -19,9 +21,9 @@ namespace RestaurantPlay2.Areas.BookNow.ViewModels
 				[Required]
 				public string Name { get; set; }
 				[MaxLength(15)]
-				[Required]
 				public string MobileNumber { get; set; }
 				[MaxLength(200)]
+				[Required]
 				public string EmailAddress { get; set; }
 				[Required]
 				public int HeadCount { get; set; }
@@ -33,5 +35,6 @@ namespace RestaurantPlay2.Areas.BookNow.ViewModels
 				public bool IsConfirmed { get; set; }
 				[Required]
 				public DateTime ForDate { get; set; }
+				public bool IsCanceled { get; set; }
 		}
 }
