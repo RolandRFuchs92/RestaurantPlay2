@@ -2,7 +2,9 @@
 @model List<BookingViewModel>
 
 
-@foreach (var booking in Model)
-{
+<div id="BookingsReport">
+	@foreach (var booking in Model)
+	{
 		@Html.Partial("_Booking", booking)
-}
+	}
+</div>

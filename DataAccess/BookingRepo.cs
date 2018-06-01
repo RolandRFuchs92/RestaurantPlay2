@@ -35,19 +35,26 @@ namespace DataAccess
 		public List<Booking> GetTodaysBookings()
 		{
 			var model = (from booking in _db.Bookings
-				where  DbFunctions.TruncateTime(booking.BookingDate) == DateTime.Today
-				select booking).ToList();
+						 where DbFunctions.TruncateTime(booking.BookingDate) == DateTime.Today
+						 select booking).ToList();
 
 			return model;
 		}
 
-		public List<Booking> GetBookings(DateTime? FromDate, DateTime? ToDate, bool? isCanceled, bool? isConfirmed)
+		public List<Booking> GetBookings(DateTime? FromDate, DateTime? ToDate, string keyword, bool? isCanceled, bool? isConfirmed)
 		{
 			return (from booking in _db.Bookings
+					join occasion in _db.ItemListCategories on booking.BookingOccasionId equals occasion.ItemListCategoryId
 					where (FromDate == null || booking.BookingDate >= FromDate)
 						  && (ToDate == null || booking.BookingDate <= ToDate)
 						  && (isCanceled == null || booking.IsCanceled == isCanceled)
 						  && (isConfirmed == null || booking.IsConfirmed == isConfirmed)
+						  && (keyword == null
+								|| booking.BookingComments.Contains(keyword)
+								|| booking.BookingEmailAddress.Contains(keyword)
+								|| booking.BookingName.Contains(keyword)
+								|| booking.BookingMobileNumber.Contains(keyword)
+								|| occasion.ItemListCategoryName.Contains(keyword))
 					select booking).ToList();
 		}
 

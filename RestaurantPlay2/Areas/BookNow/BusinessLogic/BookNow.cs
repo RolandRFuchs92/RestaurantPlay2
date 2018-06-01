@@ -76,9 +76,10 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 		/// <param name="isConfirmd"></param>
 		/// <param name="isCancled"></param>
 		/// <returns></returns>
-		public List<BookingViewModel> GetBookingsList(DateTime? fromDate, DateTime? toDate, bool? isConfirmd, bool? isCancled)
+		public List<BookingViewModel> GetBookingsList(BookingFiltersViewModel filters)
 		{
-			var model = (from booking in _bookingRepo.GetBookings(fromDate, toDate, isConfirmd, isCancled)
+			var results = _bookingRepo.GetBookings(filters.FromDate, filters.ToDate, filters.Keyword, filters.IsConfirmed, filters.IsCanceled);
+			var model = (from booking in results
 						 join occasion in new ItemListRepo(_db).GetListItemsByCateogry(1) on booking.BookingOccasionId equals occasion.ItemListId
 						 select new BookingViewModel
 						 {

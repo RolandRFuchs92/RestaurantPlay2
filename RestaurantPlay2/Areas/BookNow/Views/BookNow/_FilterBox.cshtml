@@ -1,0 +1,56 @@
+﻿@using RestaurantPlay2.Areas.BookNow.ViewModels
+@model BookingFiltersViewModel
+
+
+<div class="filterbox-container" style="">
+	<div class="container-fluid filter-box">
+		@using (Ajax.BeginForm("GetBookings", "BookNow", new { @area = "BookNow" }, new AjaxOptions
+		{
+			HttpMethod = "POST",
+			InsertionMode = InsertionMode.ReplaceWith,
+			UpdateTargetId = "BookingsReport"
+		},
+			new { @class = "col-sm-12" }))
+		{
+			<div class="form-group">
+				@Html.TextBoxFor(i => i.FromDate, new { @class = "date form-control", placeholder = Html.DisplayNameFor(i => i.FromDate), data_date_format = "DD MMM YYYY HH:MM" })
+			</div>
+
+			<div class="form-group">
+				@Html.TextBoxFor(i => i.ToDate, new { @class = "date form-control", placeholder = Html.DisplayNameFor(i => i.ToDate), data_date_format = "DD MMM YYYY HH:MM" })
+			</div>
+
+			<div class="form-group">
+				@Html.TextBoxFor(i => i.Keyword, new { @class = "form-control", placeholder = Html.DisplayNameFor(i => i.Keyword) })
+			</div>
+
+			<div class="form-group">
+				<label>@Html.TextBoxFor(i=>i.IsConfirmed,new{type="checkbox"}) Confirmed</label>
+			</div>
+
+			<div class="form-group">
+				<label>@Html.TextBoxFor(i=>i.IsCanceled, new{type="checkbox"}) Canceled</label>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-search pointer text-center"></i></button>
+				<button type="reset" class="btn btn-default btn-block"><i class="fa fa-trash pointer text-center"></i></button>
+			</div>
+		}
+	</div>
+</div>
+<style>
+	.filterbox-container {
+		width: 200px;
+		height: 200px;
+		display: none;
+		position: absolute;
+		z-index: 2;
+	}
+
+	.filter-box {
+		background-color: #efefef;
+		padding-top: 15px;
+		border-radius: 5px;
+		border: 1px solid #cccccc;
+	}
+</style>

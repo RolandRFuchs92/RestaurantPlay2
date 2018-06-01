@@ -48,7 +48,7 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 
 		public ActionResult GetAllBookings()
 		{
-			var model = new BusinessLogic.BookNow().GetBookingsList(null, null, null, null);
+			var model = new BusinessLogic.BookNow().GetBookingsList(new BookingFiltersViewModel());
 			return View("_BookingReport", model);
 		}
 
@@ -57,9 +57,13 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 			return View("_BookingAdminView");
 		}
 
-		public ActionResult GetBookings(DateTime? fromDate, DateTime? toDate, bool? isConfirmed, bool? isCanceled)
+		public ActionResult GetBookings(BookingFiltersViewModel filters)
 		{
-			var model = new BusinessLogic.BookNow().GetBookingsList(fromDate, toDate, isConfirmed, isCanceled);
+			if (!ModelState.IsValid)
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "The filters passed were not valid, please try again.");
+
+
+			var model = new BusinessLogic.BookNow().GetBookingsList(filters);
 			return PartialView("_BookingReport", model);
 		}
 	

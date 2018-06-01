@@ -222,6 +222,7 @@
     <Compile Include="Areas\BookNow\BookNowAreaRegistration.cs" />
     <Compile Include="Areas\BookNow\BusinessLogic\BookNow.cs" />
     <Compile Include="Areas\BookNow\Controllers\BookNowController.cs" />
+    <Compile Include="Areas\BookNow\ViewModels\BookingFiltersViewModel.cs" />
     <Compile Include="Areas\BookNow\ViewModels\BookNowFormViewModel.cs" />
     <Compile Include="Areas\BookNow\ViewModels\BookingViewModel.cs" />
     <Compile Include="Areas\BookNow\ViewModels\ListCategoryViewModel.cs" />
@@ -346,6 +347,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\BookNow\Views\BookNow\_FilterBox.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
