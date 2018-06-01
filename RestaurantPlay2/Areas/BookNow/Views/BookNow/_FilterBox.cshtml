@@ -8,7 +8,8 @@
 		{
 			HttpMethod = "POST",
 			InsertionMode = InsertionMode.ReplaceWith,
-			UpdateTargetId = "BookingsReport"
+			UpdateTargetId = "BookingsReport",
+			OnBegin = "$('.filterbox-container').slideToggle('slow');"
 		},
 			new { @class = "col-sm-12" }))
 		{
