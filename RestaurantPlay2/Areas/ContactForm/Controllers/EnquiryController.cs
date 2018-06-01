@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
@@ -49,48 +50,58 @@ namespace RestaurantPlay2.Areas.ContactForm.Controllers
 
             try
             {
-                //Configuring webMail class to send emails  
-                //gmail smtp server  
-                WebMail.SmtpServer = "smtp.gmail.com";
-                //gmail port to send emails  
-                WebMail.SmtpPort = 587;
-                WebMail.SmtpUseDefaultCredentials = true;
-                //sending emails with secure protocol  
-                WebMail.EnableSsl = true;
-                //EmailId used to send emails from application  
-                WebMail.UserName = "thecrazydeveloperemail@gmail.com";
-                WebMail.Password = "LoremIpsum01!";
-
-                //Sender email address.  
-                WebMail.From = "infoemail@www-www.co.za";
-                //Send email  
-                enquiryFormSubs.FormMessage = @"
-                    <img src='http://www-www.co.za/X-Crazy-Dv.png' width='80px' height='50px'>
-                    <div> " +
-                    "<h1> Good Day " + enquiryFormSubs.Name + "</h1>" +
-                    "<p>We have recieved your request:</p>" +
-                    "" +
-                    "<p><b>Message: </b></p>" + enquiryFormSubs.FormMessage +
-                    "<p><b>Your contactable number is:</b>" + enquiryFormSubs.PhoneNumber +
-                    "</p>" +
-                    "" +
-                    "<p>Please use This refrence Number when having any issues: <b>" +
-                    "</b><p>" +
-                    "" +
-                    "<p>If you would like to change any details or enquire about something plesse do not heitate to contact us:" +
-                    "</p>" +
-                    "" +
-                    "<a href='mailto:info@www-www.co.za?subject=Web Enquiry'>Email Us Today</a>" +
-                    "</div>";
-
-                WebMail.Send(to: enquiryFormSubs.EmailAddress, subject: "Client", body: enquiryFormSubs.FormMessage, cc: "", bcc: "xienaudh@gmail.com", isBodyHtml: true);
-                SendSMS sendSMS = new SendSMS();
-                sendSMS.SMSAdmin(enquiryFormSubs.Name, enquiryFormSubs.FormMessage);
-                ViewBag.Status = "Email Sent Successfully.";
                 if (ModelState.IsValid)
                 {
+                    //Configuring webMail class to send emails  
+                    //gmail smtp server , This is the fastest, I tried using my own Domain SMPT Provider, Rather Use GMail to handle emails from your custom mail.
+                    WebMail.SmtpServer = "smtp.gmail.com";
+                    //gmail port to send emails  
+                    WebMail.SmtpPort = 587;
+                    WebMail.SmtpUseDefaultCredentials = true;
+                    //sending emails with secure protocol  
+                    WebMail.EnableSsl = true;
+                    //EmailId used to send emails from application  
+                    WebMail.UserName = "thecrazydeveloperemail@gmail.com";
+                    WebMail.Password = "LoremIpsum01!";
+                    //Sender email address.  Should be the same as the one listed on Gmail as the alias.
+                    WebMail.From = "infoemail@www-www.co.za";
+                    //Send email:  
+                    enquiryFormSubs.FormMessage = @"
+                    <img src='http://www.www-www.co.za/CCRTestLogo.png' width='100px' height='100px'>
+                    <div> " +
+                        "<h1> Good Day " + enquiryFormSubs.Name + "</h1>" +
+                        "<p>We have recieved your request:</p>" +
+                        "" +
+                        "<p><b>Message: </b></p>" + enquiryFormSubs.FormMessage +
+                        "<p><b>Your contactable number is: </b>" + enquiryFormSubs.PhoneNumber +
+                        "</p>" +
+                        "" +
+                        "<p>Please use This refrence Number when having any issues: <b>" +
+                        "</b><p>" +
+                        "" +
+                        "<p>If you would like to change any details or enquire about something plesse do not heitate to contact us:" +
+                        "</p>" +
+                        "" +
+                        "<a href='mailto:infoemail@www-www.co.za?subject=Web Enquiry'>Email Us Today</a>" +
+                        "</div>";
+
+                    WebMail.Send(to: enquiryFormSubs.EmailAddress, subject: "Cascata Country Restaurant Web Enquiry", body: enquiryFormSubs.FormMessage, cc: "", bcc: "xienaudh@gmail.com", isBodyHtml: true);
+
                     db.EnquiryFormSubs.Add(enquiryFormSubs);
                     db.SaveChanges();
+
+                    //Sending SMS After Save To DB, to get enquiry Number to get direct link to the enquiry.
+                    string html = string.Empty;
+                    string url = @"https://platform.clickatell.com/messages/http/send?apiKey=FukUwrKiTDmf9rxeRzIciQ==&to=27837074655&content=Please+see+new+enquiry+Link:" + " www.DomainName.co.za/ContactForm/Enquiry/Details/" + enquiryFormSubs.EnquiryId;
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                    request.AutomaticDecompression = DecompressionMethods.GZip;
+
+                    using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                    using (Stream stream = response.GetResponseStream())
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        html = reader.ReadToEnd();
+                    }
                     return RedirectToAction("Success");
                 }
             }

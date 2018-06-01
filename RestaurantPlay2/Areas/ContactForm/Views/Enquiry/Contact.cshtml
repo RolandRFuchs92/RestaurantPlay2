@@ -52,18 +52,3 @@
         </div>
     </div>
 }
-
-<script type="text/javascript">
-        function SendSMS(Cname, CEmail, CMes) {
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://platform.clickatell.com/messages/http/send?apiKey=FukUwrKiTDmf9rxeRzIciQ==&to=27837074655&content=You+Recieved+A+Message+From:" + Cname + " Contact them on: " + CEmail + " They Said : " + CMes, true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    console.log('success')
-                }
-            };
-            xhr.send();
-        }
-
-    </script>
