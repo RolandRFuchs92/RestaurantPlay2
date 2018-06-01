@@ -283,7 +283,6 @@
     <Content Include="Content\Images\EggsBenedictImage.jpg" />
     <Content Include="Content\Images\GinImage.jpg" />
     <Content Include="Content\Images\MilkShakeImage.jpg" />
-    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
