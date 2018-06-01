@@ -278,6 +278,8 @@
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\FixedScrollingBackgrounds.css" />
+    <Content Include="Content\fontawesome\font-awesome.css" />
+    <Content Include="Content\fontawesome\font-awesome.min.css" />
     <Content Include="Content\Images\EggsBenedictImage.jpg" />
     <Content Include="Content\Images\GinImage.jpg" />
     <Content Include="Content\Images\MilkShakeImage.jpg" />
@@ -285,7 +287,8 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Models\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\_run.js" />
@@ -325,9 +328,9 @@
     <Content Include="Areas\Blogger\Views\Blogger\_BloggerForm.cshtml" />
     <Content Include="Areas\Blogger\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Blogger\Views\Blogger\_BlogTile.cshtml" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap\bootstrap.css.map" />
     <Content Include="Content\bootstrap\theme\bootstrap-theme.css.map" />
     <Content Include="Areas\Blogger\Views\Blogger\_BloggerSnippets.cshtml" />
@@ -338,6 +341,11 @@
     <Content Include="Areas\BookNow\Views\BookNow\_Booking.cshtml" />
     <Content Include="Areas\BookNow\Views\BookNow\_BookingReport.cshtml" />
     <Content Include="Areas\BookNow\Views\BookNow\_BookingAdminView.cshtml" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
