@@ -7,7 +7,9 @@
 		<h3>Booking Report <i class="fa fa-search pointer" onclick="$('.filterbox-container').slideToggle('slow');"></i></h3>
 		@Html.Partial("_FilterBox")
 		<br />
-		@Html.Action("BookingsForToday", "BookNow", new { @area = "BookNow" })
+		<div id="BookingsReport">
+			@Html.Action("BookingsForToday", "BookNow", new { @area = "BookNow" })
+		</div>
 	</div>
 </div>
 

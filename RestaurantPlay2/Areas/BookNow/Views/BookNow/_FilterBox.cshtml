@@ -7,7 +7,7 @@
 		@using (Ajax.BeginForm("GetBookings", "BookNow", new { @area = "BookNow" }, new AjaxOptions
 		{
 			HttpMethod = "POST",
-			InsertionMode = InsertionMode.ReplaceWith,
+			InsertionMode = InsertionMode.Replace,
 			UpdateTargetId = "BookingsReport",
 			OnBegin = "$('.filterbox-container').slideToggle('slow');"
 		},
