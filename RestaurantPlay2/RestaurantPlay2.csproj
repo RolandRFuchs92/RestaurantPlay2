@@ -278,6 +278,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap\datetimepicker\bootstrap-datetimepicker.css" />
     <Content Include="Content\bootstrap\datetimepicker\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap\theme\bootstrap-theme.css" />
@@ -453,6 +457,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Models\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\_run.js" />
@@ -514,6 +519,14 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScripts.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />

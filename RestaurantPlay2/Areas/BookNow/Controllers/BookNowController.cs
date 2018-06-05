@@ -52,14 +52,14 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 			return View("BookingAdminView");
 		}
 
-		public ActionResult GetBookings(BookingFiltersViewModel filters)
+		public JsonResult GetBookings(BookingFiltersViewModel filters)
 		{
 			if (!ModelState.IsValid)
-				return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "The filters passed were not valid, please try again.");
+				return Json("error"); //new HttpStatusCodeResult(HttpStatusCode.BadRequest, "The filters passed were not valid, please try again.");
 
 
 			var model = new BusinessLogic.BookNow().GetBookingsList(filters);
-			return PartialView("_BookingReport", model);
+			return Json(model, JsonRequestBehavior.AllowGet);
 		}
 	
 		/// <summary>
@@ -107,7 +107,7 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 
 		public JsonResult GetTodaysBookingsJSON()
 		{
-			return Json( new { data = new BusinessLogic.BookNow().GetTodaysBookings()});
+			return Json(new BusinessLogic.BookNow().GetTodaysBookings(), JsonRequestBehavior.AllowGet);
 		}
 	}
 }

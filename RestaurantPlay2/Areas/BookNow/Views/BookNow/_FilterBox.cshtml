@@ -6,11 +6,9 @@
 	<div class="container-fluid filter-box">
 		@using (Ajax.BeginForm("GetBookings", "BookNow", new { @area = "BookNow" }, new AjaxOptions
 		{
-			HttpMethod = "POST",
-			InsertionMode = InsertionMode.Replace,
-			UpdateTargetId = "BookingsReport",
-			OnSuccess = "UpdateMVCGrid()",
-			OnBegin = "$('.filterbox-container').slideToggle('slow');"
+			HttpMethod = "GET",
+			OnSuccess = "UpdateBookingsReport(data)",
+			OnBegin = "return;"
 		},
 			new { @class = "col-sm-12" }))
 		{
@@ -58,7 +56,9 @@
 </style>
 
 <script>
-		function UpdateMVCGrid(){
-				$(".grid-mvc").gridmvc();
-		}
+	function UpdateBookingsReport(data) {
+		table.clear();
+		table.rows.add(data);
+		table.draw();
+	}
 </script>

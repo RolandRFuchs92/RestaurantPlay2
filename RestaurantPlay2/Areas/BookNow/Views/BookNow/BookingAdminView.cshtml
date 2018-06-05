@@ -20,8 +20,8 @@
 	}
 </style>
 
-<script src="~/Scripts/DataTables/jquery.dataTables.js" type="text/javascript"></script>
 @Scripts.Render("~/bundles/jquery")
+
 
 <script>
 	$(document).ready(function () {
@@ -32,25 +32,57 @@
 	var table;
 	function InitializeDataTable() {
 		table = $('#bookings').DataTable({
-			columns: [
-				{ title: "Id" },
-				{ title: "Name" },
-				{ title: "Mobile" },
-				{ title: "eMail" },
-				{ title: "Heads" },
-				{ title: "Comments" },
-				{ title: "Occasion" },
-				{ title: "Confirmed" },
-				{ title: "Canceled" },
-				{ title: "Booked for" }
-			]
+			"columns": [
+				{
+					"data": "Id",
+					"title": "Id"
+				},
+				{
+					"data": "Name",
+					"title": "Name"
+				},
+				{
+					"data": "MobileNumber",
+					"title": "Mobile"
+				},
+				{
+					"data": "EmailAddress",
+					"title": "eMail"
+				},
+				{
+					"data": "HeadCount",
+					"title": "People"
+				},
+				{
+					"data": "Comments",
+					"title": "Comments"
+				},
+				{
+					"data": "Occasion",
+					"title": "Occasion"
+				},
+				{
+					"data": "IsConfirmed",
+					"title": "Confirmed"
+				},
+				{
+					"data": "IsCanceled",
+					"title": "Canceld"
+				},
+				{
+					"data": "ForDate",
+					"title": "Booked For"
+				}
+			],
+			data : null
 		});
 	}
 
 	function SetTodayData() {
 		$.getJSON('@Url.Action("GetTodaysBookingsJSON", "BookNow")',
 			function(data) {
-				table.DataTable.data = data;
+				table.clear();
+				table.rows.add(data);
 				table.draw();
 			});
 	}
