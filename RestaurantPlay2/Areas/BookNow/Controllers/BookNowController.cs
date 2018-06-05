@@ -104,5 +104,10 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 
 			return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, "There was an error confirming this booking. Please try again later.");
 		}
+
+		public JsonResult GetTodaysBookingsJSON()
+		{
+			return Json( new { data = new BusinessLogic.BookNow().GetTodaysBookings()});
+		}
 	}
 }

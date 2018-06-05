@@ -20,17 +20,38 @@
 	}
 </style>
 
-<script src="/Scripts/CustomScripts/CustomScripts.js" type="text/javascript"></script>
+<script src="~/Scripts/DataTables/jquery.dataTables.js" type="text/javascript"></script>
+@Scripts.Render("~/bundles/jquery")
 
 <script>
-	$(document).ready(function() {
-
-
+	$(document).ready(function () {
+		InitializeDataTable();
+		SetTodayData();
 	});
 
 	var table;
 	function InitializeDataTable() {
-		table = $('#bookings').DataTable
+		table = $('#bookings').DataTable({
+			columns: [
+				{ title: "Id" },
+				{ title: "Name" },
+				{ title: "Mobile" },
+				{ title: "eMail" },
+				{ title: "Heads" },
+				{ title: "Comments" },
+				{ title: "Occasion" },
+				{ title: "Confirmed" },
+				{ title: "Canceled" },
+				{ title: "Booked for" }
+			]
+		});
+	}
 
+	function SetTodayData() {
+		$.getJSON('@Url.Action("GetTodaysBookingsJSON", "BookNow")',
+			function(data) {
+				table.DataTable.data = data;
+				table.draw();
+			});
 	}
 </script>
