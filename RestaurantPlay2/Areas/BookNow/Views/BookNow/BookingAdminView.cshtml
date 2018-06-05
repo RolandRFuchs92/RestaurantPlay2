@@ -1,0 +1,36 @@
+﻿
+
+<div class="form-horizontal">
+	<div class="row">
+		@Html.Action("BookNowForm", "BookNow", new { @area = "BookNow" })
+		<hr />
+		<h3>Booking Report <i class="fa fa-search pointer" onclick="$('.filterbox-container').slideToggle('slow');"></i></h3>
+		@Html.Partial("_FilterBox")
+		<br />
+		<div id="BookingsReport">
+			@Html.Partial("_BookingReport")
+		</div>
+	</div>
+</div>
+
+
+<style>
+	a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+		cursor: pointer;
+	}
+</style>
+
+<script src="/Scripts/CustomScripts/CustomScripts.js" type="text/javascript"></script>
+
+<script>
+	$(document).ready(function() {
+
+
+	});
+
+	var table;
+	function InitializeDataTable() {
+		table = $('#bookings').DataTable
+
+	}
+</script>

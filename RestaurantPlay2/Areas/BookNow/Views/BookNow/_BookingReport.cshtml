@@ -1,18 +1,17 @@
-﻿@using System.Data.Entity.ModelConfiguration.Conventions
-@using GridMvc.Html
-@using RestaurantPlay2.Areas.BookNow.ViewModels
+﻿@using RestaurantPlay2.Areas.BookNow.ViewModels
 @model List<BookingViewModel>
 
 
 
-@Html.Grid(Model).Columns(columns =>
-{
-		columns.Add(i => i.Name).Titled("Guest Name").Filterable(false);
-		columns.Add(i => i.MobileNumber).Titled("Contact Number").Filterable(false);
-		columns.Add(i => i.EmailAddress).Titled("eMail").Filterable(false);
-		columns.Add(i => i.ForDate).Titled("Booked For").Filterable(false);
-		columns.Add(i => i.HeadCount).Titled("Head Count").Filterable(false);
-		columns.Add(i => i.IsConfirmed).Titled("Confirmed").Filterable(false);
-		columns.Add(i => i.Comments).Titled("Comments").Filterable(false);
-		columns.Add(i => i.Occasion).Titled("Occasion").Filterable(false);
-}).Sortable(true)
+<table id="bookings" class="display" style="width:100%">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Position</th>
+			<th>Office</th>
+			<th>Extn.</th>
+			<th>Start date</th>
+			<th>Salary</th>
+		</tr>
+	</thead>
+</table>

@@ -14,11 +14,6 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 	public class BookNowController : Controller
 	{
 
-		public ActionResult Index()
-		{
-			return View();
-		}
-
 		/// <summary>
 		/// Get the form view model, meant for client side viewing.
 		/// </summary>
@@ -52,17 +47,9 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 			return View("_BookingReport", model);
 		}
 
-		[AcceptVerbs(HttpVerbs.Get)]
 		public ActionResult GetBookingsAdminView()
 		{
-			return View("_BookingReport",new BusinessLogic.BookNow().GetBookingsList(new BookingFiltersViewModel()));
-		}
-
-		[AcceptVerbs(HttpVerbs.Post)]
-		[ActionName("GetBookingsAdminView")]
-		public ActionResult GetBookingsAdminView_Post()
-		{
-			return View("_BookingAdminView");
+			return View("BookingAdminView");
 		}
 
 		public ActionResult GetBookings(BookingFiltersViewModel filters)
