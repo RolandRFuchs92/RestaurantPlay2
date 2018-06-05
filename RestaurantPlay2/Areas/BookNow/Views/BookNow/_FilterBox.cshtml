@@ -9,6 +9,7 @@
 			HttpMethod = "POST",
 			InsertionMode = InsertionMode.Replace,
 			UpdateTargetId = "BookingsReport",
+			OnSuccess = "UpdateMVCGrid()",
 			OnBegin = "$('.filterbox-container').slideToggle('slow');"
 		},
 			new { @class = "col-sm-12" }))
@@ -55,3 +56,9 @@
 		border: 1px solid #cccccc;
 	}
 </style>
+
+<script>
+		function UpdateMVCGrid(){
+				$(".grid-mvc").gridmvc();
+		}
+</script>
