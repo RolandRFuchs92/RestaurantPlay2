@@ -6,13 +6,13 @@
 
 
 @Html.Grid(Model).Columns(columns =>
-	{
-		columns.Add(i => i.Name).Titled("Guest Name").Filterable(true);
-		columns.Add(i => i.MobileNumber).Titled("Contact Number").Filterable(true);
-		columns.Add(i => i.EmailAddress).Titled("eMail").Filterable(true);
-		columns.Add(i => i.ForDate).Titled("Booked For").Filterable(true);
-		columns.Add(i => i.HeadCount).Titled("Head Count").Filterable(true);
-		columns.Add(i => i.IsConfirmed).Titled("Confirmed").Filterable(true);
+{
+		columns.Add(i => i.Name).Titled("Guest Name").Filterable(false);
+		columns.Add(i => i.MobileNumber).Titled("Contact Number").Filterable(false);
+		columns.Add(i => i.EmailAddress).Titled("eMail").Filterable(false);
+		columns.Add(i => i.ForDate).Titled("Booked For").Filterable(false);
+		columns.Add(i => i.HeadCount).Titled("Head Count").Filterable(false);
+		columns.Add(i => i.IsConfirmed).Titled("Confirmed").Filterable(false);
 		columns.Add(i => i.Comments).Titled("Comments").Filterable(false);
-		columns.Add(i => i.Occasion).Titled("Occasion").Filterable(true);
-	}).Filterable(true)
+		columns.Add(i => i.Occasion).Titled("Occasion").Filterable(false);
+}).Sortable(true)
