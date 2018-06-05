@@ -52,7 +52,15 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 			return View("_BookingReport", model);
 		}
 
+		[AcceptVerbs(HttpVerbs.Get)]
 		public ActionResult GetBookingsAdminView()
+		{
+			return View("_BookingReport",new BusinessLogic.BookNow().GetBookingsList(new BookingFiltersViewModel()));
+		}
+
+		[AcceptVerbs(HttpVerbs.Post)]
+		[ActionName("GetBookingsAdminView")]
+		public ActionResult GetBookingsAdminView_Post()
 		{
 			return View("_BookingAdminView");
 		}
