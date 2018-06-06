@@ -21,6 +21,29 @@ namespace RestaurantPlay2.Areas.BookNow.BusinessLogic
 			_bookingRepo = new BookingRepo(_db);
 		}
 
+		public BookingViewModel GetBookingViewModel(int bookingId)
+		{
+			var booking= _bookingRepo.GetBookingByBookingId(bookingId);
+			var occasion = new ItemListRepo(_db).GetListItemsByCateogry(1).FirstOrDefault(i=>i.ItemListId == booking.BookingOccasionId).ItemListData;
+
+			var model = new BookingViewModel
+			{
+				Comments = booking.BookingComments,
+				CreatedOn = booking.CreatedOn,
+				EmailAddress = booking.BookingEmailAddress,
+				ForDate = booking.BookingDate,
+				HeadCount = booking.BookingHeadCount,
+				IsCanceled = booking.IsCanceled,
+				Id = booking.BookingId,
+				IsConfirmed = booking.IsConfirmed,
+				MobileNumber = booking.BookingMobileNumber,
+				Name = booking.BookingName,
+				Occasion = occasion
+			};
+
+			return model;
+		}
+
 		/// <summary>
 		///     get a list of categories
 		/// </summary>

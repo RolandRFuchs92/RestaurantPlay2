@@ -71,7 +71,12 @@
 				},
 				{
 					"data": "ForDate",
-					"title": "Booked For"
+					"title": "Booked For",
+					"render": function(data, type, row, meta) {
+						debugger;
+						return moment(new Date(parseInt(data.substr(6)))).format("DD MMM YYYY HH:MM");
+
+					}
 				}
 			],
 			data : null
