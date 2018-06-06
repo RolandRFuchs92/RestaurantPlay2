@@ -63,18 +63,29 @@
 				},
 				{
 					"data": "IsConfirmed",
-					"title": "Confirmed"
+					"title": "Confirmed",
+					"render": function (data, type, row, meta) {
+						var url = '@Url.Action("ConfirmBooking","BookNow")';
+						var isChecked = data ? "checked" : "";
+						var el = "<input type='checkbox' class='confirmed' onclick='CustomScripts.cellPost(\"#\", { bookingId : ##})' ### />";
+						return el.replace("#", url).replace("##", row.Id).replace("###", isChecked);
+					}
 				},
 				{
 					"data": "IsCanceled",
-					"title": "Canceled"
+					"title": "Canceled",
+					"render": function (data, type, row, meta) {
+						var url = '@Url.Action("CancelBooking", "BookNow")';
+						var isChecked = data ? "checked" : "";
+						var el = "<input type='checkbox' class='confirmed' onclick='CustomScripts.cellPost(\"#\", { bookingId : ##})' ### />";
+						return el.replace("#", url).replace("##", row.Id).replace("###", isChecked);
+					}
 				},
 				{
 					"data": "ForDate",
 					"title": "Booked For",
 					"render": function(data, type, row, meta) {
 						return CShartDateToString(data);
-
 					}
 				},
 				{
@@ -116,4 +127,4 @@
 	function CShartDateToString(date) {
 		return moment(new Date(parseInt(date.substr(6)))).format("DD MMM YYYY HH:MM");
 	}
-</script>ww
+</script>

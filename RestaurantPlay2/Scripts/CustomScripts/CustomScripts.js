@@ -135,7 +135,7 @@ var CustomScripts = {
 						refObj.parents('div.col-sm-3').remove();
 						toastr["success"](data.message, "Success!");
 					}).fail(function () {
-						toastr["error"]("Oops, there seems to have been an error!", "Error");
+						return CustomScripts.errorMessage();
 					});
 		}
 	},
@@ -146,25 +146,46 @@ var CustomScripts = {
 
 		$.get(url,
 			formData,
-			function(data) {
+			function (data) {
 				callback(data);
 			});
 	},
 
 	post: function (event, callback) {
+		var formData = form.serialize();
 		var form = $(event.currentTarget).parents('form');
 		var url = form.attr('action');
-		var formData = form.serialize();
 
 		$.post(url,
 			formData,
 			function (data) {
-				callback(data);
+				if(typeof callback !== 'undefined')
+					callback(data);
+
 				form[0].reset();
 				return true;
-			}).fail(function() {
-				toastr['error']("Oops, there seems to have been an error!", 'Error!');
-			return false;
-		});
+			}).fail(function () {
+				return CustomScripts.errorMessage();
+			});
+	},
+
+	cellPost: function (url, jsonObj, callback) {
+
+		$.post(url,
+			jsonObj,
+			function (data) {
+				debugger;
+				if (typeof callback !== 'undefined')
+					callback(data);
+
+				toastr["success"]("Reccord Updated!");
+			}).fail(function (data) {
+				return CustomScripts.errorMessage();
+			});
+	},
+
+	errorMessage: function () {
+		toastr['error']("oops, there seems to have been an error!", 'Error!');
+		return false;
 	}
 }
