@@ -73,9 +73,15 @@
 					"data": "ForDate",
 					"title": "Booked For",
 					"render": function(data, type, row, meta) {
-						debugger;
-						return moment(new Date(parseInt(data.substr(6)))).format("DD MMM YYYY HH:MM");
+						return CShartDateToString(data);
 
+					}
+				},
+				{
+					"data": "Id",
+					"title": "edit",
+					"render": function (data, type, row, meta) {
+						return "<a class='pointer' onclick='LoadBooking(" + data +")'>Edit</a>";
 					}
 				}
 			],
@@ -91,4 +97,23 @@
 				table.draw();
 			});
 	}
-</script>
+
+	function LoadBooking(data) {
+		$.getJSON('@Url.Action("GetBookingById", "BookNow", new{ @area="BookNow"})?bookingId=' + data,
+			function (data) {
+				debugger;
+				$('#SaveBookingViewModel_BookingId').val(data.BookingId);
+				$('#SaveBookingViewModel_Name').val(data.Name);
+				$('#SaveBookingViewModel_EmailAddress').val(data.EmailAddress);
+				$('#SaveBookingViewModel_MobileNumber').val(data.MobileNumber);
+				$('#SaveBookingViewModel_ForDate').val(CShartDateToString(data.ForDate));
+				$('#SaveBookingViewModel_OccasionId').val(data.OccasionId);
+				$('#SaveBookingViewModel_HeadCount').val(data.HeadCount);
+				$('#SaveBookingViewModel_Comment').val(data.Comment);
+			});
+	}
+
+	function CShartDateToString(date) {
+		return moment(new Date(parseInt(date.substr(6)))).format("DD MMM YYYY HH:MM");
+	}
+</script>ww

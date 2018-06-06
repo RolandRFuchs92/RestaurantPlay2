@@ -19,7 +19,7 @@
 						<h3>Want to make a booking?</h3>
 						<h4>Book here!</h4>
 						<br />
-
+					@Html.HiddenFor(i => i.SaveBookingViewModel.BookingId)
 						<div class="col-sm-12 col-md-6">
 								<div class="form-group">
 										@Html.LabelFor(i => i.SaveBookingViewModel.Name, new { @class = "col-sm-4 control-label" })

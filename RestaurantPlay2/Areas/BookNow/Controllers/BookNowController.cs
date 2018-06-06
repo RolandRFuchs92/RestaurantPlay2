@@ -52,6 +52,20 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 			return View("BookingAdminView");
 		}
 
+		public JsonResult GetTodaysBookingsJSON()
+		{
+			return Json(new BusinessLogic.BookNow().GetTodaysBookings(), JsonRequestBehavior.AllowGet);
+		}
+
+		public JsonResult GetBookingById(int bookingId)
+		{
+			var model = new BusinessLogic.BookNow().GetBookingById(bookingId);
+			if (model.BookingId == 0)
+				return Json("There was no booking with that Id", JsonRequestBehavior.AllowGet);
+
+			return Json(model, JsonRequestBehavior.AllowGet);
+		}
+
 		public JsonResult GetBookings(BookingFiltersViewModel filters)
 		{
 			if (!ModelState.IsValid)
@@ -105,9 +119,5 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 			return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, "There was an error confirming this booking. Please try again later.");
 		}
 
-		public JsonResult GetTodaysBookingsJSON()
-		{
-			return Json(new BusinessLogic.BookNow().GetTodaysBookings(), JsonRequestBehavior.AllowGet);
-		}
 	}
 }
