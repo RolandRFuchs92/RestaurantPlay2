@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 @*<li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>*@
+        <li><a href="#">Profile</a></li>*@
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle">Edit Content <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -27,6 +27,7 @@
                         <li><a href="#">@Html.ActionLink("View bookings", "GetBookingsAdminView", "BookNow", new { area = "BookNow" }, new { })</a></li>
                     </ul>
                 </li>
+                <li>@Html.ActionLink("Contact Us", "Contact", "Enquiry", new { area = "ContactForm" }, new { })</li>
             </ul>
             @*<ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
