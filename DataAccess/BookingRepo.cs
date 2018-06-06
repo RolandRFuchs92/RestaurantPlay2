@@ -118,6 +118,7 @@ namespace DataAccess
 		/// <returns></returns>
 		public bool IsSavedBooking(Booking booking)
 		{
+
 			try
 			{
 				if (booking.BookingId == 0)
@@ -128,7 +129,12 @@ namespace DataAccess
 				}
 				else
 				{
-					_db.Bookings.Attach(booking);
+					var result = (from row in _db.Bookings
+								  where row.BookingId == booking.BookingId
+								  select row).FirstOrDefault();
+					booking.CreatedOn = result.CreatedOn;
+					_db.Entry(result).CurrentValues.SetValues(booking);
+
 					_db.SaveChanges();
 				}
 

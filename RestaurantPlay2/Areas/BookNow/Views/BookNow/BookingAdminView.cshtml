@@ -112,7 +112,6 @@
 	function LoadBooking(data) {
 		$.getJSON('@Url.Action("GetBookingById", "BookNow", new{ @area="BookNow"})?bookingId=' + data,
 			function (data) {
-				debugger;
 				$('#SaveBookingViewModel_BookingId').val(data.BookingId);
 				$('#SaveBookingViewModel_Name').val(data.Name);
 				$('#SaveBookingViewModel_EmailAddress').val(data.EmailAddress);
