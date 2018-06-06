@@ -152,8 +152,8 @@ var CustomScripts = {
 	},
 
 	post: function (event, callback) {
-		var formData = form.serialize();
 		var form = $(event.currentTarget).parents('form');
+		var formData = form.serialize();
 		var url = form.attr('action');
 
 		$.post(url,
@@ -170,11 +170,9 @@ var CustomScripts = {
 	},
 
 	cellPost: function (url, jsonObj, callback) {
-
 		$.post(url,
 			jsonObj,
 			function (data) {
-				debugger;
 				if (typeof callback !== 'undefined')
 					callback(data);
 

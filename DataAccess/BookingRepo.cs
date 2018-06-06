@@ -80,7 +80,7 @@ namespace DataAccess
 			try
 			{
 				var booking = _db.Bookings.FirstOrDefault(i => i.BookingId == bookingId);
-				booking.IsCanceled = true;
+				booking.IsCanceled = !booking.IsCanceled;
 				_db.SaveChanges();
 				return true;
 			}
@@ -101,7 +101,7 @@ namespace DataAccess
 			{
 				var booking = _db.Bookings.FirstOrDefault(i => i.BookingId == bookingId);
 
-				booking.IsConfirmed = true;
+				booking.IsConfirmed = !booking.IsConfirmed;
 				_db.SaveChanges();
 				return true;
 			}
