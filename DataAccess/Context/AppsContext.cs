@@ -19,6 +19,7 @@ namespace DataAccess.Context
         public IDbSet<MenuItemType> MenuItemTypes { get; set; }
         public IDbSet<MenuItemCategory> MenuItemCategories { get; set; }
         public IDbSet<FoodPreference> FoodPreferences { get; set; }
+        public IDbSet<EnquiryFormSubs> EnquiryFormSubs { get; set; }
         public IDbSet<COREBlog> CoreBlogs { get; set; }
         public IDbSet<BlogType> BlogTypes { get; set; }
         public IDbSet<BlogDetail> BlogDetails { get; set; }
@@ -29,5 +30,9 @@ namespace DataAccess.Context
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
         }
+
+        //public System.Data.Entity.DbSet<RestaurantPlay2.Areas.ContactForm.ViewModels.ContactFormViewModel> ContactFormViewModels { get; set; }
+
+        //public System.Data.Entity.DbSet<RestaurantPlay2.Areas.ContactForm.ViewModels.ContactFormViewModel> ContactFormViewModels { get; set; }
     }
 }
