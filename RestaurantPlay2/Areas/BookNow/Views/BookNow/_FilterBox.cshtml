@@ -4,7 +4,7 @@
 
 <div class="filterbox-container" style="">
 	<div class="container-fluid filter-box">
-		<form class="col-sm-12">
+		<form class="col-sm-12" action="@Url.Action("GetBookings","BookNow",new { @area="BookNow"})">
 			<div class="form-group">
 				@Html.TextBoxFor(i => i.FromDate, new { @class = "date form-control", placeholder = Html.DisplayNameFor(i => i.FromDate), data_date_format = "DD MMM YYYY HH:MM" })
 			</div>
@@ -25,7 +25,7 @@
 				<label>@Html.TextBoxFor(i => i.IsCanceled, new { type = "checkbox" }) Canceled</label>
 			</div>
 			<div class="form-group">
-				<button type="button" class="btn btn-primary btn-block" onclick="submitFilter()"><i class="fa fa-search pointer text-center"></i></button>
+				<button type="button" class="btn btn-primary btn-block" onclick="CustomScripts.get(event, UpdateBookingsReport)"><i class="fa fa-search pointer text-center"></i></button>
 				<button type="reset" class="btn btn-default btn-block"><i class="fa fa-trash pointer text-center"></i></button>
 			</div>
 
@@ -54,18 +54,8 @@
 		table.clear();
 		table.rows.add(data);
 		table.draw();
-	}
+		$(".filterbox-container").toggle('slow');
 
-
-	function submitFilter() {
-		var filt = $('form').serialize();
-
-		$.get("@Url.Action("GetBookings","BookNow")",
-			filt,
-			function(data) {
-				UpdateBookingsReport(data);
-				$(".filterbox-container").toggle('slow')
-			});
 	}
 
 </script>
