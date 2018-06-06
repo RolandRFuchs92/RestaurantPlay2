@@ -1,0 +1,129 @@
+﻿
+
+<div class="form-horizontal">
+	<div class="row">
+		@Html.Action("BookNowForm", "BookNow", new { @area = "BookNow" })
+		<hr />
+		<h3>Booking Report <i class="fa fa-search pointer" onclick="$('.filterbox-container').slideToggle('slow');"></i></h3>
+		@Html.Partial("_FilterBox")
+		<br />
+		<div id="BookingsReport">
+			@Html.Partial("_BookingReport")
+		</div>
+	</div>
+</div>
+
+
+<style>
+	a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+		cursor: pointer;
+	}
+</style>
+
+@Scripts.Render("~/bundles/jquery")
+
+
+<script>
+	$(document).ready(function () {
+		InitializeDataTable();
+		SetTodayData();
+	});
+
+	var table;
+	function InitializeDataTable() {
+		table = $('#bookings').DataTable({
+			"columns": [
+				{
+					"data": "Id",
+					"title": "Id"
+				},
+				{
+					"data": "Name",
+					"title": "Name"
+				},
+				{
+					"data": "MobileNumber",
+					"title": "Mobile"
+				},
+				{
+					"data": "EmailAddress",
+					"title": "eMail"
+				},
+				{
+					"data": "HeadCount",
+					"title": "People"
+				},
+				{
+					"data": "Comments",
+					"title": "Comments"
+				},
+				{
+					"data": "Occasion",
+					"title": "Occasion"
+				},
+				{
+					"data": "IsConfirmed",
+					"title": "Confirmed",
+					"render": function (data, type, row, meta) {
+						var url = '@Url.Action("ConfirmBooking","BookNow")';
+						var isChecked = data ? "checked" : "";
+						var el = "<input type='checkbox' class='confirmed' onclick='CustomScripts.cellPost(\"#\", { bookingId : ##})' ### />";
+						return el.replace("#", url).replace("##", row.Id).replace("###", isChecked);
+					}
+				},
+				{
+					"data": "IsCanceled",
+					"title": "Canceled",
+					"render": function (data, type, row, meta) {
+						var url = '@Url.Action("CancelBooking", "BookNow")';
+						var isChecked = data ? "checked" : "";
+						var el = "<input type='checkbox' class='confirmed' onclick='CustomScripts.cellPost(\"#\", { bookingId : ##})' ### />";
+						return el.replace("#", url).replace("##", row.Id).replace("###", isChecked);
+					}
+				},
+				{
+					"data": "ForDate",
+					"title": "Booked For",
+					"render": function(data, type, row, meta) {
+						return CShartDateToString(data);
+					}
+				},
+				{
+					"data": "Id",
+					"title": "edit",
+					"render": function (data, type, row, meta) {
+						return "<a class='pointer' onclick='LoadBooking(" + data +")'>Edit</a>";
+					}
+				}
+			],
+			data : null
+		});
+	}
+
+	function SetTodayData() {
+		$.getJSON('@Url.Action("GetTodaysBookingsJSON", "BookNow")',
+			function(data) {
+				table.clear();
+				table.rows.add(data);
+				table.draw();
+			});
+	}
+
+	function LoadBooking(data) {
+		$.getJSON('@Url.Action("GetBookingById", "BookNow", new{ @area="BookNow"})?bookingId=' + data,
+			function (data) {
+				$('#SaveBookingViewModel_BookingId').val(data.BookingId);
+				$('#SaveBookingViewModel_Name').val(data.Name);
+				$('#SaveBookingViewModel_EmailAddress').val(data.EmailAddress);
+				$('#SaveBookingViewModel_MobileNumber').val(data.MobileNumber);
+				$('#SaveBookingViewModel_ForDate').val(CShartDateToString(data.ForDate));
+				$('#SaveBookingViewModel_OccasionId').val(data.OccasionId);
+				$('#SaveBookingViewModel_HeadCount').val(data.HeadCount);
+				$('#SaveBookingViewModel_Comment').val(data.Comment);
+			});
+	}
+
+	function CShartDateToString(date) {
+		return moment(new Date(parseInt(date.substr(6)))).format("DD MMM YYYY HH:MM");
+	}
+</script>

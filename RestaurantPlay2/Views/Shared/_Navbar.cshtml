@@ -18,12 +18,13 @@
                 @*<li><a href="#">Home</a></li>
         <li><a href="#">Profile</a></li>*@
                 <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Edit Content <b class="caret"></b></a>
+                    <a data-toggle="dropdown" class="dropdown-toggle">Edit Content <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">@Html.ActionLink("Edit Image Cards", "Index", "ImageCard", new { area = "ImageItems" }, new { })</a></li>
                         <li><a href="#">@Html.ActionLink("Edit Image Carousels", "Index", "ImageCarousel", new { area = "ImageItems" }, new { })</a></li>
                         <li><a href="#">@Html.ActionLink("Edit Menu Items", "Index", "MenuBuilder", new { area = "MenuBuilder" }, new { })</a></li>
-                        <li><a href="#">@Html.ActionLink("Write Blog", "Index", "Blogger", new { area = "Blogger" }, new { })</a></li>
+												<li><a href="#">@Html.ActionLink("Write Blog", "Index", "Blogger", new { area = "Blogger" }, new { })</a></li>
+                        <li><a href="#">@Html.ActionLink("View bookings", "GetBookingsAdminView", "BookNow", new { area = "BookNow" }, new { })</a></li>
                     </ul>
                 </li>
                 <li>@Html.ActionLink("Contact Us", "Contact", "Enquiry", new { area = "ContactForm" }, new { })</li>

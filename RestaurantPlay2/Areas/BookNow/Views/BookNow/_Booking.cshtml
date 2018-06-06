@@ -1,0 +1,69 @@
+﻿@using RestaurantPlay2.Areas.BookNow.ViewModels
+@model BookingViewModel
+
+<div class="col-sm-4">
+	<div class="bookings">
+		<div class="col-sm-12">
+			<a href="#">Edit</a>
+			<a href="#">Cancel</a>
+			<a href="#">Confirm</a>
+			<div class="panel panel-info">
+
+				<div class="panel-heading">@Model.Name</div>
+
+				<div class="panel-body">
+					<div class="form-group">
+						@Html.LabelFor(i => i.ForDate, new {@class = "control-label col-sm-6"})
+						<div class="col-sm-6">
+							@Model.ForDate.ToString("ddd, dd MMM yyyy HH'h'mm")
+						</div>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(i => i.MobileNumber, new {@class = "control-label col-sm-6"})
+						<div class="col-sm-6">
+							@Model.MobileNumber
+						</div>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(i => i.EmailAddress, new {@class = "control-label col-sm-6"})
+						<div class="col-sm-6">
+							@Model.EmailAddress
+						</div>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(i => i.HeadCount, new {@class = "control-label col-sm-6"})
+						<div class="col-sm-6">
+							@Model.HeadCount
+						</div>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(i => i.IsConfirmed, new {@class = "control-label col-sm-6"})
+						<div class="col-sm-6">
+							@Model.IsConfirmed
+						</div>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(i => i.Occasion, new {@class = "control-label col-sm-6"})
+						<div class="col-sm-6">
+							@Model.Occasion
+						</div>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(i => i.IsCanceled, new {@class = "control-label col-sm-6"})
+						<div class="col-sm-6">
+							@Model.IsCanceled
+						</div>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(i => i.Comments, new {@class = "control-label col-sm-6"})
+						<div class="col-sm-6">
+							@Model.Comments
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+

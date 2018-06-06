@@ -23,8 +23,11 @@ namespace DataAccess.Context
         public IDbSet<COREBlog> CoreBlogs { get; set; }
         public IDbSet<BlogType> BlogTypes { get; set; }
         public IDbSet<BlogDetail> BlogDetails { get; set; }
+        public IDbSet<ItemList> ItemLists{ get; set; }
+        public IDbSet<ItemListCategory> ItemListCategories { get; set; }
+				public IDbSet<Booking> Bookings { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+				protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer<AppsContext>(null);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

@@ -55,20 +55,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BloggerRepo.cs" />
+    <Compile Include="BookingRepo.cs" />
     <Compile Include="ContentRepo\ContentRepo.cs" />
     <Compile Include="Context\AppsContext.cs" />
     <Compile Include="Entities\BlogDetail.cs" />
     <Compile Include="Entities\BlogType.cs" />
+    <Compile Include="Entities\Booking.cs" />
     <Compile Include="Entities\COREBlog.cs" />
     <Compile Include="Entities\COREContent.cs" />
     <Compile Include="Entities\EnquiryFormSubs.cs" />
     <Compile Include="Entities\FoodPreference.cs" />
     <Compile Include="Entities\IMAGEItem.cs" />
+    <Compile Include="Entities\ItemList.cs" />
+    <Compile Include="Entities\ItemListCategory.cs" />
     <Compile Include="Entities\MenuItem.cs" />
     <Compile Include="Entities\MenuItemCategory.cs" />
     <Compile Include="Entities\MenuItemSetting.cs" />
     <Compile Include="Entities\MenuItemType.cs" />
     <Compile Include="ImageItem\ImageItemRepo.cs" />
+    <Compile Include="ItemListRepo.cs" />
     <Compile Include="MenuItem\MenuItemRepo.cs" />
     <Compile Include="Models\MenuItemFormModel.cs" />
     <Compile Include="Models\MenuItemModel.cs" />
