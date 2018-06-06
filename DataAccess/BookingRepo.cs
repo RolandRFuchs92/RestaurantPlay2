@@ -41,6 +41,15 @@ namespace DataAccess
 			return model;
 		}
 
+		/// <summary>
+		/// Get bookings based on user level filtering.
+		/// </summary>
+		/// <param name="FromDate"></param>
+		/// <param name="ToDate"></param>
+		/// <param name="keyword"></param>
+		/// <param name="isCanceled"></param>
+		/// <param name="isConfirmed"></param>
+		/// <returns></returns>
 		public List<Booking> GetBookings(DateTime? FromDate, DateTime? ToDate, string keyword, bool? isCanceled, bool? isConfirmed)
 		{
 			return (from booking in _db.Bookings

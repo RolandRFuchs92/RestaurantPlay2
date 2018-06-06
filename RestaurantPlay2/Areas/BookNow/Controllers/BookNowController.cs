@@ -41,22 +41,39 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 			return PartialView("_BookingReport", model);
 		}
 
+		/// <summary>
+		/// Get all bookings without using filters
+		/// </summary>
+		/// <returns></returns>
 		public ActionResult GetAllBookings()
 		{
 			var model = new BusinessLogic.BookNow().GetBookingsList(new BookingFiltersViewModel());
 			return View("_BookingReport", model);
 		}
 
+		/// <summary>
+		/// Get the main booking page and its components
+		/// </summary>
+		/// <returns></returns>
 		public ActionResult GetBookingsAdminView()
 		{
 			return View("BookingAdminView");
 		}
 
+		/// <summary>
+		/// Get the bookings for just today, used on intial admin page load.
+		/// </summary>
+		/// <returns></returns>
 		public JsonResult GetTodaysBookingsJSON()
 		{
 			return Json(new BusinessLogic.BookNow().GetTodaysBookings(), JsonRequestBehavior.AllowGet);
 		}
 
+		/// <summary>
+		/// Get booking by Id used for the edit function.
+		/// </summary>
+		/// <param name="bookingId"></param>
+		/// <returns></returns>
 		public JsonResult GetBookingById(int bookingId)
 		{
 			var model = new BusinessLogic.BookNow().GetBookingById(bookingId);
@@ -66,6 +83,11 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 			return Json(model, JsonRequestBehavior.AllowGet);
 		}
 
+		/// <summary>
+		/// get bookings based on client side filters.
+		/// </summary>
+		/// <param name="filters"></param>
+		/// <returns></returns>
 		public JsonResult GetBookings(BookingFiltersViewModel filters)
 		{
 			if (!ModelState.IsValid)
@@ -103,6 +125,11 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 
 		}
 
+		/// <summary>
+		/// cancelbooking flag changer, this will toggle the booking flag.
+		/// </summary>
+		/// <param name="bookingId"></param>
+		/// <returns></returns>
 		public ActionResult CancelBooking(int bookingId)
 		{
 			if (new BusinessLogic.BookNow().IsCanceledBooking(bookingId)) 
@@ -111,6 +138,11 @@ namespace RestaurantPlay2.Areas.BookNow.Controllers
 			return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, "There was an error canceling this booking. Please try again later!");
 		}
 
+		/// <summary>
+		/// This will toggle the related booking based on their Id
+		/// </summary>
+		/// <param name="bookingId"></param>
+		/// <returns></returns>
 		public ActionResult ConfirmBooking(int bookingId)
 		{
 			if(new BusinessLogic.BookNow().IsConfirmedBooking(bookingId))
