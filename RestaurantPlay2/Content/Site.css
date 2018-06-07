@@ -1,165 +1,64 @@
-﻿body {
-		/*padding-top: 50px;*/
-		padding-bottom: 20px;
+﻿#caption, .img-cap { text-align: center }
+#myImg, .card, .close { transition: .3s }
+body { padding-bottom: 20px; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol" }
+.body-content { padding-left: 15px; padding-right: 15px }
+.dl-horizontal dt { white-space: normal }
+.padding-error { padding-top: 20px }
+
+@media only screen and (max-width:767px) {
+    .nofloat { float: none; padding: 10px 15px }
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-		padding-left: 15px;
-		padding-right: 15px;
-}
+.card .card-img-top { max-height: 100%; max-width: 100% }
+.input-validation-error { color: red; border: 1px solid red }
+.field-validation-error { color: red; display: inline-block }
+.card { box-shadow: 0 4px 8px 0 rgba(0,0,0,.2) }
+.card:hover { box-shadow: 0 8px 16px 0 rgba(0,0,0,.2) }
+.container { padding: 2px 16px }
+img.card-img-top { width: 100%; height: 250px }
+.page-spacing { padding-top: 100px; padding-bottom: 100px }
+.img-cap-title { font-weight: 700 }
+.img-cap { position: relative; color: #fff; bottom: 75px; background-color: rgba(0,0,0,.6) }
+.btn-space { margin-right: 5px }
+.blog-container { border: 1px solid #d3d3d3; border-radius: 5px; background-color: #61b6ff26; padding: 5px }
+#myImg, .blog-img { border-radius: 5px }
+.blog-line { margin: 10px; border-color: #53b4ec66 }
+.lead { font-size: 1.25rem; font-weight: 300 }
+p .blog-container { margin-top: 0; margin-bottom: 1rem; line-height: 1.5 }
+.blog-img { margin-bottom: 10px; width: 100%; height: 300px }
+p.closing-statement { font-weight: 500 }
+p.sign-off { color: #2f4f4f; font-weight: 300 }
+#myImg { cursor: pointer }
+#myImg:hover { opacity: .7 }
+.modal { display: none; position: fixed; z-index: 1; padding-top: 100px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: #000; background-color: rgba(0,0,0,.9) }
+#caption, .modal-content { margin: auto; display: block; width: 80%; max-width: 700px }
+#caption { color: #ccc; padding: 10px 0; height: 150px }
+#caption, .modal-content { -webkit-animation-name: zoom; -webkit-animation-duration: .6s; animation-name: zoom; animation-duration: .6s }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-		white-space: normal;
-}
-
-/* Set width on the form input elements since they're 100% wide by default */
-/*input,
-select,
-textarea {
-    max-width: 280px;
-}*/
-
-/* Set padding to display errors that occur during databinding */
-.padding-error {
-		padding-top: 20px;
-}
-
-@media only screen and (max-width: 767px) {
-		.nofloat {
-				float: none;
-				padding: 10px 15px;
-		}
-}
-
-.card .card-img-top {
-		max-height: 100%;
-		max-width: 100%;
-}
-
-
-.input-validation-error {
-		color: red;
-		border: 1px solid red;
-}
-
-.field-validation-error {
-		color: red;
-		display: inline-block;
-}
-
-.card {
-		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-		transition: 0.3s;
-}
-
-		.card:hover {
-				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-		}
-
-.container {
-		padding: 2px 16px;
-}
-
-img.card-img-top {
-		width: 100%;
-		height: 250px;
-}
-
-.page-spacing {
-		padding-top: 100px;
-		padding-bottom: 100px;
-}
-
-.img-pos1 {
-}
-
-
-
-.img-cap-title {
-		font-weight: bold;
-}
-
-.img-cap {
-		position: relative;
-		color: white;
-		text-align: center;
-		bottom: 75px;
-		background-color: rgba(0, 0, 0, 0.60);
-}
-
-
-.btn-space {
-		margin-right: 5px;
-}
-
-/*BLOGS*/
-.blog-container {
-		border: 1px solid lightgrey;
-		border-radius: 5px;
-		background-color: #61b6ff26;
-		padding: 5px;
-}
-
-.blog-line {
-		margin: 10px 10px;
-		border-color: #53b4ec66;
-}
-
-.lead {
-		font-size: 1.25rem;
-		font-weight: 300;
-}
-
-p .blog-container {
-		margin-top: 0px;
-		margin-bottom: 1rem;
-		line-height: 1.5;
-}
-
-.blog-img {
-		margin-bottom: 10px;
-		width: 100%;
-		height: 300px;
-		border-radius: 5px;
-}
-
-body {
-		font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
-}
-
-p.closing-statement {
-		font-weight: 500;
-}
-
-p.sign-off {
-		color: darkslategrey;
-		font-weight: 300;
-}
-
-/*This is for the modal on the edit Enquiry Page*/
-#myImg { border-radius: 5px; cursor: pointer; transition: 0.3s; }
-
-#myImg:hover { opacity: 0.7; }
-.modal { display: none; /* Hidden by default */ position: fixed; /* Stay in place */ z-index: 1; /* Sit on top */ padding-top: 100px; /* Location of the box */ left: 0; top: 0; width: 100%; /* Full width */ height: 100%; /* Full height */ overflow: auto; /* Enable scroll if needed */ background-color: rgb(0,0,0); /* Fallback color */ background-color: rgba(0,0,0,0.9); /* Black w/ opacity */ }
-.modal-content { margin: auto; display: block; width: 80%; max-width: 700px; }
-#caption { margin: auto; display: block; width: 80%; max-width: 700px; text-align: center; color: #ccc; padding: 10px 0; height: 150px; }
-.modal-content, #caption { -webkit-animation-name: zoom; -webkit-animation-duration: 0.6s; animation-name: zoom; animation-duration: 0.6s; }
 @-webkit-keyframes zoom {
     from { -webkit-transform: scale(0) }
     to { -webkit-transform: scale(1) }
 }
+
 @keyframes zoom {
     from { transform: scale(0) }
     to { transform: scale(1) }
 }
-.close { position: absolute; top: 65px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; }
-.close:hover,
-.close:focus { color: #bbb; text-decoration: none; cursor: pointer; }
-@media only screen and (max-width: 700px) {
-    .modal-content { width: 100%; }
+
+.close { position: absolute; top: 65px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: 700 }
+.close:focus, .close:hover { color: #bbb; text-decoration: none; cursor: pointer }
+
+@media only screen and (max-width:700px) {
+    .modal-content { width: 100% }
 }
-.modal-content div { padding: 20px; }
+
+.modal-content div { padding: 20px }
+.dataTables_filter { width: 22%; float: right }
+.dataTables_info, .dataTables_length { width: 20%; float: left }
+.dataTables_paginate { text-align: right; width: 20%; float: right }
+.paginate_button.next, .paginate_button.previous { padding: 10px; background-color: #e7e7e7; text-decoration: none; border-radius: 5px }
+span > .paginate_button { padding: 10px; text-decoration: none; margin: 0 5px }
+span > .paginate_button.current { color: #fff; background-color: #3e85c2 }
+.paginate_button.next:hover, .paginate_button.previous:hover { background-color: #f0f0f0; cursor: pointer }
+span > .paginate_button:hover { background-color: #49769c; cursor: pointer }
+span > .paginate_button.current:hover { cursor: default; background-color: #3e85c2 }
